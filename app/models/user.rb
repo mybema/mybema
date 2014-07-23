@@ -14,4 +14,6 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :discussions, dependent: :nullify
+  has_many :discussion_comments, dependent: :nullify
 end
