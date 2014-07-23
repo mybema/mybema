@@ -15,4 +15,13 @@ class DiscussionTest < ActiveSupport::TestCase
     comment.destroy
     assert_equal 0, discussion.reload.discussion_comments_count
   end
+
+  test "deletes all comments when deleting a discussion" do
+    discussion = create(:discussion)
+    comment = create(:discussion_comment, discussion: discussion)
+    comment = create(:discussion_comment, discussion: discussion)
+    assert_equal 2, discussion.reload.discussion_comments_count
+    discussion.destroy
+    assert_equal 0, DiscussionComment.count
+  end
 end
