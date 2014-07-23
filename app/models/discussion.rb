@@ -17,4 +17,6 @@ class Discussion < ActiveRecord::Base
   belongs_to :discussion_category, counter_cache: true
   belongs_to :user
   has_many :discussion_comments, dependent: :destroy
+
+  scope :visible, -> { where(hidden: false) }
 end

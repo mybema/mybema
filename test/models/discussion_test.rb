@@ -24,4 +24,13 @@ class DiscussionTest < ActiveSupport::TestCase
     discussion.destroy
     assert_equal 0, DiscussionComment.count
   end
+
+  describe 'scopes' do
+    test "visible scope" do
+      discussion_one = create(:discussion)
+      discussion_two = create(:discussion)
+      discussion_three = create(:discussion, hidden: true)
+      assert_equal [discussion_two, discussion_one], Discussion.visible
+    end
+  end
 end
