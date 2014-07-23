@@ -34,4 +34,11 @@ class DiscussionCategoryTest < ActiveSupport::TestCase
     assert_equal 0, blue_category.reload.discussions_count
     assert_equal 1, red_category.reload.discussions_count
   end
+
+  test "nullifies foreign key for discussion when discussion category is deleted" do
+    category = create(:discussion_category)
+    discussion = create(:discussion, discussion_category: category)
+    category.destroy
+    assert_equal nil, discussion.reload.discussion_category_id
+  end
 end
