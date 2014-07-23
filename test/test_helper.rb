@@ -4,6 +4,7 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
+  include FactoryGirl::Syntax::Methods
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   #
