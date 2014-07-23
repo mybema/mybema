@@ -22,9 +22,6 @@ ActiveRecord::Schema.define(version: 20140723185439) do
     t.datetime "updated_at"
   end
 
-  add_index "discussion_categories", ["name"], name: "index_discussion_categories_on_name", unique: true, using: :btree
-  add_index "discussion_categories", ["slug"], name: "index_discussion_categories_on_slug", unique: true, using: :btree
-
   create_table "discussion_comments", force: true do |t|
     t.text     "body"
     t.boolean  "hidden",        default: false

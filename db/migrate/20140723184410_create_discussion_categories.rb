@@ -8,8 +8,5 @@ class CreateDiscussionCategories < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :discussion_categories, :slug, unique: true
-    add_index :discussion_categories, :name, unique: true
   end
 end
