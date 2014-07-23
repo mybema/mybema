@@ -1,6 +1,13 @@
 require 'test_helper'
 
 class DiscussionCategoryTest < ActiveSupport::TestCase
+  test "sluggifies the name during every save" do
+    category = create(:discussion_category, name: "It's always sunny")
+    assert_equal 'it-s-always-sunny', category.reload.slug
+    category.update_attributes(name: "It's actually rainy now")
+    assert_equal 'it-s-actually-rainy-now', category.reload.slug
+  end
+
   test "updates the discussion category counter cache with creation" do
     category   = create(:discussion_category)
     assert_equal 0, category.reload.discussions_count

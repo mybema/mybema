@@ -13,4 +13,12 @@
 
 class DiscussionCategory < ActiveRecord::Base
   has_many :discussions, dependent: :nullify
+
+  before_save :sluggify_name
+
+  private
+
+  def sluggify_name
+    self.slug = name.parameterize
+  end
 end
