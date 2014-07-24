@@ -1,0 +1,38 @@
+.logo-wrapper {
+  margin-bottom: 0.5em;
+}
+
+.nav--list li {
+  list-style: none outside none;
+}
+
+.nav-wrapper {
+  margin: 0.5em auto;
+  text-align: center;
+  width: 96%;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo-wrapper {
+    float: left;
+  }
+
+  .nav--list {
+    float: right;
+  }
+
+  .nav--li {
+    display: block;
+    float: left;
+  }
+
+  .nav--li a {
+    padding: 1em;
+  }
+
+  .nav-wrapper {
+    clear: both;
+    margin: 0.5em auto 0 auto;
+    width: 80%;
+  }
+}
