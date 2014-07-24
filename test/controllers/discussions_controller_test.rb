@@ -45,7 +45,7 @@ class DiscussionsControllerTest < ActionController::TestCase
 
   test "GET show assigns the discussion" do
     discussion = create(:discussion)
-    get :show, id: discussion.id, discussion_category_id: discussion.discussion_category.id
+    get :show, id: discussion.id
     assert_equal discussion, assigns(:discussion)
   end
 
@@ -53,7 +53,45 @@ class DiscussionsControllerTest < ActionController::TestCase
     category_one = create(:discussion_category)
     category_two = create(:discussion_category)
     discussion   = create(:discussion, discussion_category: category_one)
-    get :show, discussion_category_id: category_one.id, id: discussion.id
+    get :show, id: discussion.id
     assert_equal [category_two, category_one], assigns(:categories)
+  end
+
+  test "GET new assigns all categories" do
+    category = create(:discussion_category)
+    get :new
+    assert_equal [category], assigns(:categories)
+  end
+
+  test "GET new assigns a new discussion" do
+    category = create(:discussion_category)
+    get :new
+    assert_not_nil assigns(:discussion)
+  end
+
+  test "GET edit assigns all categories" do
+    category = create(:discussion_category)
+    discussion = create(:discussion, discussion_category: category)
+    get :edit, id: discussion.id
+    assert_equal [category], assigns(:categories)
+  end
+
+  test "GET edit assigns the discussion" do
+    category = create(:discussion_category)
+    discussion = create(:discussion, discussion_category: category)
+    get :edit, id: discussion.id
+    assert_equal discussion, assigns(:discussion)
+  end
+
+  test "POST create will create a new discussion" do
+    category = create(:discussion_category)
+    post :create, discussion: { body: 'The body', title: 'The title', user_id: 5 }
+    assert_equal 'The title', Discussion.last.title
+  end
+
+  test "POST create will redirect to discussion after creation" do
+    category = create(:discussion_category)
+    post :create, discussion: { body: 'The body', title: 'The title', user_id: 5 }
+    assert_redirected_to discussion_path(assigns(:discussion))
   end
 end
