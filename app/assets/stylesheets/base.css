@@ -1,0 +1,52 @@
+/*---- Base styles-----*/
+
+* {
+  margin: 0;
+  outline: 0;
+  padding: 0;
+          box-sizing: border-box;
+     -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+header, section, footer, aside, nav, article, figure,
+details, figcaption, figure, hgroup, menu {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+}
+
+a {
+  color: #7AC000;
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+body {
+  color: #565656;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+hr { border-color: #eee; }
+
+label { color: #008DDE; }
+
+nav {
+  background-color: #212121;
+  clear: both;
+  height: auto;
+  list-style: none outside none;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+strong { font-weight: bold; }
+
+@media only screen and (min-width: 768px) {
+  a { text-decoration: none; }
+  nav { min-height: 3.25em; }
+}
