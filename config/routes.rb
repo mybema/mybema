@@ -1,4 +1,5 @@
 Mybema::Application.routes.draw do
+  devise_for :users
   root 'discussions#index'
 
   resources :discussions
