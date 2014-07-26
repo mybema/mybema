@@ -1,6 +1,6 @@
 Mybema::Application.routes.draw do
   devise_for :users
-  root 'discussions#index'
+  root 'home#index'
 
   resources :discussions
   resources :discussion_categories, path: 'categories'
