@@ -36,11 +36,10 @@ hr { border-color: #eee; }
 label { color: #008DDE; }
 
 nav {
-  background-color: #212121;
+  background-color: #333;
   clear: both;
-  height: auto;
+  height: 6em;
   list-style: none outside none;
-  margin-bottom: 1em;
   padding: 0.5em;
 }
 
