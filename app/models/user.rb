@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussions, dependent: :nullify
   has_many :discussion_comments, dependent: :nullify
+
+  def guest?
+    username == 'Guest'
+  end
 end

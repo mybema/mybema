@@ -14,4 +14,11 @@ class UserTest < ActiveSupport::TestCase
     user.destroy
     assert_equal nil, comment.reload.user_id
   end
+
+  test 'guest?' do
+    user = User.new(username: 'Bob')
+    assert_equal false, user.guest?
+    guest = User.new(username: 'Guest')
+    assert_equal true, guest.guest?
+  end
 end
