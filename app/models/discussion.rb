@@ -19,4 +19,5 @@ class Discussion < ActiveRecord::Base
   has_many :discussion_comments, dependent: :destroy
 
   scope :visible, -> { where(hidden: false) }
+  scope :by_recency, -> { order('created_at DESC') }
 end

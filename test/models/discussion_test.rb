@@ -31,4 +31,11 @@ class DiscussionTest < ActiveSupport::TestCase
     discussion_three = create(:discussion, hidden: true)
     assert_equal [discussion_one, discussion_two], Discussion.visible
   end
+
+  test "recency scope" do
+    discussion_one = create(:discussion)
+    discussion_two = create(:discussion)
+    discussion_three = create(:discussion, hidden: true)
+    assert_equal [discussion_three, discussion_two, discussion_one], Discussion.by_recency
+  end
 end
