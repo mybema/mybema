@@ -2,7 +2,7 @@ class DiscussionsController < ApplicationController
   before_action :fetch_categories, only: [:show, :index, :edit, :new]
 
   def index
-    @discussions = Discussion.visible
+    @discussions = Discussion.visible.by_recency
 
     if params[:discussion_category_id]
       @category    = DiscussionCategory.find(params[:discussion_category_id])

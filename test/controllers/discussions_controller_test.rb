@@ -19,7 +19,7 @@ class DiscussionsControllerTest < ActionController::TestCase
     second_discussion = create(:discussion)
     third_discussion  = create(:discussion, hidden: true)
     get :index
-    assert_equal [first_discussion, second_discussion], assigns(:discussions)
+    assert_equal [second_discussion, first_discussion], assigns(:discussions)
   end
 
   test "GET index does not assign category without discussion_category_id param" do
