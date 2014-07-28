@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class DiscussionsControllerTest < ActionController::TestCase
+  def setup
+    create(:user, username: 'Guest')
+  end
+
   test "GET index responds successfully" do
     create(:discussion)
     get :index
