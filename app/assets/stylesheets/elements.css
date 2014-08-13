@@ -79,6 +79,8 @@
 
 .discussion-body {
   padding-bottom: 1em;
+  margin-left: 9em;
+  margin-right: 1em;
 }
 
 .discussion-content {
@@ -86,15 +88,30 @@
 }
 
 .discussion-details {
-  padding: 1em 0;
+  padding: 0.5em 0 1.5em 0;
 }
 
 .discussion-header {
-  padding: 1em 0 0 0;
+  font-size: 1.5em;
+}
+
+.post-content {
+  display: inline-block;
+  margin-top: 2.75em;
+  vertical-align: baseline;
 }
 
 .single-discussion {
   background-color: #EEE;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  display: inline;
+  height: 5em;
+  margin: 2em 2em 0 2em;
+  vertical-align: top;
+  width: 5em;
 }
 
 /* Header */
