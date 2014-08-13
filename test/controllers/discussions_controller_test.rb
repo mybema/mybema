@@ -89,13 +89,13 @@ class DiscussionsControllerTest < ActionController::TestCase
 
   test "POST create will create a new discussion" do
     category = create(:discussion_category)
-    post :create, discussion: { body: 'The body', title: 'The title', user_id: 5 }
+    post :create, discussion: { body: 'The body', title: 'The title', user_id: 5, discussion_category_id: 1 }
     assert_equal 'The title', Discussion.last.title
   end
 
   test "POST create will redirect to discussion after creation" do
     category = create(:discussion_category)
-    post :create, discussion: { body: 'The body', title: 'The title', user_id: 5 }
+    post :create, discussion: { body: 'The body', title: 'The title', user_id: 5, discussion_category_id: 1 }
     assert_redirected_to discussion_path(assigns(:discussion))
   end
 end

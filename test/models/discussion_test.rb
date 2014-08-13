@@ -1,6 +1,18 @@
 require 'test_helper'
 
 class DiscussionTest < ActiveSupport::TestCase
+  test "raises validation warning if no body is added" do
+    build(:discussion, body: nil).invalid?(:discussion).must_equal true
+  end
+
+  test "raises validation warning if no title is added" do
+    build(:discussion, title: nil).invalid?(:discussion).must_equal true
+  end
+
+  test "raises validation warning if no discussion_category_id is added" do
+    build(:discussion, discussion_category_id: nil).invalid?(:discussion).must_equal true
+  end
+
   test "updates the discussion comments counter cache with comment creation" do
     discussion = create(:discussion)
     assert_equal 0, discussion.reload.discussion_comments_count

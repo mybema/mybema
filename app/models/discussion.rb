@@ -18,6 +18,8 @@ class Discussion < ActiveRecord::Base
   belongs_to :user
   has_many :discussion_comments, dependent: :destroy
 
+  validates :discussion_category_id, :body, :title, presence: true
+
   scope :by_recency, -> { order('created_at DESC') }
   scope :visible, -> { where(hidden: false) }
   scope :with_includes, -> { includes(:user).includes(:discussion_category) }
