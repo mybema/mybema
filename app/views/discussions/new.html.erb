@@ -1,0 +1,34 @@
+<section class='discussion-form--wrapper'>
+  <header class='discussion-form--header'>
+    New discussion
+  </header>
+
+  <div class='discussion-form--container'>
+    <%= form_for Discussion.new do |f| %>
+      <div class='discussion-form'>
+        <div class='discussion-form--title'>
+          <%= f.label :title, 'Add a title', class: 'discussion-form--label' %>
+          <%= f.text_field :title, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--selection'>
+          <%= f.label :discussion_category_id, "Choose category", class: 'discussion-form--label' %>
+          <%= f.select :discussion_category_id, @categories.map { |c| [c.name, c.id] },
+              { prompt: "Select one" }, { class: 'discussion-form--input' } %>
+        </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :body, 'Add your content', class: 'discussion-form--label' %>
+          <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+        </div>
+
+        <%= f.hidden_field :user_id, value: @current_user.id %>
+      </div>
+
+      <footer class='discussion-form--footer'>
+        <%= link_to 'Cancel', root_path, class: 'discussion-form--cancel' %>
+        <%= f.submit "add discussion", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+</section>

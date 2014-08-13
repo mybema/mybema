@@ -1,3 +1,71 @@
+/* Discussion form */
+
+.discussion-form {
+  margin: 0 auto;
+  padding: 2em 2em 0;
+}
+
+.discussion-form--cancel {
+  color: #B8B8B8;
+  font-weight: 700;
+  margin-right: 1em;
+}
+
+.discussion-form--container {
+  border: 2px solid #DDD;
+  border-top: none;
+  color: #7E7E7E;
+  display: block;
+  min-height: 30em;
+}
+
+.discussion-form--footer {
+  border-radius: 0px 0px 3px 3px;
+  padding: 0 2em 1em 2em;
+  position: relative;
+  text-align: right;
+}
+
+.discussion-form--header {
+  background: none repeat scroll 0% 0% #75C4A3;
+  border-shadow: 0px 1px 0px #FFF;
+  border-radius: 3px 3px 0 0;
+  color: #FFF;
+  font-size: 1.5em;
+  font-weight: bold;
+  height: 3em;
+  line-height: 1em;
+  overflow: hidden;
+  padding: 1em 0 1em 1em;
+}
+
+.discussion-form--input {
+  border: 2px solid #DDD;
+  border-radius: 3px;
+  font-family: 'Lato';
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.discussion-form--label {
+  display: block;
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.discussion-form--textarea {
+  height: 15em;
+  padding: 0.75em;
+}
+
+.discussion-form--wrapper {
+  margin: 2em auto;
+  width: 80%;
+}
+
 /* Header */
 .logo-wrapper {
   margin-bottom: 0.5em;
