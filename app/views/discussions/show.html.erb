@@ -1,0 +1,19 @@
+<article class='community-content single-discussion'>
+  <div class='breadcrumb-wrapper'>
+    <%= link_to 'Back to discussions', discussions_path %>
+  </div>
+
+  <div class='discussion-content'>
+    <h2 class='discussion-header'>
+      <%= @discussion.title %>
+    </h2>
+
+    <div class='discussion-details'>
+      <%= @discussion.user.name %> posted on <%= @discussion.created_at.to_date %>
+    </div>
+
+    <div class='discussion-body'>
+      <%= @discussion.body %>
+    </div>
+  </div>
+</article>

@@ -1,5 +1,4 @@
 /* Discussion form */
-
 .discussion-form {
   margin: 0 auto;
   padding: 2em 2em 0;
@@ -64,6 +63,38 @@
 .discussion-form--wrapper {
   margin: 2em auto;
   width: 80%;
+}
+
+/* Discussions */
+.breadcrumb-wrapper {
+  padding: 1em;
+  background-color: #74747A;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #74747A;
+}
+
+.breadcrumb-wrapper a {
+  color: #FFF;
+}
+
+.discussion-body {
+  padding-bottom: 1em;
+}
+
+.discussion-content {
+  padding: 0.5em 1em;
+}
+
+.discussion-details {
+  padding: 1em 0;
+}
+
+.discussion-header {
+  padding: 1em 0 0 0;
+}
+
+.single-discussion {
+  background-color: #EEE;
 }
 
 /* Header */
