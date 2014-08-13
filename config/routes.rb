@@ -3,6 +3,8 @@ Mybema::Application.routes.draw do
   root 'home#index'
 
   resources :discussions
-  resources :discussion_categories, path: 'categories'
+  resources :discussion_categories, path: 'categories' do
+    resources :discussions, only: :index
+  end
   resources :discussion_comments
 end
