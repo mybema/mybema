@@ -26,24 +26,24 @@ class DiscussionsControllerTest < ActionController::TestCase
     assert_equal [second_discussion, first_discussion], assigns(:discussions)
   end
 
-  test "GET index does not assign category without discussion_category_id param" do
+  test "GET index does not assign category without the category param" do
     create(:discussion)
     get :index
     assert_equal nil, assigns(:category)
   end
 
-  test "GET index assigns category from discussion_category_id param" do
+  test "GET index assigns category from the category param" do
     category = create(:discussion_category)
     create(:discussion, discussion_category: category)
-    get :index, discussion_category_id: category.id
+    get :index, category: category.slug
     assert_equal category, assigns(:category)
   end
 
-  test "GET index assigns discussions from a category filtered by discussion_category_id param" do
+  test "GET index assigns discussions from a category filtered by the category param" do
     category = create(:discussion_category)
     first_discussion  = create(:discussion, discussion_category: category)
     second_discussion = create(:discussion)
-    get :index, discussion_category_id: category.id
+    get :index, category: category.slug
     assert_equal [first_discussion], assigns(:discussions)
   end
 

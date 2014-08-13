@@ -2,11 +2,11 @@ class DiscussionsController < ApplicationController
   before_action :fetch_categories, only: [:show, :index, :edit, :new]
 
   def index
-    @discussions = Discussion.visible.by_recency
-
-    if params[:discussion_category_id]
-      @category    = DiscussionCategory.find(params[:discussion_category_id])
-      @discussions = @category.discussions
+    if slug = params[:category]
+      @category = DiscussionCategory.where(slug: slug).first
+      @discussions = Discussion.where(discussion_category: @category).with_includes.visible.by_recency
+    else
+      @discussions = Discussion.with_includes.visible.by_recency
     end
   end
 
