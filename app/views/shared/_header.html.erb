@@ -5,17 +5,24 @@
     <div class='nav--list'>
       <ul>
         <li class='nav--li'>
-          <%= link_to 'Community', '#' %>
+          <%= link_to 'Community', discussions_path %>
         </li>
 
         <li class='nav--li'>
-          <%= link_to 'Docs', '#' %>
+          <%= link_to 'Knowledge base', '#' %>
         </li>
 
         <li class='nav--li'>
           <%= link_to 'Contact', '#' %>
         </li>
 
+        <li class='nav--li'>
+          <% if @current_user.guest? %>
+            <%= link_to 'Log in', new_user_session_path %>
+          <% else %>
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
