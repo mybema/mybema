@@ -24,6 +24,7 @@ class DiscussionsController < ApplicationController
     if @discussion.save
       redirect_to discussion_path(@discussion)
     else
+      @categories = DiscussionCategory.all
       render 'new'
     end
   end
