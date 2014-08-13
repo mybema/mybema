@@ -47,5 +47,5 @@ strong { font-weight: bold; }
 
 @media only screen and (min-width: 768px) {
   a { text-decoration: none; }
-  nav { min-height: 3.25em; }
+  nav { height: 4em; }
 }
