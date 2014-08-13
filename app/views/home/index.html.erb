@@ -1,0 +1,53 @@
+<section class='home-search'>
+  <div class='home-hero-message'>
+    Welcome to the Mybema community. If you've got a question about Mybema, try finding here before contacting our customer service. You can search below or navigate via the links above. See our knowledge base for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representitives and customers by joining or starting a new discussion.
+  </div>
+
+  <div class='home-search--wrapper'>
+    <%= form_for :search_community, url: root_path, html: { method: 'get', class: 'home-search--form'} do |f| %>
+      <%= text_field_tag :query, params[:query],
+          placeholder: "Search the community",
+          onfocus: "this.placeholder = ''",
+          onblur: "this.placeholder = 'Search the community'",
+          class: 'home-search--input' %>
+
+      <%= f.submit "SEARCH", class: 'home-search--btn' %>
+    <% end %>
+  </div>
+
+  <ul class='right-action-nav'>
+    <li class='right-action-nav-li'>
+      <%= link_to 'add discussion', new_discussion_path, class: 'greenbutton' %>
+    </li>
+  </ul>
+
+  <% if current_user.guest? %>
+    <ul class='join-community-wrapper'>
+      <li class='right-action-nav-li'>
+        <%= link_to 'join community', new_user_registration_path, class: 'greenbutton' %>
+      </li>
+    </ul>
+  <% end %>
+</section>
+
+<section class='community-content'>
+  <div>
+    <% @discussions.each do |discussion| %>
+      <article class='single-community-item'>
+        <div class='post-description'>
+          <h2><%= link_to discussion.title, discussion_path(discussion) %></h2>
+
+          <ul class='post-items'>
+            <li class='post-item'>By <%= discussion.user.name %></li>
+            <li class='post-item'><%= discussion.created_at.to_date %></li>
+            <li class='post-item--last'><%= discussion.discussion_category.name %></li>
+          </ul>
+        </div>
+
+        <div class='comment-count'>
+          <%= discussion.discussion_comments_count %>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</section>
