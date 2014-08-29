@@ -1,0 +1,57 @@
+<section class='home-search'>
+  <div class='home-hero-message'>
+    Welcome to the Mybema community. If you've got a question about Mybema, try finding here before contacting our customer service. You can search below or navigate via the links above. See our knowledge base for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representitives and customers by joining or starting a new discussion.
+  </div>
+
+  <div class='home-search--wrapper'>
+    <%= form_for :search_community, url: root_path, html: { method: 'get', class: 'home-search--form'} do |f| %>
+      <%= text_field_tag :query, params[:query],
+          placeholder: "Search the community",
+          onfocus: "this.placeholder = ''",
+          onblur: "this.placeholder = 'Search the community'",
+          class: 'home-search--input' %>
+
+      <%= f.submit "SEARCH", class: 'home-search--btn' %>
+    <% end %>
+  </div>
+</section>
+
+<div class='kb-wrapper'>
+  <% @sections.each_slice(2) do |section| %>
+    <section class='community-content'>
+      <div class='article-wrapper'>
+        <article class='single-community-item--borderless'>
+          <div class='kb-description'>
+            <h2><%= section.first.title %></h2>
+
+            <ul class='kb-items'>
+              <% section.first.articles.each do |article| %>
+                <li><%= article.title %></li>
+              <% end %>
+            </ul>
+          </div>
+
+          <%= link_to 'view all', '#' %>
+        </article>
+      </div>
+
+      <% if section.size > 1 %>
+        <div class='article-wrapper'>
+          <article class='single-community-item--borderless'>
+            <div class='kb-description'>
+              <h2><%= section.last.title %></h2>
+
+              <%= link_to 'view all', '#' %>
+
+              <ul class='kb-items'>
+                <% section.last.articles.each do |article| %>
+                  <li><%= article.title %></li>
+                <% end %>
+              </ul>
+            </div>
+          </article>
+        </div>
+      <% end %>
+    </section>
+  <% end %>
+</end>
