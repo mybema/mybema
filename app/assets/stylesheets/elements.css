@@ -1,3 +1,25 @@
+/* Sessions pages */
+.sessions-header {
+  margin: 1em auto;
+}
+
+.sessions-wrapper {
+  margin: 2em auto;
+  text-align: center;
+  width: 100%;
+}
+
+.short-field--desktop {
+  width: 80%;
+}
+
+/* Sections */
+.article-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+}
+
 /* Discussion form */
 .discussion-form {
   margin: 0 auto;
@@ -47,6 +69,16 @@
   margin-bottom: 1em;
   padding: 0.5em;
   width: 100%;
+}
+
+.standard-form--input {
+  border: 2px solid #DDD;
+  border-radius: 3px;
+  font-family: 'Lato';
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-bottom: 1em;
+  padding: 0.5em;
 }
 
 .discussion-form--label {
@@ -177,6 +209,11 @@
 }
 
 @media only screen and (min-width: 768px) {
+  /* Sessions pages */
+  .short-field--desktop {
+    width: 30%;
+  }
+
   /* Header */
   .logo-wrapper {
     float: left;

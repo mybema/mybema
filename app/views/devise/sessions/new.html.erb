@@ -1,17 +1,43 @@
-<h2>Sign in</h2>
+<div class='sessions-wrapper'>
+  <h2 class='sessions-header'>Welcome back, please sign in:</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <%- if resource_name == :admin %>
+    <p style='width: 50%; margin: 0 auto;'>
+      This is the login area for <strong>community admins only</strong>. You cannot sign in with your account and you cannot register for an admin account. If you would like to sign into your account, please <%= link_to 'login here instead', new_user_session_path %>.
+    </p>
   <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div>
+      <div class='xc'>
+        <%= f.label :email %>
+      </div>
+      <%= f.email_field :email, autofocus: true, class: 'standard-form--input short-field--desktop' %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div>
+      <div class='xc'>
+        <%= f.label :password %>
+      </div>
+      <%= f.password_field :password, autocomplete: "off", class: 'standard-form--input short-field--desktop' %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div style='margin: 0 auto 1em auto;'>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+
+    <div>
+      <%= f.submit "Sign in", class: "greenbutton" %>
+    </div>
+  <% end %>
+  <br />
+  <%= render "devise/shared/links" %>
+
+  <%- if resource_name != :admin %>
+    <br />
+    <%= link_to "Admin sign in", new_session_path('admin') %>
+  <% end -%>
+</div>

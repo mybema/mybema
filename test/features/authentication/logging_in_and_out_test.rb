@@ -28,4 +28,20 @@ class LoggingInAndOutTest < Capybara::Rails::TestCase
     assert_content page, 'Log in'
     refute_content page, 'Log out'
   end
+
+  test 'user can see link to register on sign in page' do
+    create(:user, username: 'Guest')
+    visit root_path
+    click_link 'Log in'
+    click_link 'Not part of the community yet? Sign up.'
+    assert_content page, 'Already a member? Sign in.'
+  end
+
+  test 'admin cannot see link to register on sign in page' do
+    create(:user, username: 'Guest')
+    visit root_path
+    click_link 'Log in'
+    click_link 'Admin sign in'
+    refute_content page, 'Not part of the community yet? Sign up.'
+  end
 end
