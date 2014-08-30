@@ -1,23 +1,61 @@
+<div class='community-content'>
+  <%= link_to 'Back to discussions', discussions_path %>
+</div>
+
 <article class='community-content single-discussion'>
   <div class='breadcrumb-wrapper'>
-    <%= link_to 'Back to discussions', discussions_path %>
+    <%= @discussion.title %>
   </div>
 
   <div class='discussion-content'>
     <%= image_tag 'http://placehold.it/150x150', class: 'user-avatar' %>
 
     <div class='post-content'>
-      <h2 class='discussion-header'>
-        <%= @discussion.title %>
-      </h2>
+      <div class='discussion-body'>
+        <%= @discussion.body %>
+      </div>
 
       <div class='discussion-details'>
         <%= @discussion.user.name %> posted on <%= @discussion.created_at.to_date %>
       </div>
     </div>
+  </div>
+</article>
 
-    <div class='discussion-body'>
-      <%= @discussion.body %>
+<% @discussion.discussion_comments.each do |comment| %>
+  <article class='community-content single-discussion--reply'>
+    <div class='discussion-content'>
+      <%= image_tag 'http://placehold.it/150x150', class: 'user-avatar' %>
+
+      <div class='post-content'>
+        <div class='discussion-body'>
+          <%= comment.body %>
+        </div>
+
+        <div class='discussion-details'>
+          <%= @discussion.user.name %> posted on <%= @discussion.created_at.to_date %>
+        </div>
+      </div>
     </div>
+  </article>
+<% end %>
+
+<article class='community-content single-discussion--reply'>
+  <div class='discussion-form--container'>
+    <%= form_for DiscussionComment.new do |f| %>
+      <div class='discussion-form'>
+        <div class='discussion-form--body'>
+          <%= f.label :body, 'Have something to add?', class: 'discussion-form--label' %>
+          <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+        </div>
+
+        <%= f.hidden_field :user_id, value: @current_user.id %>
+        <%= f.hidden_field :discussion_id, value: @discussion.id %>
+      </div>
+
+      <footer class='discussion-form--footer'>
+        <%= f.submit "Respond", class: "greenbutton" %>
+      </footer>
+    <% end %>
   </div>
 </article>
