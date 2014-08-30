@@ -15,7 +15,7 @@ class DiscussionFiltering < Capybara::Rails::TestCase
     category = create(:discussion_category, name: 'Cool category')
     discussion = create(:discussion, discussion_category: category, user: guest)
     visit root_path
-    click_link 'Community'
+    click_link 'Discussions'
     click_link discussion.title
     assert_content page, discussion.body
   end
