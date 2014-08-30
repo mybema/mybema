@@ -21,7 +21,7 @@
     </li>
   </ul>
 
-  <% unless @current_user %>
+  <% if current_user.guest? %>
     <ul class='join-community-wrapper'>
       <li class='right-action-nav-li'>
         <%= link_to 'join community', new_user_registration_path, class: 'greenbutton' %>
