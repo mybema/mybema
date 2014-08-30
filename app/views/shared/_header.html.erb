@@ -5,7 +5,7 @@
     <div class='nav--list'>
       <ul>
         <li class='nav--li'>
-          <%= link_to 'Community', discussions_path %>
+          <%= link_to 'Discussions', discussions_path %>
         </li>
 
         <li class='nav--li'>
@@ -13,11 +13,9 @@
         </li>
 
         <li class='nav--li'>
-          <%= link_to 'Contact', '#' %>
-        </li>
-
-        <li class='nav--li'>
-          <% if @current_user.guest? %>
+          <% if current_admin %>
+            <%= link_to 'Admin', admin_path %>
+          <% elsif @current_user.guest? %>
             <%= link_to 'Log in', new_user_session_path %>
           <% else %>
             <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
