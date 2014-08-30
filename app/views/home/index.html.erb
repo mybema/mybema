@@ -31,6 +31,10 @@
 </section>
 
 <section class='community-content'>
+  <h1 class='btm-space'>
+    Recent discussions in the community:
+  </h1>
+
   <div>
     <% @discussions.each do |discussion| %>
       <article class='single-community-item'>
@@ -49,6 +53,7 @@
 
         <div class='comment-count'>
           <%= discussion.discussion_comments_count %>
+          <span class='replies'>responses</span>
         </div>
       </article>
     <% end %>
