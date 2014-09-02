@@ -22,9 +22,11 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.new discussion_params
 
     if @discussion.save
+      flash[:notice] = 'Your discussion has been added'
       redirect_to discussion_path(@discussion)
     else
       @categories = DiscussionCategory.all
+      flash[:alert] = 'Your discussion could not be created'
       render 'new'
     end
   end

@@ -5,8 +5,7 @@ class DiscussionCommentsController < ApplicationController
     if @comment.save
       redirect_to discussion_path(@comment.discussion)
     else
-      @discussion = @comment.discussion
-      render 'new'
+      redirect_to discussion_path(@comment.discussion)
     end
   end
 
