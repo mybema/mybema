@@ -2,28 +2,28 @@
   <h2 class='sessions-header'>Welcome back, please sign in:</h2>
 
   <%- if resource_name == :admin %>
-    <p style='width: 50%; margin: 0 auto;'>
+    <p class='sessions-notice'>
       This is the login area for <strong>community admins only</strong>. You cannot sign in with your account and you cannot register for an admin account. If you would like to sign into your account, please <%= link_to 'login here instead', new_user_session_path %>.
     </p>
   <% end -%>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div>
-      <div class='xc'>
+      <div>
         <%= f.label :email %>
       </div>
       <%= f.email_field :email, autofocus: true, class: 'standard-form--input short-field--desktop' %>
     </div>
 
     <div>
-      <div class='xc'>
+      <div>
         <%= f.label :password %>
       </div>
       <%= f.password_field :password, autocomplete: "off", class: 'standard-form--input short-field--desktop' %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div style='margin: 0 auto 1em auto;'>
+      <div class='sessions-rememberable'>
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
