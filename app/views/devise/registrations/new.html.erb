@@ -1,18 +1,46 @@
-<h2>Sign up</h2>
+<div class='sessions-wrapper'>
+  <h2 class='sessions-header'>Hi, sign up below.</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <p class='sessions-notice'>
+    Signing up means having discussions and comments show up under your name instead as as guest.
+  </p>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div>
+      <div>
+        <%= f.label :email %>
+      </div>
+      <%= f.email_field :email, autofocus: true, class: 'standard-form--input short-field--desktop' %>
+    </div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <div>
+      <div>
+        <%= f.label :username %>
+      </div>
+      <%= f.text_field :username, class: 'standard-form--input short-field--desktop' %>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <div>
+      <div>
+        <%= f.label :password %>
+      </div>
+      <%= f.password_field :password, autocomplete: "off", class: 'standard-form--input short-field--desktop' %>
+    </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <div>
+      <div>
+        <%= f.label :password_confirmation %>
+      </div>
+      <%= f.password_field :password_confirmation, password_confirmation: "off",
+          class: 'standard-form--input short-field--desktop' %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <%= f.hidden_field :ip_address, value: @ip_address %>
+
+    <div>
+      <%= f.submit "Sign up", class: "greenbutton" %>
+    </div>
+  <% end %>
+  <br />
+  <%= render "devise/shared/links" %>
+</div>
