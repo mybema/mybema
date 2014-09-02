@@ -4,8 +4,18 @@
   </header>
 
   <div class='discussion-form--container'>
-    <%= form_for Discussion.new do |f| %>
+    <%= form_for @discussion do |f| %>
       <div class='discussion-form'>
+        <% if @discussion.errors.any? %>
+          <ul>
+            <% @discussion.errors.full_messages.each do |message| %>
+              <li>
+                <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
         <div class='discussion-form--title'>
           <%= f.label :title, 'Add a title', class: 'discussion-form--label' %>
           <%= f.text_field :title, class: 'discussion-form--input' %>
