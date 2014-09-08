@@ -33,6 +33,7 @@ class DiscussionsController < ApplicationController
 
   def show
     @discussion = Discussion.find(params[:id])
+    @admin_id   = current_admin.id if current_admin
   end
 
   def update
