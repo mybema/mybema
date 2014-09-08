@@ -45,6 +45,19 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    elasticsearch (1.0.4)
+      elasticsearch-api (= 1.0.4)
+      elasticsearch-transport (= 1.0.4)
+    elasticsearch-api (1.0.4)
+      multi_json
+    elasticsearch-model (0.1.4)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.4)
+    elasticsearch-transport (1.0.4)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.2.1)
     factory_girl (4.4.0)
@@ -54,6 +67,9 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.2)
       i18n (~> 0.5)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
+    hashie (3.2.0)
     hike (1.2.3)
     i18n (0.6.11)
     jquery-rails (3.1.1)
@@ -87,6 +103,7 @@ GEM
     minitest-test (1.1.0)
       minitest (~> 4.0)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -158,6 +175,8 @@ DEPENDENCIES
   annotate
   database_cleaner
   devise
+  elasticsearch-model
+  elasticsearch-rails
   factory_girl_rails
   faker
   jquery-rails
