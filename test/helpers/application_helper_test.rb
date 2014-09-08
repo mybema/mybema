@@ -6,9 +6,9 @@ class ApplicationHelperTest < ActionView::TestCase
     all_categories?('cool category').must_equal ''
   end
 
-  TestCategory = Struct.new(:name)
 
   test 'active_category?' do
+    TestCategory = Struct.new(:name)
     same = TestCategory.new('same')
     different = TestCategory.new('different')
 
