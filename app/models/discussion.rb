@@ -14,6 +14,9 @@
 #
 
 class Discussion < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :discussion_category, counter_cache: true
   belongs_to :user
   has_many :discussion_comments, dependent: :destroy
