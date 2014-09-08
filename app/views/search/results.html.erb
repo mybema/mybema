@@ -1,0 +1,29 @@
+<section class='home-search'>
+  <br />
+  <div class='home-search--wrapper'>
+    <%= form_for :search_community, url: search_path, html: { method: 'get', class: 'home-search--form'} do |f| %>
+      <%= text_field_tag :query, params[:query],
+          placeholder: "Search the community",
+          onfocus: "this.placeholder = ''",
+          onblur: "this.placeholder = 'Search the community'",
+          class: 'home-search--input' %>
+
+      <%= f.submit "SEARCH", class: 'home-search--btn' %>
+    <% end %>
+  </div>
+</section>
+
+<h1 class='sv-margin ctr-txt'>
+  <%= pluralize @discussion_results.size, 'search result' %>:
+</h1>
+
+<section class='search-container'>
+  <% @discussion_results.each do |result| %>
+    <div class="search-result">
+      <%= link_to result.title, discussion_path(result.id) %>
+      <div class='sv-margin'>
+        <%= result.body.truncate(350) %>
+      </div>
+    </div>
+  <% end %>
+</section>

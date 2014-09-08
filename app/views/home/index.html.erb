@@ -4,7 +4,7 @@
   </div>
 
   <div class='home-search--wrapper'>
-    <%= form_for :search_community, url: root_path, html: { method: 'get', class: 'home-search--form'} do |f| %>
+    <%= form_for :search_community, url: search_path, html: { method: 'get', class: 'home-search--form'} do |f| %>
       <%= text_field_tag :query, params[:query],
           placeholder: "Search the community",
           onfocus: "this.placeholder = ''",

@@ -10,4 +10,7 @@ Mybema::Application.routes.draw do
   end
   resources :discussion_comments
   resources :sections
+
+  #Search
+  get 'search' => 'search#results', as: :search
 end
