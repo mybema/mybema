@@ -93,6 +93,12 @@ class DiscussionsControllerTest < ActionController::TestCase
     assert_equal 'The title', Discussion.last.title
   end
 
+  test "POST create will render 'new' template if discussion not created successfully" do
+    category = create(:discussion_category)
+    post :create, discussion: { user_id: 5, discussion_category_id: 1 }
+    assert_template 'new'
+  end
+
   test "POST create will redirect to discussion after creation" do
     category = create(:discussion_category)
     post :create, discussion: { body: 'The body', title: 'The title', user_id: 5, discussion_category_id: 1 }
