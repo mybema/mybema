@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
   def guest?
     username == 'Guest'
   end
+
+  def username
+    super || 'Guest'
+  end
 end

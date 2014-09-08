@@ -16,7 +16,7 @@
       </div>
 
       <div class='discussion-details'>
-        <%= @discussion.user.name %> posted on <%= @discussion.created_at.to_date %>
+        <%= @discussion.username %> posted on <%= @discussion.created_at.to_date %>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
         </div>
 
         <div class='discussion-details'>
-          <%= @discussion.user.name %> posted on <%= @discussion.created_at.to_date %>
+          <%= comment.username %> posted on <%= @discussion.created_at.to_date %>
         </div>
       </div>
     </div>

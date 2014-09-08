@@ -65,4 +65,13 @@ class DiscussionTest < ActiveSupport::TestCase
     discussion_three = create(:discussion, hidden: true)
     assert_equal [discussion_three, discussion_two, discussion_one], Discussion.by_recency
   end
+
+  test '#username' do
+    create(:user, id: 1, username: 'John')
+    discussion = Discussion.new(user_id: 1)
+    assert_equal 'John', discussion.username
+
+    discussion = Discussion.new
+    assert_equal 'Admin', discussion.username
+  end
 end

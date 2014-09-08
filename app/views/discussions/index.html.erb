@@ -38,7 +38,7 @@
           <h2><%= link_to discussion.title, discussion_path(discussion) %></h2>
 
           <ul class='post-items'>
-            <li class='post-item'>By <%= discussion.user.name %></li>
+            <li class='post-item'>By <%= discussion.username %></li>
             <li class='post-item'><%= discussion.created_at.to_date %></li>
             <li class='post-item--last'>
               <%= link_to discussion.discussion_category.name,

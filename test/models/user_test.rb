@@ -45,4 +45,12 @@ class UserTest < ActiveSupport::TestCase
     guest = User.new(username: 'Guest')
     assert_equal true, guest.guest?
   end
+
+  test '#username' do
+    user = User.new(username: 'Mike')
+    assert_equal 'Mike', user.username
+
+    user = User.new
+    assert_equal 'Guest', user.username
+  end
 end

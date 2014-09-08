@@ -18,11 +18,10 @@
 #  updated_at             :datetime
 #
 
-class Admin < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  has_many :discussion_comments, dependent: :nullify
-
-  def username
-    name || "Admin"
+FactoryGirl.define do
+  factory :admin do
+    name Faker::Name.name
+    sequence(:email) { |n| Faker::Internet.email + "#{n}" }
+    password Faker::Internet.password
   end
 end

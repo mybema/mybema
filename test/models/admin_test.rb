@@ -18,11 +18,14 @@
 #  updated_at             :datetime
 #
 
-class Admin < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  has_many :discussion_comments, dependent: :nullify
+require 'test_helper'
 
-  def username
-    name || "Admin"
+class AdminTest < ActiveSupport::TestCase
+  test '#username' do
+    admin = Admin.new(name: 'Mike')
+    assert_equal 'Mike', admin.username
+
+    admin = Admin.new
+    assert_equal 'Admin', admin.username
   end
 end

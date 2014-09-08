@@ -23,4 +23,12 @@ class Discussion < ActiveRecord::Base
   scope :by_recency, -> { order('created_at DESC') }
   scope :visible, -> { where(hidden: false) }
   scope :with_includes, -> { includes(:user).includes(:discussion_category) }
+
+  def username
+    if user_id?
+      user.username
+    else
+      'Admin'
+    end
+  end
 end

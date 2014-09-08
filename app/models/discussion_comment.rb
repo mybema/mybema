@@ -15,6 +15,17 @@
 class DiscussionComment < ActiveRecord::Base
   belongs_to :discussion, counter_cache: true
   belongs_to :user
+  belongs_to :admin
 
   validates :body, presence: true
+
+  def username
+    if admin_id?
+      admin.username
+    elsif user_id?
+      user.username
+    else
+      'Guest'
+    end
+  end
 end
