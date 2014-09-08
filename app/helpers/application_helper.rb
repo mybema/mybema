@@ -14,4 +14,8 @@ module ApplicationHelper
       ''
     end
   end
+
+  def show_community_join_button?
+    !current_admin && current_user.guest?
+  end
 end
