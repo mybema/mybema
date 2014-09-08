@@ -98,4 +98,32 @@ class DiscussionsControllerTest < ActionController::TestCase
     post :create, discussion: { body: 'The body', title: 'The title', user_id: 5, discussion_category_id: 1 }
     assert_redirected_to discussion_path(assigns(:discussion))
   end
+
+  test "PUT update will update a user's own discussion" do
+    category   = create(:discussion_category)
+    discussion = create(:discussion, id: 5, discussion_category: category, user: User.last)
+    put :update, id: 5, discussion: { body: 'An updated body' }
+    assert_equal discussion.reload.body, 'An updated body'
+  end
+
+  test "PUT update will not update another user's discussion" do
+    category   = create(:discussion_category)
+    discussion = create(:discussion, id: 5, discussion_category: category)
+    put :update, id: 5, discussion: { body: 'An updated body' }
+    refute_equal discussion.reload.body, 'An updated body'
+  end
+
+  test "PUT update will redirect to discussion after updating successfully" do
+    category   = create(:discussion_category)
+    discussion = create(:discussion, id: 5, discussion_category: category, user: User.last)
+    put :update, id: 5, discussion: { body: 'An updated body' }
+    assert_redirected_to discussion_path(discussion)
+  end
+
+  test "PUT update will render the edit page if not updated successfully" do
+    category   = create(:discussion_category)
+    discussion = create(:discussion, id: 5, discussion_category: category)
+    put :update, id: 5, discussion: { body: 'An updated body' }
+    assert_template 'edit'
+  end
 end

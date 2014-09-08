@@ -37,8 +37,15 @@ class DiscussionsController < ApplicationController
   end
 
   def update
-    @discussion = Discussion.find(params[:id])
-    @discussion.update_attributes discussion_params
+    @discussion = @current_user.discussions.where(id: params[:id]).first
+
+    if @discussion && @discussion.update_attributes(discussion_params)
+      flash[:notice] = 'Your discussion has been updated'
+      redirect_to discussion_path(@discussion)
+    else
+      flash[:alert] = 'This discussion could not be updated'
+      render 'edit'
+    end
   end
 
   private
