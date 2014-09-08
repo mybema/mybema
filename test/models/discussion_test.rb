@@ -64,6 +64,9 @@ class DiscussionTest < ActiveSupport::TestCase
     discussion_two = create(:discussion)
     discussion_three = create(:discussion, hidden: true)
     assert_equal [discussion_three, discussion_two, discussion_one], Discussion.by_recency
+
+    discussion_two.update_attribute(:title, 'Updated')
+    assert_equal [discussion_two, discussion_three, discussion_one], Discussion.by_recency
   end
 
   test '#username' do

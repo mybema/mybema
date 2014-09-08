@@ -20,7 +20,7 @@ class Discussion < ActiveRecord::Base
 
   validates :discussion_category_id, :body, :title, presence: true
 
-  scope :by_recency, -> { order('created_at DESC') }
+  scope :by_recency, -> { order('updated_at DESC') }
   scope :visible, -> { where(hidden: false) }
   scope :with_includes, -> { includes(:user).includes(:discussion_category) }
 

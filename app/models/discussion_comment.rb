@@ -13,7 +13,7 @@
 #
 
 class DiscussionComment < ActiveRecord::Base
-  belongs_to :discussion, counter_cache: true
+  belongs_to :discussion, counter_cache: true, touch: true
   belongs_to :user
   belongs_to :admin
 
