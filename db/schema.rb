@@ -36,13 +36,11 @@ ActiveRecord::Schema.define(version: 20140820191351) do
     t.text     "body"
     t.string   "title"
     t.integer  "section_id"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "articles", ["section_id"], name: "index_articles_on_section_id", using: :btree
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "discussion_categories", force: true do |t|
     t.string   "name"
