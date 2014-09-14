@@ -41,12 +41,12 @@
 <% end %>
 
 <article class='community-content single-discussion--reply'>
-  <div class='discussion-form--container'>
+  <div class='comment-form--container'>
     <%= form_for DiscussionComment.new do |f| %>
       <div class='discussion-form'>
         <div class='discussion-form--body'>
           <%= f.label :body, 'Have something to add?', class: 'discussion-form--label' %>
-          <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+          <%= f.text_area :body, class: 'discussion-form--input comment-form--textarea' %>
         </div>
 
         <%= f.hidden_field :user_id, value: @current_user.id %>
