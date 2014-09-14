@@ -2,5 +2,4 @@
 *= require base.css
 *= require elements.css
 *= require_self
-*= require_tree .
 */

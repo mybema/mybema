@@ -47,5 +47,9 @@ strong { font-weight: bold; }
 
 @media only screen and (min-width: 768px) {
   a { text-decoration: none; }
-  nav { height: 4em; }
+  nav {
+    clear: none;
+    height: 4em;
+    padding: 0;
+  }
 }
