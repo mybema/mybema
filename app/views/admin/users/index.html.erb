@@ -1,0 +1,39 @@
+<section class='dashboard-container'>
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Discussions</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.name %>
+          </td>
+
+          <td>
+            <%= user.username %>
+          </td>
+
+          <td>
+            <%= user.email %>
+          </td>
+
+          <td>
+            <%= user.discussion_count %>
+          </td>
+
+          <td>
+            <%= user.comment_count %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

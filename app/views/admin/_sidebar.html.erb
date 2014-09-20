@@ -1,0 +1,33 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li>
+      <%= link_to admin_path do %>
+        Overview
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to admin_discussions_path do %>
+        Discussions
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to admin_comments_path do %>
+        Comments
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to admin_users_path do %>
+        Users
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to destroy_admin_session_path, method: 'delete' do %>
+        Sign out
+      <% end %>
+    </li>
+  </ul>
+</div>

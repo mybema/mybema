@@ -1,0 +1,24 @@
+<section class='dashboard-container'>
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Comment</th>
+        <th class='ctr-txt'>Created</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr class='clickable-row js-clickable-row' data-url='<%= discussion_path(comment.discussion) %>'>
+          <td>
+            <%= link_to comment.body.truncate(150), discussion_path(comment.discussion) %>
+          </td>
+
+          <td class='ctr-txt'>
+            <%= comment.created_at.to_date %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

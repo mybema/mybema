@@ -56,4 +56,18 @@ class LoggingInAndOutTest < Capybara::Rails::TestCase
     click_button 'Sign in'
     assert_link 'Admin'
   end
+
+  test 'admin can sign out' do
+    create(:user, username: 'Guest')
+    create(:admin, name: 'Super Admin', email: 'admin@test.com', password: 'password')
+    visit root_path
+    click_link 'Log in'
+    click_link 'Admin sign in'
+    fill_in 'Email', with: 'admin@test.com'
+    fill_in 'Password', with: 'password'
+    click_button 'Sign in'
+    click_link 'Admin'
+    click_link 'Sign out'
+    assert_content page, 'Signed out successfully.'
+  end
 end

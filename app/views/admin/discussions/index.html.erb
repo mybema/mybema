@@ -1,0 +1,29 @@
+<section class='dashboard-container'>
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Discussion</th>
+        <th>Responses</th>
+        <th>Last activity</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @discussions.each do |discussion| %>
+        <tr class='clickable-row js-clickable-row' data-url='<%= discussion_path(discussion) %>'>
+          <td>
+            <%= link_to discussion.title, discussion_path(discussion) %>
+          </td>
+
+          <td class='ctr-txt'>
+            <%= discussion.discussion_comments_count %>
+          </td>
+
+          <td class='ctr-txt'>
+            <%= discussion.updated_at.to_date %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

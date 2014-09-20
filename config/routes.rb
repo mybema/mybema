@@ -13,4 +13,10 @@ Mybema::Application.routes.draw do
 
   #Search
   get 'search' => 'search#results', as: :search
+
+  # Admin section
+  get 'admin' => 'admin/overview#index'
+  get 'admin/discussions' => 'admin/discussions#index'
+  get 'admin/comments' => 'admin/discussion_comments#index'
+  get 'admin/users' => 'admin/users#index'
 end
