@@ -3,8 +3,29 @@
 *= require_self
 */
 
+.clickable-row,
+.clickable-row a {
+  color: #000;
+}
+
+.clickable-row:hover,
+.clickable-row:hover a {
+  color: #28D;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dashboard-container {
+  display: inline-block;
+  width: 83.334%;
+  background-color: #eee;
+  padding: 1em;
+  max-height: calc(100% - 4em);
+  overflow: scroll;
+}
+
 .sidebar {
-  position: fixed;
+  position: relative;
   z-index: 1000;
   display: block;
   padding: 20px;
@@ -13,4 +34,8 @@
   background-color: #f5f5f5;
   border-right: 1px solid #eee;
   min-height: calc(100% - 4em);
+}
+
+.table {
+  margin-bottom: 0!important;
 }
