@@ -53,4 +53,17 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     assert_equal 'Guest', user.username
   end
+
+  test '#discussion_count' do
+    user = create(:user)
+    create(:discussion, user: user)
+    assert_equal user.discussion_count, 1
+  end
+
+  test '#comment_count' do
+    user = create(:user)
+    discussion = create(:discussion)
+    3.times { create(:discussion_comment, discussion: discussion, user: user) }
+    assert_equal user.comment_count, 3
+  end
 end

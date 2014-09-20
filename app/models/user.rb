@@ -34,4 +34,12 @@ class User < ActiveRecord::Base
   def username
     super || 'Guest'
   end
+
+  def discussion_count
+    discussions.size
+  end
+
+  def comment_count
+    discussion_comments.size
+  end
 end
