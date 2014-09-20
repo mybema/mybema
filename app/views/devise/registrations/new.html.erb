@@ -13,12 +13,14 @@
       <%= f.email_field :email, autofocus: true, class: 'standard-form--input short-field--desktop' %>
     </div>
 
-    <div>
+    <% if resource_name == :user %>
       <div>
-        <%= f.label :username %>
+        <div>
+          <%= f.label :username %>
+        </div>
+        <%= f.text_field :username, class: 'standard-form--input short-field--desktop' %>
       </div>
-      <%= f.text_field :username, class: 'standard-form--input short-field--desktop' %>
-    </div>
+    <% end %>
 
     <div>
       <div>
