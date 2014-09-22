@@ -36,7 +36,7 @@
   <br />
   <%= render "devise/shared/links" %>
 
-  <%- if resource_name != :admin %>
+  <%- unless resource_name == :admin %>
     <br />
     <%= link_to "Admin sign in", new_session_path(:admin) %>
   <% end -%>
