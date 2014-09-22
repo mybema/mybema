@@ -1,0 +1,31 @@
+<section class='guidelines-form--wrapper'>
+  <h2>
+    New guideline:
+  </h2>
+
+  <div class='guideline-form' %>
+    <%= form_for @guideline do |f| %>
+      <div>
+        <% if @guideline.errors.any? %>
+          <ul>
+            <% @guideline.errors.full_messages.each do |message| %>
+              <li>
+                <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <div class='discussion-form--body'>
+          <%= f.text_field :name, class: 'discussion-form--input' %>
+        </div>
+      </div>
+
+      <footer>
+        <%= f.submit "add guideline", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+
+  <%= link_to 'Cancel and return to list of guidelines', guidelines_path, class: 'discussion-form--cancel' %>
+</section>

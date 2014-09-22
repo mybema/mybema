@@ -123,8 +123,28 @@
 }
 
 .discussion-form--wrapper {
-  margin: 2em auto;
-  width: 80%;
+  display: inline-block;
+  margin: 2em;
+  width: calc(60% - 3em);
+}
+
+.discussion-guidelines {
+  background-color: #EEDD96;
+  display: inline-block;
+  margin: 2em 2em 0 0;
+  padding: 1em;
+  vertical-align: top;
+  width: calc(40% - 3.5em);
+}
+
+.discussion-guidelines--header {
+  text-align: center;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.discussion-guidelines--list {
+  padding: 1em;
 }
 
 /* Discussions */

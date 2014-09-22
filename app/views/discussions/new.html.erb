@@ -42,3 +42,19 @@
     <% end %>
   </div>
 </section>
+
+<section class='discussion-guidelines'>
+  <header class='discussion-guidelines--header'>
+    Contribution guidelines
+  </header>
+
+  <p>
+    Thanks for wanting to participate in our community. We abide by these few simple guidelines:
+  </p>
+
+  <ul class='discussion-guidelines--list'>
+    <% @guidelines.each do |guideline| %>
+      <li><%= guideline.name %></li>
+    <% end %>
+  </ul>
+</section>

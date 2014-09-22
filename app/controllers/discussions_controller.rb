@@ -12,6 +12,7 @@ class DiscussionsController < ApplicationController
 
   def new
     @discussion = Discussion.new
+    @guidelines = Guideline.all.reverse
   end
 
   def edit
@@ -26,6 +27,7 @@ class DiscussionsController < ApplicationController
       redirect_to discussion_path(@discussion)
     else
       @categories = DiscussionCategory.all
+      @guidelines = Guideline.all.reverse
       flash[:alert] = 'Your discussion could not be created'
       render 'new'
     end

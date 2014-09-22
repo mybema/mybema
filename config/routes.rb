@@ -19,4 +19,8 @@ Mybema::Application.routes.draw do
   get 'admin/discussions' => 'admin/discussions#index'
   get 'admin/comments' => 'admin/discussion_comments#index'
   get 'admin/users' => 'admin/users#index'
+
+  scope :admin, module: 'admin' do
+    resources :guidelines, only: [:index, :new, :create, :destroy]
+  end
 end

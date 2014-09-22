@@ -3,6 +3,28 @@
 *= require_self
 */
 
+.admin-greenbutton {
+  background-color: rgb(150,190,115);
+  border-radius: 3px;
+  border: 0;
+  color: #FFF;
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 1em;
+  line-height: 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 10em;
+  text-align: center;
+}
+
+.admin-greenbutton:hover {
+  background-color: rgb(180,190,115);
+  color: #FFF;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .clickable-row,
 .clickable-row a {
   color: #000;
@@ -22,6 +44,24 @@
   padding: 1em;
   max-height: calc(100% - 4em);
   overflow: scroll;
+}
+
+.guideline-form {
+  margin: 1em 0 2em 0;
+}
+
+.guidelines-intro {
+  display: inline-block;
+  font-size: 1.15em;
+  margin: 0 5% 1em 0;
+  vertical-align: top;
+  width: calc(90% - 8.5em);
+}
+
+.guidelines-form--wrapper {
+  display: inline-block;
+  margin-left: 1.5em;
+  width: 50%;
 }
 
 .sidebar {

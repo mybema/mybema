@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820191351) do
+ActiveRecord::Schema.define(version: 20140922201322) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -78,6 +81,12 @@ ActiveRecord::Schema.define(version: 20140820191351) do
 
   add_index "discussions", ["discussion_category_id"], name: "index_discussions_on_discussion_category_id", using: :btree
   add_index "discussions", ["user_id"], name: "index_discussions_on_user_id", using: :btree
+
+  create_table "guidelines", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sections", force: true do |t|
     t.string   "title"
