@@ -10,14 +10,15 @@
       <tr>
         <th>Discussion</th>
         <th>Responses</th>
-        <th>Last activity</th>
+        <th>Activity</th>
+        <th>Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <% @discussions.each do |discussion| %>
-        <tr class='clickable-row js-clickable-row' data-url='<%= discussion_path(discussion) %>'>
-          <td>
+        <tr>
+          <td class='clickable-row js-clickable-row' data-url='<%= discussion_path(discussion) %>'>
             <%= link_to discussion.title, discussion_path(discussion) %>
           </td>
 
@@ -27,6 +28,10 @@
 
           <td class='ctr-txt'>
             <%= discussion.updated_at.to_date %>
+          </td>
+
+          <td class='ctr-txt clickable-row js-clickable-row' data-url='<%= discussion_path(discussion) %>'>
+            <%= link_to 'manage', edit_admin_discussion_path(discussion) %>
           </td>
         </tr>
       <% end %>

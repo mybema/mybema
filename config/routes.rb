@@ -16,11 +16,11 @@ Mybema::Application.routes.draw do
 
   # Admin section
   get 'admin' => 'admin/overview#index'
-  get 'admin/discussions' => 'admin/discussions#index'
   get 'admin/comments' => 'admin/discussion_comments#index'
   get 'admin/users' => 'admin/users#index'
 
   scope :admin, module: 'admin' do
-    resources :guidelines, only: [:index, :new, :create, :destroy]
+    resources :guidelines, only: [:index, :new, :create, :destroy], as: :guidelines
+    resources :discussions, only: [:index, :edit, :update, :destroy], as: :admin_discussions
   end
 end

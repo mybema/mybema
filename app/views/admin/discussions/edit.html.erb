@@ -1,0 +1,49 @@
+<section class='dashboard-container full-height'>
+  <div class='discussion-editor'>
+    <% if @discussion.errors.any? %>
+      <% @discussion.errors.full_messages.each do |message| %>
+        <span class='single-error'>
+          <%= message %>
+        </span>
+      <% end %>
+    <% end %>
+
+    <%= form_for @discussion, url: admin_discussion_path do |f| %>
+      <div class='discussion-form--title'>
+        <%= f.label :title, 'Title:', class: 'discussion-form--label' %>
+        <%= f.text_field :title, class: 'discussion-form--input' %>
+      </div>
+
+      <div class='discussion-form--selection'>
+        <%= f.label :discussion_category_id, "Change category:", class: 'discussion-form--label' %>
+        <%= f.select :discussion_category_id, @categories.map { |c| [c.name, c.id] },
+            { prompt: "Select one" }, { class: 'discussion-form--input short-field--desktop' } %>
+      </div>
+
+      <div class='discussion-form--body'>
+        <%= f.label :body, 'Content:', class: 'discussion-form--label' %>
+        <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+      </div>
+
+      <div class='btn-group'>
+        <%= f.submit "update discussion", class: "admin-greenbutton" %>
+        <%= link_to 'delete discussion', admin_discussion_path,
+            class: 'admin-redbutton', method: :delete, data: { confirm: 'are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= link_to 'Cancel and return to discussions', admin_discussions_path, class: 'discussion-form--cancel' %>
+  </div>
+
+  <div class='discussion-editor'>
+    <div class='discussion-comments-header'>
+      Comments
+    </div>
+
+    <% @discussion.discussion_comments.each do |comment| %>
+      <div class='discussion-comment'>
+        <%= comment.body %>
+      </div>
+    <% end %>
+  </div>
+</section>

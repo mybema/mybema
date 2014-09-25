@@ -7,13 +7,11 @@
     <%= form_for @discussion do |f| %>
       <div class='discussion-form'>
         <% if @discussion.errors.any? %>
-          <ul>
-            <% @discussion.errors.full_messages.each do |message| %>
-              <li>
-                <%= message %>
-              </li>
-            <% end %>
-          </ul>
+          <% @discussion.errors.full_messages.each do |message| %>
+            <span class='single-error'>
+              <%= message %>
+            </span>
+          <% end %>
         <% end %>
 
         <div class='discussion-form--title'>

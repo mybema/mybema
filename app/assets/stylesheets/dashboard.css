@@ -3,6 +3,8 @@
 *= require_self
 */
 
+label { color: #000; }
+
 .admin-greenbutton {
   background-color: rgb(150,190,115);
   border-radius: 3px;
@@ -25,6 +27,39 @@
   text-decoration: none;
 }
 
+.admin-redbutton {
+  background-color: rgb(255,55,55);
+  border-radius: 3px;
+  border: 0;
+  color: #FFF;
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 1em;
+  line-height: 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 10em;
+  text-align: center;
+}
+
+.admin-redbutton:hover {
+  background-color: rgb(255,75,75);
+  color: #FFF;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-group {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.flt-rght {
+  float: right;
+  clear: both;
+  margin-bottom: 1em;
+}
+
 .clickable-row,
 .clickable-row a {
   color: #000;
@@ -44,6 +79,27 @@
   padding: 1em;
   max-height: calc(100% - 4em);
   overflow: scroll;
+}
+
+.discussion-comment {
+  padding: 1em;
+  margin: 1em;
+  background-color: #DDD;
+}
+
+.discussion-comments-header {
+  font-size: 2em;
+  text-align: center;
+}
+
+.discussion-editor {
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+}
+
+.full-height {
+  min-height: calc(100% - 4em);
 }
 
 .guideline-form {
