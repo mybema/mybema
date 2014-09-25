@@ -22,5 +22,6 @@ Mybema::Application.routes.draw do
   scope :admin, module: 'admin' do
     resources :guidelines, only: [:index, :new, :create, :destroy], as: :guidelines
     resources :discussions, only: [:index, :edit, :update, :destroy], as: :admin_discussions
+    resources :sections, as: :admin_sections
   end
 end
