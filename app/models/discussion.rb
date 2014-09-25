@@ -27,6 +27,10 @@ class Discussion < ActiveRecord::Base
   scope :visible, -> { where(hidden: false) }
   scope :with_includes, -> { includes(:user).includes(:discussion_category) }
 
+  def category_name
+    discussion_category.name
+  end
+
   def username
     if user_id?
       user.username

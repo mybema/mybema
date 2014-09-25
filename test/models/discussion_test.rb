@@ -77,4 +77,10 @@ class DiscussionTest < ActiveSupport::TestCase
     discussion = Discussion.new
     assert_equal 'Admin', discussion.username
   end
+
+  test '#category_name' do
+    category = create(:discussion_category, name: 'Categlory')
+    discussion = create(:discussion, discussion_category: category)
+    assert_equal discussion.category_name, 'Categlory'
+  end
 end
