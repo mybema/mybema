@@ -11,6 +11,6 @@
 
 FactoryGirl.define do
   factory :section do
-    title Faker::Lorem.sentence(4)
+    title { Faker::Lorem.sentence(4) }
   end
 end

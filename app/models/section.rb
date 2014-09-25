@@ -11,6 +11,6 @@
 
 class Section < ActiveRecord::Base
   has_many :articles, dependent: :nullify
-
+  validates :title, presence: true, uniqueness: true
   scope :with_articles, -> { where('articles_count > 0') }
 end

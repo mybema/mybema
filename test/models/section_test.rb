@@ -25,4 +25,13 @@ class SectionTest < ActiveSupport::TestCase
     article1 = create(:article, section: section1)
     assert_equal [section1], Section.with_articles
   end
+
+  test "raises validation warning if no title is added" do
+    build(:section, title: nil).invalid?(:title).must_equal true
+  end
+
+  test "raises validation warning if title is already taken" do
+    create(:section, title: 'one')
+    build(:section, title: 'one').invalid?(:title).must_equal true
+  end
 end
