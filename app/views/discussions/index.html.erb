@@ -49,7 +49,9 @@
 
         <div class='comment-count'>
           <%= discussion.discussion_comments_count %>
-          <span class='replies'>responses</span>
+          <span class='replies'>
+            <%= "response".pluralize(discussion.discussion_comments_count) %>
+          </span>
         </div>
       </article>
     <% end %>
