@@ -20,6 +20,10 @@
         <tr>
           <td class='clickable-row js-clickable-row' data-url='<%= discussion_path(discussion) %>'>
             <%= link_to discussion.title, discussion_path(discussion) %>
+
+            <div class='discussion-detail'>
+              <%= discussion.category_name %>
+            </div>
           </td>
 
           <td class='ctr-txt'>

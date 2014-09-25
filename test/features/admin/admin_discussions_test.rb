@@ -20,6 +20,13 @@ class AdminDiscussionsTest < Capybara::Rails::TestCase
     assert_content page, '5'
   end
 
+  test 'admin sees the category names for the discussions in the index listing' do
+    category = create(:discussion_category, name: 'faint and gray')
+    create(:discussion, title: 'Visible in admin section', discussion_category: category)
+    visit admin_discussions_path
+    assert_content page, 'faint and gray'
+  end
+
   test 'admin can click through to a discussion page from the admin discussion list' do
     discussion = create(:discussion, title: 'Visible in admin section', body: 'Too sexy for my shirt')
     visit admin_discussions_path
