@@ -9,9 +9,13 @@
 
     <tbody>
       <% @comments.each do |comment| %>
-        <tr class='clickable-row js-clickable-row' data-url='<%= discussion_path(comment.discussion) %>'>
+        <tr class='clickable-row js-clickable-row' data-url='<%= discussion_path(comment.discussion, anchor: "comment-#{comment.id}") %>'>
           <td>
-            <%= link_to comment.body.truncate(150), discussion_path(comment.discussion) %>
+            <%= link_to comment.body.truncate(150), discussion_path(comment.discussion,
+                anchor: "comment-#{comment.id}") %>
+            <div class='discussion-detail'>
+              <%= comment.discussion.title %>
+            </div>
           </td>
 
           <td class='ctr-txt'>

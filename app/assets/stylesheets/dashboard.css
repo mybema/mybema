@@ -92,6 +92,11 @@ label { color: #000; }
   text-align: center;
 }
 
+.discussion-detail {
+  color: #999;
+  font-size: 0.75em;
+}
+
 .discussion-editor {
   display: inline-block;
   vertical-align: top;
