@@ -1,0 +1,31 @@
+<section class='guidelines-form--wrapper'>
+  <h2>
+    New section:
+  </h2>
+
+  <div class='guideline-form' %>
+    <%= form_for @section, url: admin_sections_path do |f| %>
+      <div>
+        <% if @section.errors.any? %>
+          <ul>
+            <% @section.errors.full_messages.each do |message| %>
+              <li>
+                <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <div class='discussion-form--body'>
+          <%= f.text_field :title, class: 'discussion-form--input' %>
+        </div>
+      </div>
+
+      <footer>
+        <%= f.submit "add section", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+
+  <%= link_to 'Cancel and return to list of sections', admin_sections_path, class: 'discussion-form--cancel' %>
+</section>
