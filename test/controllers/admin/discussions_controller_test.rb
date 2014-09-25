@@ -82,14 +82,14 @@ class Admin::DiscussionsControllerTest < ActionController::TestCase
     assert_equal discussion, assigns(:discussion)
   end
 
-  test "DELETE destroy will destroy a guideline" do
+  test "DELETE destroy will destroy a discussion" do
     create(:discussion, id: 302)
     assert_difference 'Discussion.count', -1 do
       delete :destroy, id: 302
     end
   end
 
-  test "DELETE destroy redirects to the guidelines index" do
+  test "DELETE destroy redirects to the discussion index" do
     create(:discussion, id: 303)
     delete :destroy, id: 303
     assert_redirected_to admin_discussions_path
