@@ -49,6 +49,19 @@ class AdminDiscussionsTest < Capybara::Rails::TestCase
     assert_equal Discussion.count, 0
   end
 
+  test 'admin can create a new discussion' do
+    create(:discussion_category, name: 'First')
+    visit admin_discussions_path
+    click_link 'New discussion'
+    fill_in 'Add a title', with: 'Admin made'
+    select 'First', from: 'Choose category'
+    fill_in 'Add your content', with: 'Some cool content'
+    click_button 'add discussion'
+    assert_content page, 'Some cool content'
+    assert_content page, 'Your discussion has been added'
+    assert_equal Discussion.last.user_id, nil
+  end
+
   test 'regular user cannot edit a discussion' do
     click_link 'Admin'
     click_link 'Sign out'
