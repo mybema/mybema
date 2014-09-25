@@ -1,6 +1,6 @@
 class Admin::DiscussionsController < AdminsController
   def index
-    @discussions = Discussion.by_recency
+    @discussions = Discussion.includes(:discussion_category).by_recency
   end
 
   def edit
