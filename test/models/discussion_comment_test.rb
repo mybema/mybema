@@ -19,6 +19,13 @@ class DiscussionCommentTest < ActiveSupport::TestCase
     build(:discussion_comment, body: nil).invalid?(:discussion_comment).must_equal true
   end
 
+  test 'visible scope' do
+    comment_one = create(:discussion_comment)
+    comment_two = create(:discussion_comment)
+    comment_three = create(:discussion_comment, hidden: true)
+    assert_equal [comment_one, comment_two], DiscussionComment.visible
+  end
+
   test '#username' do
     create(:admin, id: 1, name: 'AdminDude')
     comment = DiscussionComment.new(admin_id: 1)

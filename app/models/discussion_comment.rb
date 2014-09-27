@@ -19,6 +19,8 @@ class DiscussionComment < ActiveRecord::Base
 
   validates :body, presence: true
 
+  scope :visible, -> { where(hidden: false) }
+
   def username
     if admin_id?
       admin.username
