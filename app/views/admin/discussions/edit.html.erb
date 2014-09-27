@@ -8,6 +8,12 @@
       <% end %>
     <% end %>
 
+    <% if @discussion.hidden? %>
+      <div class='discussion-warning-wrapper'>
+        This discussion is hidden.
+      </div>
+    <% end %>
+
     <%= form_for @discussion, url: admin_discussion_path do |f| %>
       <div class='discussion-form--title'>
         <%= f.label :title, 'Title:', class: 'discussion-form--label' %>
@@ -26,9 +32,17 @@
       </div>
 
       <div class='btn-group'>
-        <%= f.submit "update discussion", class: "admin-greenbutton" %>
+        <%= f.submit "update discussion", class: "admin-btn green-btn" %>
         <%= link_to 'delete discussion', admin_discussion_path,
-            class: 'admin-redbutton', method: :delete, data: { confirm: 'are you sure?' } %>
+            class: 'admin-btn red-btn', method: :delete, data: { confirm: 'are you sure?' } %>
+
+        <% if @discussion.hidden? %>
+          <%= link_to 'show discussion', admin_toggle_discussion_visibility_path,
+            class: 'admin-btn grey-btn', method: :put %>
+        <% else %>
+          <%= link_to 'hide discussion', admin_toggle_discussion_visibility_path,
+            class: 'admin-btn grey-btn', method: :put %>
+        <% end %>
       </div>
     <% end %>
 

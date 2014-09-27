@@ -36,6 +36,11 @@ class DiscussionsController < ApplicationController
   def show
     @discussion = Discussion.find(params[:id])
     @admin_id   = current_admin.id if current_admin
+
+    if @discussion.hidden? && @admin_id == nil
+      flash[:alert] = 'This discussion is not available anymore'
+      redirect_to discussions_path
+    end
   end
 
   def update

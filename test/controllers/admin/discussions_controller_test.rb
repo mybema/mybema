@@ -76,6 +76,24 @@ class Admin::DiscussionsControllerTest < ActionController::TestCase
     assert_equal [category], assigns(:categories)
   end
 
+  test "PUT toggle_visibility assigns the discussion" do
+    discussion = create(:discussion, id: 35)
+    put :toggle_visibility, id: 35
+    assert_equal discussion, assigns(:discussion)
+  end
+
+  test "PUT toggle_visibility redirects to the edit page" do
+    discussion = create(:discussion, id: 65)
+    put :toggle_visibility, id: 65
+    assert_redirected_to edit_admin_discussion_path
+  end
+
+  test "PUT toggle_visibility toggles the discussion's visibility" do
+    discussion = create(:discussion, id: 77, hidden: true)
+    put :toggle_visibility, id: 77
+    assert_equal Discussion.find(77).hidden, false
+  end
+
   test "DELETE destroy assigns the discussion" do
     discussion = create(:discussion, id: 301)
     delete :destroy, id: 301

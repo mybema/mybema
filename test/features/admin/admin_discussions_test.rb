@@ -69,6 +69,22 @@ class AdminDiscussionsTest < Capybara::Rails::TestCase
     assert_equal Discussion.last.user_id, nil
   end
 
+  test 'admin can hide a discussion' do
+    create(:discussion, title: 'Will be removed')
+    visit admin_discussions_path
+    click_link 'manage'
+    click_link 'hide discussion'
+    assert_content page, 'This discussion is hidden'
+  end
+
+  test 'admin can unhide a discussion' do
+    create(:discussion, title: 'Will be removed', hidden: true)
+    visit admin_discussions_path
+    click_link 'manage'
+    click_link 'show discussion'
+    refute_content page, 'This discussion is hidden'
+  end
+
   test 'regular user cannot edit a discussion' do
     click_link 'Admin'
     click_link 'Sign out'

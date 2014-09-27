@@ -61,6 +61,28 @@ class DiscussionsControllerTest < ActionController::TestCase
     assert_equal [category_two, category_one], assigns(:categories)
   end
 
+  test "GET show does not redirect if discussion is visible" do
+    category_one = create(:discussion_category)
+    category_two = create(:discussion_category)
+    discussion   = create(:discussion, discussion_category: category_one)
+    get :show, id: discussion.id
+    assert_response :success, @response.body
+  end
+
+  test "GET show does not redirects if discussion is hidden and user is an admin" do
+    discussion = create(:discussion, hidden: true)
+    admin = create(:admin)
+    sign_in(:admin, admin)
+    get :show, id: discussion.id
+    assert_response :success, @response.body
+  end
+
+  test "GET show redirects if discussion is hidden and user is not an admin" do
+    discussion   = create(:discussion, hidden: true)
+    get :show, id: discussion.id
+    assert_redirected_to discussions_path
+  end
+
   test "GET new assigns all categories" do
     category = create(:discussion_category)
     get :new

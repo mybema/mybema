@@ -19,6 +19,14 @@ class Admin::DiscussionsController < AdminsController
     end
   end
 
+  def toggle_visibility
+    @discussion = Discussion.find(params[:id])
+
+    if @discussion.toggle!(:hidden)
+      redirect_to edit_admin_discussion_path
+    end
+  end
+
   def destroy
     @discussion = Discussion.find(params[:id])
 

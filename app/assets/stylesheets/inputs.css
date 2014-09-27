@@ -1,0 +1,48 @@
+.admin-btn {
+  border-radius: 3px;
+  border: 0;
+  color: #FFF;
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 1em;
+  line-height: 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 10em;
+  text-align: center;
+}
+
+.admin-btn:hover {
+  color: #FFF;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-group {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.green-btn {
+  background-color: rgb(150,190,115);
+}
+
+.green-btn:hover {
+  background-color: rgb(180,190,115);
+}
+
+.grey-btn {
+  background-color: rgb(120,140,150);
+}
+
+.grey-btn:hover {
+  background-color: rgb(120,170,170);
+}
+
+.red-btn {
+  background-color: rgb(255,55,55);
+}
+
+.red-btn:hover {
+  background-color: rgb(255,75,75);
+}
