@@ -36,6 +36,7 @@ class DiscussionsController < ApplicationController
   def show
     @discussion = Discussion.find(params[:id])
     @admin_id   = current_admin.id if current_admin
+    @comments   = @discussion.discussion_comments
 
     if @discussion.hidden? && @admin_id == nil
       flash[:alert] = 'This discussion is not available anymore'

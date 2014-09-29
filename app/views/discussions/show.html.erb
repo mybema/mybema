@@ -22,20 +22,24 @@
   </div>
 </article>
 
-<% @discussion.discussion_comments.each do |comment| %>
+<% @comments.each do |comment| %>
   <article class='community-content single-discussion--reply' id="comment-<%= comment.id%>">
     <div class='discussion-content'>
-      <%= image_tag 'http://placehold.it/150x150', class: 'user-avatar' %>
+      <% if comment.hidden? %>
+        This response has been removed.
+      <% else %>
+        <%= image_tag 'http://placehold.it/150x150', class: 'user-avatar' %>
 
-      <div class='post-content'>
-        <div class='discussion-body'>
-          <%= comment.body %>
-        </div>
+        <div class='post-content'>
+          <div class='discussion-body'>
+            <%= comment.body %>
+          </div>
 
-        <div class='discussion-details'>
-          <%= comment.username %> posted on <%= @discussion.created_at.to_date %>
+          <div class='discussion-details'>
+            <%= comment.username %> posted on <%= comment.created_at.to_date %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </article>
 <% end %>

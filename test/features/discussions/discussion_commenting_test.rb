@@ -15,6 +15,18 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     assert_content page, 'My very valuable 2 cents'
   end
 
+  test 'user cannot see hidden comments' do
+    guest      = create(:user, username: 'Guest')
+    category   = create(:discussion_category, name: 'Cool category')
+    discussion = create(:discussion, discussion_category: category,
+                                     user: guest, title: 'Good chat', body: 'This is very informative')
+    create(:discussion_comment, body: 'A hidden comment', discussion: discussion, hidden: true)
+    visit root_path
+    click_link 'Good chat'
+    refute_content page, 'A hidden comment'
+    assert_content page, 'This response has been removed'
+  end
+
   test 'admin can respond to discussion comment on actual discussion page' do
     guest      = create(:user, username: 'Guest')
     admin      = create(:admin, name: 'Super Admin', email: 'admin@test.com', password: 'password')

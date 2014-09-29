@@ -83,6 +83,14 @@ class DiscussionsControllerTest < ActionController::TestCase
     assert_redirected_to discussions_path
   end
 
+  test "GET show assigns the comments" do
+    discussion  = create(:discussion)
+    comment_one = create(:discussion_comment, discussion: discussion)
+    comment_two = create(:discussion_comment, discussion: discussion)
+    get :show, id: discussion.id
+    assert_equal [comment_one, comment_two], assigns(:comments)
+  end
+
   test "GET new assigns all categories" do
     category = create(:discussion_category)
     get :new
