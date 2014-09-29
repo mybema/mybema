@@ -48,7 +48,7 @@ class Admin::DiscussionsControllerTest < ActionController::TestCase
     assert_equal discussion, assigns(:discussion)
   end
 
-  test "PUT update will update the discussion discussion" do
+  test "PUT update will update the discussion" do
     category   = create(:discussion_category)
     discussion = create(:discussion, id: 5, discussion_category: category, user: User.last)
     put :update, id: 5, discussion: { body: 'An updated body' }
