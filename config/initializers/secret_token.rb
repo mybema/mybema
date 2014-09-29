@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Mybema::Application.config.secret_key_base = '520e13eb45a3c5bbf2954bc2f769f5aa024c1e4d5347329e11eff0d812e0922e08fd8f96d73a9523455910cd719bcdcd584b3fcaa0db8658b1ba5956ce9350d8'
+Mybema::Application.config.secret_key_base = ENV['SECRET_TOKEN']
