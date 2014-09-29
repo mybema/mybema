@@ -56,7 +56,11 @@
 
     <% @discussion.discussion_comments.each do |comment| %>
       <div class='discussion-comment'>
-        <%= comment.body %>
+        <%= comment.body.truncate(150) %>
+
+        <div class='manage-comment-link'>
+          <%= link_to 'manage', edit_admin_comment_path(comment) %>
+        </div>
       </div>
     <% end %>
   </div>
