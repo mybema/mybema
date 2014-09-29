@@ -1,0 +1,40 @@
+<section class='dashboard-container full-height'>
+  <div class='discussion-editor'>
+    <% if @comment.errors.any? %>
+      <% @comment.errors.full_messages.each do |message| %>
+        <span class='single-error'>
+          <%= message %>
+        </span>
+      <% end %>
+    <% end %>
+
+    <% if @comment.hidden? %>
+      <div class='discussion-warning-wrapper'>
+        This comment is hidden.
+      </div>
+    <% end %>
+
+    <%= form_for @comment, url: admin_comment_path do |f| %>
+      <div class='discussion-form--body'>
+        <%= f.label :body, 'Content:', class: 'discussion-form--label' %>
+        <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+      </div>
+
+      <div class='btn-group'>
+        <%= f.submit "update comment", class: "admin-btn green-btn" %>
+        <%= link_to 'delete comment', admin_comment_path,
+            class: 'admin-btn red-btn', method: :delete, data: { confirm: 'are you sure?' } %>
+
+        <% if @comment.hidden? %>
+          <%= link_to 'show comment', admin_toggle_comment_visibility_path,
+            class: 'admin-btn grey-btn', method: :put %>
+        <% else %>
+          <%= link_to 'hide comment', admin_toggle_comment_visibility_path,
+            class: 'admin-btn grey-btn', method: :put %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= link_to 'Cancel and return to comments', admin_comments_path, class: 'discussion-form--cancel' %>
+  </div>
+</section>

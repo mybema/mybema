@@ -4,15 +4,20 @@
       <tr>
         <th>Comment</th>
         <th class='ctr-txt'>Created</th>
+        <th class='ctr-txt'>Hidden</th>
+        <th class='ctr-txt'>Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <% @comments.each do |comment| %>
-        <tr class='clickable-row js-clickable-row' data-url='<%= discussion_path(comment.discussion, anchor: "comment-#{comment.id}") %>'>
-          <td>
+        <tr>
+          <td class='clickable-row js-clickable-row'
+              data-url='<%= discussion_path(comment.discussion, anchor: "comment-#{comment.id}") %>'>
+
             <%= link_to comment.body.truncate(150), discussion_path(comment.discussion,
                 anchor: "comment-#{comment.id}") %>
+
             <div class='discussion-detail'>
               <%= comment.discussion.title %>
             </div>
@@ -20,6 +25,14 @@
 
           <td class='ctr-txt'>
             <%= comment.created_at.to_date %>
+          </td>
+
+          <td class='ctr-txt'>
+            <%= comment.hidden? ? 'Hidden' : 'Visible' %>
+          </td>
+
+          <td class='ctr-txt clickable-row js-clickable-row' data-url='<%= edit_admin_comment_path(comment) %>'>
+            <%= link_to 'manage', edit_admin_comment_path(comment) %>
           </td>
         </tr>
       <% end %>
