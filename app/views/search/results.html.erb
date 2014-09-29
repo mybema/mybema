@@ -1,16 +1,6 @@
 <section class='home-search'>
   <br />
-  <div class='home-search--wrapper'>
-    <%= form_for :search_community, url: search_path, html: { method: 'get', class: 'home-search--form'} do |f| %>
-      <%= text_field_tag :query, params[:query],
-          placeholder: "Search the community",
-          onfocus: "this.placeholder = ''",
-          onblur: "this.placeholder = 'Search the community'",
-          class: 'home-search--input' %>
-
-      <%= f.submit "SEARCH", class: 'home-search--btn' %>
-    <% end %>
-  </div>
+  <%= render 'shared/search' %>
 </section>
 
 <h1 class='sv-margin ctr-txt'>

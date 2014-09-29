@@ -3,17 +3,7 @@
     Welcome to the Mybema community. If you've got a question about Mybema, try finding here before contacting our customer service. You can search below or navigate via the links above. See our knowledge base for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representitives and customers by joining or starting a new discussion.
   </div>
 
-  <div class='home-search--wrapper'>
-    <%= form_for :search_community, url: search_path, html: { method: 'get', class: 'home-search--form'} do |f| %>
-      <%= text_field_tag :query, params[:query],
-          placeholder: "Search the community",
-          onfocus: "this.placeholder = ''",
-          onblur: "this.placeholder = 'Search the community'",
-          class: 'home-search--input' %>
-
-      <%= f.submit "SEARCH", class: 'home-search--btn' %>
-    <% end %>
-  </div>
+  <%= render 'shared/search' %>
 
   <ul class='right-action-nav'>
     <li class='right-action-nav-li'>
