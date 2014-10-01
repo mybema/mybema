@@ -1,15 +1,13 @@
 <section class='dashboard-container'>
   <p class='guidelines-intro'>
-    The <%= @section.title %> section has <%= @section.articles_count %> articles:
+    There are <%= pluralize @articles.count, 'article' %> in your knowledgebase:
   </p>
-
-  <%= link_to 'New article', new_admin_section_article_path(@section), class: 'admin-btn green-btn flt-rght' %>
 
   <table class='table table-hover'>
     <thead>
       <tr>
         <th>Article</th>
-        <th class='ctr-txt'>Created at</th>
+        <th class='ctr-txt'>Updated</th>
         <th class='rght-txt'>Actions</th>
       </tr>
     </thead>
@@ -19,14 +17,18 @@
         <tr>
           <td class='clickable-row js-clickable-row' data-url='<%= article_path(article) %>'>
             <%= link_to article.title, article_path(article) %>
+
+            <div class='discussion-detail'>
+              <%= article.section.title %>
+            </div>
           </td>
 
           <td class='ctr-txt'>
-            <%= article.created_at.to_date %>
+            <%= article.updated_at.to_date %>
           </td>
 
           <td class='rght-txt'>
-            <%= link_to 'manage', edit_admin_section_article_path(@section, article) %>
+            <%= link_to 'manage', edit_admin_section_article_path(article.section, article) %>
           </td>
         </tr>
       <% end %>

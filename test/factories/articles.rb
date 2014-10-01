@@ -12,8 +12,8 @@
 
 FactoryGirl.define do
   factory :article do
-    body Faker::Lorem.sentence(20)
-    title Faker::Lorem.sentence(4)
+    body { Faker::Lorem.sentence(20) }
+    title { Faker::Lorem.sentence(4) }
     section
   end
 end

@@ -38,7 +38,7 @@ class Admin::SectionsController < AdminsController
     @section = Section.new params.require(:section).permit(:title)
 
     if @section.save
-      redirect_to admin_sections_path
+      redirect_to admin_section_path(@section)
     else
       render 'new'
     end

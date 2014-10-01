@@ -90,6 +90,10 @@ label { color: #000; }
   float: right;
 }
 
+.rght-txt {
+  text-align: right;
+}
+
 .sidebar {
   position: relative;
   z-index: 1000;

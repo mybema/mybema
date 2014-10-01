@@ -1,0 +1,39 @@
+<section class='guidelines-form--wrapper'>
+  <h2>
+    New article:
+  </h2>
+
+  <div class='guideline-form' %>
+    <%= form_for @article, url: admin_section_articles_path(@section) do |f| %>
+      <div>
+        <% if @article.errors.any? %>
+          <ul>
+            <% @article.errors.full_messages.each do |message| %>
+              <li>
+                <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <div class='discussion-form--body'>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :body %>
+          <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+        </div>
+
+        <%= f.hidden_field :section_id, value: @section.id %>
+      </div>
+
+      <footer>
+        <%= f.submit "add article", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+
+  <%= link_to 'Cancel and return to list of sections', admin_sections_path, class: 'discussion-form--cancel' %>
+</section>

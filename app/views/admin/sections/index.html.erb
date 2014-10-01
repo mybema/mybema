@@ -10,14 +10,14 @@
       <tr>
         <th>Section</th>
         <th class='ctr-txt'>Articles</th>
-        <th class='ctr-txt'>Actions</th>
+        <th class='rght-txt'>Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <% @sections.each do |section| %>
-        <tr class='clickable-row js-clickable-row' data-url='<%= admin_section_path(section) %>'>
-          <td>
+        <tr>
+          <td class='clickable-row js-clickable-row' data-url='<%= admin_section_path(section) %>'>
             <%= link_to section.title, admin_section_path(section) %>
           </td>
 
@@ -25,7 +25,8 @@
             <%= section.articles_count %>
           </td>
 
-          <td class='ctr-txt'>
+          <td class='rght-txt clickable-row js-clickable-row'
+              data-url='<%= edit_admin_section_path(section) %>'>
             <%= link_to 'manage', edit_admin_section_path(section) %>
           </td>
         </tr>

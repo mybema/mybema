@@ -1,0 +1,32 @@
+<section class='dashboard-container full-height'>
+  <div class='discussion-editor'>
+    <% if @article.errors.any? %>
+      <% @article.errors.full_messages.each do |message| %>
+        <span class='single-error'>
+          <%= message %>
+        </span>
+      <% end %>
+    <% end %>
+
+    <%= form_for @article, url: admin_section_article_path(@section, @article) do |f| %>
+      <div class='discussion-form--title'>
+        <%= f.label :title, 'Title:', class: 'discussion-form--label' %>
+        <%= f.text_field :title, class: 'discussion-form--input' %>
+      </div>
+
+      <div class='discussion-form--body'>
+        <%= f.label :body %>
+        <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+      </div>
+
+      <div class='btn-group'>
+        <%= f.submit "update article", class: "admin-btn green-btn" %>
+        <%= link_to 'delete article', admin_section_article_path(@section, @article),
+            class: 'admin-btn red-btn', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= link_to "Cancel and return to this section's listing page", admin_section_path(@section),
+        class: 'discussion-form--cancel' %>
+  </div>
+</section>

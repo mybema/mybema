@@ -39,7 +39,8 @@
             <%= discussion.hidden? ? 'Hidden' : 'Visible' %>
           </td>
 
-          <td class='ctr-txt clickable-row js-clickable-row' data-url='<%= discussion_path(discussion) %>'>
+          <td class='ctr-txt clickable-row js-clickable-row'
+              data-url='<%= edit_admin_discussion_path(discussion) %>'>
             <%= link_to 'manage', edit_admin_discussion_path(discussion) %>
           </td>
         </tr>

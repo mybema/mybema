@@ -50,4 +50,12 @@ class AdminSectionsTest < Capybara::Rails::TestCase
     click_button 'add section'
     assert_equal Section.last.title, 'Brand new'
   end
+
+  test 'admin is redirected to the new section article listing after creating it' do
+    visit admin_sections_path
+    click_link 'New section'
+    fill_in 'section_title', with: 'Learn you a thing'
+    click_button 'add section'
+    assert_content page, 'The Learn you a thing section has 0 articles'
+  end
 end
