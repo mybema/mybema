@@ -319,9 +319,10 @@
   .nav--li a {
     color: #FFF;
     display: inline-block;
+    font-size: 0.75em;
     font-weight: bold;
-    height: 4em;
-    line-height: 2em;
+    height: 5.25em;
+    line-height: 3.25em;
     padding: 1em;
     text-decoration: none;
     text-transform: uppercase;
