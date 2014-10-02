@@ -16,7 +16,10 @@
       </div>
 
       <div class='discussion-details'>
-        <%= @discussion.username %> posted on <%= @discussion.created_at.to_date %>
+        <%= @discussion.username %> posted
+        <span momentTime='<%= l(@discussion.created_at, format: :moment) %>'>
+          on <%= @discussion.created_at.to_date %>
+        </span>
       </div>
     </div>
   </div>
@@ -40,7 +43,10 @@
           </div>
 
           <div class='discussion-details'>
-            <%= comment.username %> posted on <%= comment.created_at.to_date %>
+            <%= comment.username %> posted
+            <span momentTime='<%= l(comment.created_at, format: :moment) %>'>
+              on <%= comment.created_at.to_date %>
+            </span>
           </div>
         </div>
       <% end %>

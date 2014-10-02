@@ -31,7 +31,7 @@
             <%= discussion.discussion_comments_count %>
           </td>
 
-          <td class='ctr-txt'>
+          <td class='ctr-txt' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
             <%= discussion.updated_at.to_date %>
           </td>
 

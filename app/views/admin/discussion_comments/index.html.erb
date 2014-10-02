@@ -23,7 +23,7 @@
             </div>
           </td>
 
-          <td class='ctr-txt'>
+          <td class='ctr-txt' momentTime='<%= l(comment.updated_at, format: :moment) %>'>
             <%= comment.created_at.to_date %>
           </td>
 

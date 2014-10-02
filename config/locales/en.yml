@@ -36,3 +36,7 @@ en:
               blank: 'needs to be added'
             title:
               blank: 'needs to be added'
+
+  time:
+    formats:
+      moment: '%Y-%m-%dT%H:%M:%S%z'

@@ -29,7 +29,9 @@
 
           <ul class='post-items'>
             <li class='post-item'>By <%= discussion.username %></li>
-            <li class='post-item'><%= discussion.created_at.to_date %></li>
+            <li class='post-item' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
+              <%= discussion.created_at.to_date %>
+            </li>
             <li class='post-item--last'>
               <%= link_to discussion.discussion_category.name,
                   discussions_path(category: discussion.discussion_category.slug) %>

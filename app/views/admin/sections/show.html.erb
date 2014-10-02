@@ -21,7 +21,7 @@
             <%= link_to article.title, article_path(article) %>
           </td>
 
-          <td class='ctr-txt'>
+          <td class='ctr-txt' momentTime='<%= l(article.updated_at, format: :moment) %>'>
             <%= article.created_at.to_date %>
           </td>
 
