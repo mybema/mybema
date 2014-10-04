@@ -25,4 +25,15 @@ class Search < Capybara::Rails::TestCase
     assert_content page, '1 search result'
     refute_content page, 'Will not show'
   end
+
+  test 'search returns relevant articles' do
+    guest = create(:user, username: 'Guest')
+    create(:article, title: 'White walls', body: 'and black doors')
+    Article.import force: true, refresh: true
+    visit root_path
+    fill_in 'query', with: 'walls'
+    click_button 'SEARCH'
+    assert_content page, 'White walls'
+    assert_content page, '1 search result'
+  end
 end

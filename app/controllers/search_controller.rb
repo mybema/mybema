@@ -1,6 +1,8 @@
 class SearchController < ApplicationController
   def results
-    @discussion_results = Discussion.search(params[:query]).records.where(hidden: false)
-    @article_resutls = Article.search(params[:query]).records
+    articles = Article.search(params[:query])
+    discussions = Discussion.search(params[:query])
+    @search_results = Array.new [articles, discussions].flatten
+    @search_results.reject! { |result| result._source.hidden? }
   end
 end

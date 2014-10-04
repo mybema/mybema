@@ -4,15 +4,24 @@
 </section>
 
 <h1 class='sv-margin ctr-txt'>
-  <%= pluralize @discussion_results.size, 'search result' %>:
+  <%= pluralize @search_results.size, 'search result' %>:
 </h1>
 
+
 <section class='search-container'>
-  <% @discussion_results.each do |result| %>
+  <% @search_results.each do |result| %>
     <div class="search-result">
-      <%= link_to result.title, discussion_path(result.id) %>
-      <div class='sv-margin'>
-        <%= result.body.truncate(350) %>
+      <div class='search-result--wrapper search-result--<%= result._type %>-wrapper'>
+        <div class='search-result--<%= result._type %>'>
+          <%= result._type %>
+        </div>
+      </div>
+
+      <div class="search-result--content">
+        <%= link_to result.title, eval("#{result._type}_path(result.id)") %>
+        <div class='sv-margin'>
+          <%= result.body.truncate(350) %>
+        </div>
       </div>
     </div>
   <% end %>

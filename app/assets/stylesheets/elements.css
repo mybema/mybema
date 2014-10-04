@@ -279,7 +279,36 @@
 .search-result {
   border: 1px solid #eee;
   margin: 1em auto;
-  padding: 1em;
+  display: flex;
+}
+
+.search-result--article {
+  min-width: 6em;
+}
+
+.search-result--article-wrapper {
+  background-color: rgba(192,122,12,0.15);
+}
+
+.search-result--content {
+  flex: 2;
+  margin-left: 0.5em;
+  padding: 0.5em;
+}
+
+.search-result--discussion {
+  padding: 0.5em;
+  min-width: 6em;
+}
+
+.search-result--discussion-wrapper {
+  background-color: rgba(40,190,40,0.15);
+}
+
+.search-result--wrapper {
+  align-items: center;
+  display: flex;
+  text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
