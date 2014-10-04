@@ -21,6 +21,7 @@ Mybema::Application.routes.draw do
   put 'admin/comments/:id/toggle-visibility' => 'admin/discussion_comments#toggle_visibility', as: :admin_toggle_comment_visibility
 
   scope :admin, module: 'admin' do
+    resources :admins, only: [:index, :new, :create]
     resources :guidelines, only: [:index, :new, :create, :destroy], as: :guidelines
     resources :discussions, only: [:index, :edit, :update, :destroy], as: :admin_discussions
     resources :comments, only: [:index, :edit, :update, :destroy], as: :admin_comments, controller: 'discussion_comments'

@@ -1,0 +1,29 @@
+<div class='sessions-wrapper'>
+  <h2 class='sessions-header'>
+    Welcome <%= resource.name.titleize %>.
+    <%= t 'devise.invitations.edit.header' %>
+  </h2>
+
+  <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :invitation_token %>
+
+    <div>
+      <div>
+        <%= f.label :password %>
+      </div>
+      <%= f.password_field :password, autofocus: true, class: 'standard-form--input short-field--desktop' %>
+    </div>
+
+    <div>
+      <div>
+        <%= f.label :password_confirmation %>
+      </div>
+      <%= f.password_field :password_confirmation, class: 'standard-form--input short-field--desktop' %>
+    </div>
+
+    <div>
+      <%= f.submit t("devise.invitations.edit.submit_button"), class: "greenbutton" %>
+    </div>
+  <% end %>
+</div>
