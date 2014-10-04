@@ -1,0 +1,18 @@
+.kb-wrapper {
+  margin: 1em auto;
+  width: 80%;
+}
+
+.kb-title {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.kb-content {
+  margin-bottom: 3em;
+  margin-top: 1em;
+}
+
+.kb-paragraph {
+  margin: 1em 0;
+}
