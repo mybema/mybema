@@ -1,0 +1,35 @@
+<section class='dashboard-container'>
+  <p class='guidelines-intro'>
+    Your knowledgebase currently has the following sections:
+  </p>
+
+  <%= link_to 'Invite admin', new_admin_path, class: 'admin-btn green-btn flt-rght' %>
+
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Joined?</th>
+        <th class='rght-txt'>Articles</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @admins.each do |admin| %>
+        <tr>
+          <td class='clickable-row js-clickable-row' data-url='<%= root_path %>'>
+            <%= link_to admin.name, root_path %>
+          </td>
+
+          <td>
+            <%= admin.invitation_accepted_at? %>
+          </td>
+
+          <td class='rght-txt'>
+            <%= admin.email %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
