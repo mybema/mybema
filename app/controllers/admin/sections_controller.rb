@@ -23,7 +23,7 @@ class Admin::SectionsController < AdminsController
 
   def show
     @section = Section.find(params[:id])
-    @articles = @section.articles
+    @articles = @section.articles.sort_by(&:updated_at).reverse
   end
 
   def destroy
