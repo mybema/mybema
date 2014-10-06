@@ -1,4 +1,10 @@
 Mybema::Application.routes.draw do
+  require 'sidekiq/web'
+
+  authenticate :admin do
+    mount Sidekiq::Web => 'admin/sidekiq'
+  end
+
   devise_for :admins
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'home#index'

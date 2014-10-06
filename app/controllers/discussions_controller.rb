@@ -23,6 +23,7 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.new discussion_params
 
     if @discussion.save
+      create_identicon('Discussion', @discussion.id)
       flash[:notice] = 'Your discussion has been added'
       redirect_to discussion_path(@discussion)
     else
@@ -63,6 +64,6 @@ class DiscussionsController < ApplicationController
   end
 
   def discussion_params
-    params.require(:discussion).permit(:body, :title, :user_id, :discussion_category_id)
+    params.require(:discussion).permit(:body, :title, :user_id, :discussion_category_id, :guest_id)
   end
 end

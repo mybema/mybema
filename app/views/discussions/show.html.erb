@@ -66,6 +66,7 @@
         <%= f.hidden_field :user_id, value: @current_user.id %>
         <%= f.hidden_field :admin_id, value: @admin_id %>
         <%= f.hidden_field :discussion_id, value: @discussion.id %>
+        <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
       </div>
 
       <footer class='discussion-form--footer'>
