@@ -10,6 +10,7 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #  admin_id      :integer
+#  guest_id      :string(255)
 #
 
 class DiscussionComment < ActiveRecord::Base
