@@ -22,6 +22,14 @@ class DiscussionComment < ActiveRecord::Base
 
   scope :visible, -> { where(hidden: false) }
 
+  def user_avatar
+    if user_id?
+      user.avatar_url
+    else
+      "admin_avatar.png"
+    end
+  end
+
   def username
     if admin_id?
       admin.username

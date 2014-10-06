@@ -33,7 +33,11 @@ class Discussion < ActiveRecord::Base
   end
 
   def user_avatar
-    user.avatar_url
+    if user_id?
+      user.avatar_url
+    else
+      "admin_avatar.png"
+    end
   end
 
   def username
