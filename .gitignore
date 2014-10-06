@@ -16,5 +16,6 @@
 /tmp
 .ruby-version
 .DS_Store
+dump.rdb
 config/database.yml
 config/secrets.yml
