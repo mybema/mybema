@@ -14,7 +14,7 @@ class IdenticonCreator
   private
 
   def create_identicon
-    Identicon.file_for(@guest_id, "tmp/#{@guest_id}.jpg", 50)
+    Identicon.file_for(@guest_id, "tmp/#{@guest_id}.jpg", 70)
     @file = File.open("tmp/#{@guest_id}.jpg")
   end
 
