@@ -157,6 +157,7 @@
 .breadcrumb-wrapper {
   padding: 1em;
   background-color: #74747A;
+  color: #FFF;
   border-radius: 5px 5px 0 0;
   border: 1px solid #74747A;
 }
@@ -170,11 +171,11 @@
 }
 
 .discussion-body {
-  padding: 0.5em 0 1.5em 0;
+  padding: 0 0 1.5em 0;
 }
 
 .discussion-content {
-  padding: 0.5em 1em;
+  padding: 1em;
 }
 
 .discussion-details {
@@ -189,7 +190,7 @@
 
 .post-content {
   display: inline-block;
-  margin-top: 2.75em;
+  /*margin-top: 2.75em;*/
   vertical-align: baseline;
 }
 
@@ -210,12 +211,11 @@
 }
 
 .user-avatar {
-  border-radius: 50%;
   display: inline;
-  height: 5em;
-  margin: 2em 2em 0 2em;
+  height: 4em;
+  margin-right: 1em;
   vertical-align: top;
-  width: 5em;
+  width: 4em;
 }
 
 .nav--list li {
@@ -460,9 +460,7 @@
   }
 
   .comment-count {
-    background-color: #74747A;
-    border-radius: 0 3px 3px 0;
-    color: #FFF;
+    color: #74747A;
     display: table-cell;
     font-size: 1.5em;
     font-weight: bold;
@@ -507,7 +505,7 @@
 
   .post-description {
     display: table-cell;
-    padding: 1em 1.5em;
+    padding: 1em 0;
     max-width: inherit;
     width: 100%;
   }
@@ -537,9 +535,8 @@
   }
 
   .single-community-item {
-    border: 1px solid #74747A;
-    border-radius: 5px;
-    box-shadow: 0 1px 1px rgba(100, 100, 100, 0.15);
+    border-bottom: 1px solid #DDD;
+    color: #74747A;
     display: block;
     margin-bottom: 0.75em;
     min-height: 80px;
