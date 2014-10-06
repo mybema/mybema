@@ -32,6 +32,10 @@ class Discussion < ActiveRecord::Base
     discussion_category.name
   end
 
+  def user_avatar
+    user.avatar_url
+  end
+
   def username
     if user_id?
       user.username

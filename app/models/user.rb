@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
   has_many :discussions, dependent: :nullify
   has_many :discussion_comments, dependent: :nullify
 
+  def avatar_url
+    ASSET_BUCKET.objects["identicons/#{self.guid}-pic.jpg"].public_url
+  end
+
   def guest?
     username == 'Guest'
   end
