@@ -27,7 +27,7 @@
 #
 
 class Admin < ActiveRecord::Base
-  devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :invitable, :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussion_comments, dependent: :nullify
 
   def username
