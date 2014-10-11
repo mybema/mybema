@@ -14,6 +14,8 @@
 #
 
 class DiscussionComment < ActiveRecord::Base
+  include UserDetails
+
   belongs_to :discussion, counter_cache: true, touch: true
   belongs_to :user
   belongs_to :admin
@@ -21,14 +23,6 @@ class DiscussionComment < ActiveRecord::Base
   validates :body, presence: true
 
   scope :visible, -> { where(hidden: false) }
-
-  def user_avatar
-    if user_id?
-      user.avatar_url
-    else
-      "admin_avatar.png"
-    end
-  end
 
   def username
     if admin_id?

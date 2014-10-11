@@ -8,7 +8,7 @@
   </div>
 
   <div class='discussion-content'>
-    <%= image_tag @discussion.user_avatar, class: 'user-avatar', alt: 'avatar' %>
+    <%= image_tag(@discussion.user_avatar(*avatar_opts), class: 'user-avatar', alt: 'avatar') %>
 
     <div class='post-content'>
       <div class='discussion-body'>
@@ -35,8 +35,7 @@
           <%= link_to 'View comment in dashboard', edit_admin_comment_path(comment) %>
         <% end %>
       <% else %>
-        <%= image_tag comment.user_avatar, class: 'user-avatar', alt: 'avatar' %>
-
+        <%= image_tag(comment.user_avatar(*avatar_opts), class: 'user-avatar', alt: 'avatar') %>
         <div class='post-content'>
           <div class='discussion-body'>
             <%= comment.body %>

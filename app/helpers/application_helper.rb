@@ -15,6 +15,10 @@ module ApplicationHelper
     end
   end
 
+  def avatar_opts
+    [cookies.permanent[:mybema_guest_id], @current_user.id]
+  end
+
   def show_community_join_button?
     !current_admin && current_user.guest?
   end

@@ -17,6 +17,7 @@
 class Discussion < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  include UserDetails
 
   belongs_to :discussion_category, counter_cache: true
   belongs_to :user
@@ -30,14 +31,6 @@ class Discussion < ActiveRecord::Base
 
   def category_name
     discussion_category.name
-  end
-
-  def user_avatar
-    if user_id?
-      user.avatar_url
-    else
-      "admin_avatar.png"
-    end
   end
 
   def username
