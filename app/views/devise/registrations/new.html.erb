@@ -5,6 +5,16 @@
     Signing up means having discussions and comments show up under your name instead as as guest.
   </p>
 
+  <p>
+    <% if resource.errors.any? %>
+      <% resource.errors.full_messages.each do |message| %>
+        <span class='single-error'>
+          <%= message %>
+        </span>
+      <% end %>
+    <% end %>
+  </p>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <div>
       <div>
