@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::UsersControllerTest < ActionController::TestCase
   def setup
-    create(:user, username: 'Guest')
+    @guest = create(:user, username: 'Guest')
     admin = create(:admin)
     sign_in(:admin, admin)
   end
@@ -21,6 +21,6 @@ class Admin::UsersControllerTest < ActionController::TestCase
     user_one = create(:user)
     user_two = create(:user)
     get :index
-    assert_equal [user_one, user_two], assigns(:users)
+    assert_equal [@guest, user_one, user_two], assigns(:users)
   end
 end
