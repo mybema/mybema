@@ -17,6 +17,9 @@ Mybema::Application.routes.draw do
   resources :discussion_comments
   resources :sections
 
+  get 'profile' => 'users#profile'
+  patch 'profile/update' => 'users#update_profile', as: :user
+
   #Search
   get 'search' => 'search#results', as: :search
 

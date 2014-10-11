@@ -20,9 +20,15 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  avatar                 :string(255)
 #
 
+require 'file_size_validator'
+
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
+  validates :avatar, file_size: { maximum: 1.megabytes.to_i }
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussions, dependent: :nullify
   has_many :discussion_comments, dependent: :nullify
@@ -33,6 +39,10 @@ class User < ActiveRecord::Base
 
   def guest?
     username == 'Guest'
+  end
+
+  def logged_in?
+    !guest?
   end
 
   def username

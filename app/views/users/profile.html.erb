@@ -1,0 +1,44 @@
+<section class='community-content'>
+  <header class='discussion-form--header'>
+    Edit your profile
+  </header>
+
+  <div class='discussion-form--container'>
+    <%= form_for @current_user do |f| %>
+      <div class='discussion-form'>
+        <% if @current_user.errors.any? %>
+          <% @current_user.errors.full_messages.each do |message| %>
+            <span class='single-error'>
+              <%= message %>
+            </span>
+          <% end %>
+        <% end %>
+
+        <div class='discussion-form--title'>
+          <%= f.label :username, 'Username', class: 'discussion-form--label' %>
+          <%= f.text_field :username, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :email, 'Email address', class: 'discussion-form--label' %>
+          <%= f.email_field :email, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--label'>
+          Avatar
+          <br />
+          <%= image_tag @current_user.avatar_url, class: 'user-avatar', alt: 'avatar' %>
+        </div>
+
+
+        Change your avatar: <%= f.file_field :avatar, class: 'borderless' %>
+
+      </div>
+
+      <footer class='discussion-form--footer'>
+        <%= link_to 'Cancel', root_path, class: 'discussion-form--cancel' %>
+        <%= f.submit "update profile", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+</section>

@@ -12,6 +12,12 @@
           <%= link_to 'Answers', sections_path %>
         </li>
 
+        <% if @current_user.logged_in? %>
+          <li class='nav--li'>
+            <%= link_to 'Profile', profile_path %>
+          </li>
+        <% end %>
+
         <li class='nav--li'>
           <% if current_admin %>
             <%= link_to 'Admin', admin_path %>

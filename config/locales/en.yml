@@ -27,6 +27,9 @@ en:
         body: 'Some content'
         title: 'A title'
     errors:
+      messages:
+        wrong_size: "is the wrong size. It should be %{file_size}"
+        size_too_big: "is too big. It should not be bigger than %{file_size}"
       models:
         discussion:
           attributes:
