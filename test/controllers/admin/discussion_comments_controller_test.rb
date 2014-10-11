@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Admin::DiscussionCommentsControllerTest < ActionController::TestCase
   def setup
+    create(:user, username: 'Guest')
     admin = create(:admin)
     sign_in(:admin, admin)
   end
