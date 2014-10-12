@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DiscussionsControllerTest < ActionController::TestCase
   def setup
-    create(:user, username: 'Guest')
+    @guest = create(:user, username: 'Guest')
   end
 
   test "GET index responds successfully" do
@@ -110,11 +110,39 @@ class DiscussionsControllerTest < ActionController::TestCase
     assert_equal [category], assigns(:categories)
   end
 
-  test "GET edit assigns the discussion" do
+  test "GET edit assigns the guidelines" do
+    guideline = create(:guideline)
+    discussion = create(:discussion)
+    get :edit, id: discussion.id
+    assert_equal [guideline], assigns(:guidelines)
+  end
+
+  test "GET edit assigns the discussion if the discussion guid matches the guest cookie" do
     category = create(:discussion_category)
-    discussion = create(:discussion, discussion_category: category)
+    discussion = create(:discussion, discussion_category: category, user: @guest, guest_id: 'same')
+    @request.cookies['mybema_guest_id'] = 'same'
     get :edit, id: discussion.id
     assert_equal discussion, assigns(:discussion)
+  end
+
+  test "GET edit assigns the discussion to the non-guest owner when the ower is logged in" do
+    user = create(:user)
+    sign_in(:user, user)
+    discussion = create(:discussion, user: user)
+    get :edit, id: discussion.id
+    assert_equal discussion, assigns(:discussion)
+  end
+
+  test "GET edit redirects to the discussions index if a discussion is not assigned" do
+    get :edit, id: 1000
+    assert_redirected_to discussions_path
+  end
+
+  test "GET edit redirects to the discussions index if the discussion guid doesn't match the guest cookie" do
+    discussion = create(:discussion, user: @guest)
+    @request.cookies['mybema_guest_id'] = 'different to discussion value'
+    get :edit, id: discussion.id
+    assert_redirected_to discussions_path
   end
 
   test "POST create will create a new discussion" do
@@ -130,36 +158,39 @@ class DiscussionsControllerTest < ActionController::TestCase
   end
 
   test "POST create will redirect to discussion after creation" do
-    category = create(:discussion_category)
     post :create, discussion: { body: 'The body', title: 'The title', user_id: 5, discussion_category_id: 1 }
     assert_redirected_to discussion_path(assigns(:discussion))
   end
 
-  test "PUT update will update a user's own discussion" do
-    category   = create(:discussion_category)
-    discussion = create(:discussion, id: 5, discussion_category: category, user: User.last)
+  test "PUT update will update a guest discussion if the guid matches the guest cookie" do
+    discussion = create(:discussion, id: 5, user: @guest, body: 'changeable', guest_id: 'guest')
+    @request.cookies['mybema_guest_id'] = 'guest'
     put :update, id: 5, discussion: { body: 'An updated body' }
     assert_equal discussion.reload.body, 'An updated body'
   end
 
-  test "PUT update will not update another user's discussion" do
-    category   = create(:discussion_category)
-    discussion = create(:discussion, id: 5, discussion_category: category)
+  test "PUT update will not update a guest discussion if the guid differs from the guest cookie" do
+    discussion = create(:discussion, id: 5, user: @guest, body: 'unchangeable')
     put :update, id: 5, discussion: { body: 'An updated body' }
-    refute_equal discussion.reload.body, 'An updated body'
+    assert_equal discussion.reload.body, 'unchangeable'
+  end
+
+  test "PUT update redirects to the discussions index if a discussion is not assigned" do
+    put :update, id: 0
+    assert_redirected_to discussions_path
   end
 
   test "PUT update will redirect to discussion after updating successfully" do
-    category   = create(:discussion_category)
-    discussion = create(:discussion, id: 5, discussion_category: category, user: User.last)
-    put :update, id: 5, discussion: { body: 'An updated body' }
+    discussion = create(:discussion, id: 90, user: @guest, guest_id: 'guest')
+    @request.cookies['mybema_guest_id'] = 'guest'
+    put :update, id: 90, discussion: { body: 'An updated body' }
     assert_redirected_to discussion_path(discussion)
   end
 
   test "PUT update will render the edit page if not updated successfully" do
-    category   = create(:discussion_category)
-    discussion = create(:discussion, id: 5, discussion_category: category)
-    put :update, id: 5, discussion: { body: 'An updated body' }
+    discussion = create(:discussion, id: 91, user: @guest, guest_id: 'guest')
+    @request.cookies['mybema_guest_id'] = 'guest'
+    put :update, id: 91, discussion: { body: '' }
     assert_template 'edit'
   end
 end

@@ -21,6 +21,10 @@
           on <%= @discussion.created_at.to_date %>
         </span>
       </div>
+
+      <% if editable_discussion @discussion %>
+        <%= link_to 'Edit this post', edit_discussion_path(@discussion) %>
+      <% end %>
     </div>
   </div>
 </article>

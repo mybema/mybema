@@ -1,0 +1,62 @@
+<section class='discussion-form--wrapper'>
+  <header class='discussion-form--header'>
+    Edit discussion
+  </header>
+
+  <div class='discussion-form--container'>
+    <%= form_for @discussion do |f| %>
+      <div class='discussion-form'>
+        <% if @discussion.errors.any? %>
+          <% @discussion.errors.full_messages.each do |message| %>
+            <span class='single-error'>
+              <%= message %>
+            </span>
+          <% end %>
+        <% end %>
+
+        <div class='discussion-form--title'>
+          <%= f.label :title, 'Title', class: 'discussion-form--label' %>
+          <%= f.text_field :title, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--selection'>
+          <%= f.label :discussion_category_id, "Category", class: 'discussion-form--label' %>
+          <%= f.select :discussion_category_id, @categories.map { |c| [c.name, c.id] },
+              { prompt: "Select one" }, { class: 'discussion-form--input' } %>
+        </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :body, 'Content', class: 'discussion-form--label' %>
+          <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
+        </div>
+
+        <% unless current_admin %>
+          <%= f.hidden_field :user_id, value: @current_user.id %>
+        <% end %>
+
+        <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
+      </div>
+
+      <footer class='discussion-form--footer'>
+        <%= link_to 'Cancel', discussion_path(@discussion), class: 'discussion-form--cancel' %>
+        <%= f.submit "update discussion", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+</section>
+
+<section class='discussion-guidelines'>
+  <header class='discussion-guidelines--header'>
+    Contribution guidelines
+  </header>
+
+  <p>
+    Thanks for wanting to participate in our community. We abide by these few simple guidelines:
+  </p>
+
+  <ul class='discussion-guidelines--list'>
+    <% @guidelines.each do |guideline| %>
+      <li><%= guideline.name %></li>
+    <% end %>
+  </ul>
+</section>

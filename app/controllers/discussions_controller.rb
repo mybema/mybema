@@ -16,7 +16,13 @@ class DiscussionsController < ApplicationController
   end
 
   def edit
-    @discussion = Discussion.find(params[:id])
+    @discussion = @current_user.discussions.find_by_id(params[:id])
+    @guidelines = Guideline.all.reverse
+
+    unless @discussion && editable_discussion
+      flash[:alert] = "You don't have permission to do that"
+      return redirect_to discussions_path
+    end
   end
 
   def create
@@ -48,12 +54,24 @@ class DiscussionsController < ApplicationController
   def update
     @discussion = @current_user.discussions.where(id: params[:id]).first
 
-    if @discussion && @discussion.update_attributes(discussion_params)
-      flash[:notice] = 'Your discussion has been updated'
-      redirect_to discussion_path(@discussion)
+    unless @discussion
+      flash[:alert] = 'You cannot do that'
+      return redirect_to discussions_path
+    end
+
+    if editable_discussion
+      if @discussion.update_attributes(discussion_params)
+        flash[:notice] = 'Your discussion has been updated'
+        redirect_to discussion_path(@discussion)
+      else
+        flash[:alert] = 'This discussion could not be updated'
+        @guidelines = Guideline.all.reverse
+        @categories = DiscussionCategory.all
+        render 'edit'
+      end
     else
-      flash[:alert] = 'This discussion could not be updated'
-      render 'edit'
+      flash[:alert] = 'You cannot do that'
+      return redirect_to discussions_path
     end
   end
 
@@ -65,5 +83,9 @@ class DiscussionsController < ApplicationController
 
   def discussion_params
     params.require(:discussion).permit(:body, :title, :user_id, :discussion_category_id, :guest_id)
+  end
+
+  def editable_discussion
+    @current_user.logged_in? || (@discussion.guest_id == cookies.permanent[:mybema_guest_id])
   end
 end
