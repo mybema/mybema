@@ -23,6 +23,12 @@ Mybema::Application.routes.draw do
   #Search
   get 'search' => 'search#results', as: :search
 
+  # API
+  namespace :api do
+    get 'prefetch/articles' => 'search#typeahead_article_prefetch'
+    get 'prefetch/discussions' => 'search#typeahead_discussion_prefetch'
+  end
+
   # Admin section
   get 'admin' => 'admin/overview#index'
   get 'admin/users' => 'admin/users#index'
