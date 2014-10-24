@@ -1,7 +1,11 @@
 /*
 *= require bootstrap.min.css
-*= require_self
 *= require inputs.css
+*= require base.css
+*= require header.css
+*= require category_box.css
+*= require typeahead.css
+*= require_self
 */
 
 label { color: #000; }

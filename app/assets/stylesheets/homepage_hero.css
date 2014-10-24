@@ -1,0 +1,51 @@
+.hero-section {
+  margin: 2em auto;
+}
+
+.hero-section--description {
+  margin: 0.5em auto;
+  text-align: center;
+  width: 80%;
+}
+
+.hero-section--inner-wrapper {
+  text-align:center;
+  width: 100%;
+}
+
+.homepage-hero {
+  background-color: #EEE;
+  border: 1px solid #DEDEDE;
+  border-radius: 3px;
+  padding: 0.5em;
+  margin: 0 auto;
+  width: 96%;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-section {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    margin: 0.25em;
+    min-height: 5em;
+    text-align: center;
+  }
+
+  .hero-section--blurb {
+    margin: 1em auto;
+    width: 80%;
+  }
+
+  .hero-section-container {
+    display: flex;
+    margin: 1em auto;
+    width: 80%;
+  }
+
+  .homepage-hero {
+    border-radius: 0;
+    padding: 2em 0 0 0;
+    width: 100%;
+  }
+}

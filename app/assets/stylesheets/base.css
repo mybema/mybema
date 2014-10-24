@@ -33,12 +33,17 @@ body {
 
 hr { border-color: #eee; }
 
+input[type="submit"] {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+}
+
 label { color: #008DDE; }
 
 nav {
   background-color: #333;
   clear: both;
-  height: 6em;
+  min-height: 6em;
   list-style: none outside none;
   padding: 0.5em;
 }
@@ -50,6 +55,7 @@ strong { font-weight: bold; }
   nav {
     clear: none;
     height: 4em;
+    min-height: 4em;
     padding: 0;
   }
 }
