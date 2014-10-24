@@ -1,0 +1,14 @@
+<div class='categories'>
+  <div class='category-wrap'>
+    <ul>
+        <li class='<%= all_categories?(@category) %>'>
+          <%= link_to 'All categories', discussions_path %>
+        </li>
+      <% @categories.each do |category| %>
+        <li class='<%= active_category?(@category, category) %>'>
+          <%= link_to category.name, discussions_path(category: category.slug) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

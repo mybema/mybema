@@ -1,27 +1,21 @@
-<section class='home-search'>
-  <div class='home-hero-message'>
-    Welcome to the Mybema community. If you've got a question about Mybema, try finding here before contacting our customer service. You can search below or navigate via the links above. See our knowledge base for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representitives and customers by joining or starting a new discussion.
-  </div>
-
-  <%= render 'shared/search' %>
-</section>
-
 <div class='kb-wrapper'>
   <% @sections.each_slice(2) do |section| %>
     <section class='community-content'>
       <div class='article-wrapper'>
         <article class='single-community-item--borderless'>
           <div class='kb-description'>
-            <h2><%= section.first.title %></h2>
+            <h2>
+              <%= link_to section.first.title, '#' %>
+            </h2>
 
             <ul class='kb-items'>
               <% section.first.articles.each do |article| %>
-                <li><%= article.title %></li>
+                <li>
+                  <%= article.title %>
+                </li>
               <% end %>
             </ul>
           </div>
-
-          <%= link_to 'view all', '#' %>
         </article>
       </div>
 
@@ -29,13 +23,15 @@
         <div class='article-wrapper'>
           <article class='single-community-item--borderless'>
             <div class='kb-description'>
-              <h2><%= section.last.title %></h2>
-
-              <%= link_to 'view all', '#' %>
+              <h2>
+                <%= link_to section.last.title, '#' %>
+              </h2>
 
               <ul class='kb-items'>
                 <% section.last.articles.each do |article| %>
-                  <li><%= article.title %></li>
+                  <li>
+                    <%= link_to article.title, article_path(article) %>
+                  </li>
                 <% end %>
               </ul>
             </div>

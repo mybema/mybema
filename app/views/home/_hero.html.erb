@@ -1,0 +1,69 @@
+<section class='homepage-hero'>
+  <div class='home-hero-message'>
+    Welcome to the Mybema community. If you've got a question about Mybema, try finding here before contacting our customer service. You can search below or navigate via the links above. See our knowledge base for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representitives and customers by joining or starting a new discussion.
+  </div>
+
+  <div class="hero-section-container">
+    <div class='hero-section'>
+      <div class='hero-section--inner-wrapper'>
+        <%= link_to discussions_path do %>
+          <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+          <div class='hero-section--description'>
+            All discussions
+
+            <div class="hero-section--blurb">
+              View all of the community's categories and discussions
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='hero-section'>
+      <div class='hero-section--inner-wrapper'>
+        <%= link_to discussions_path do %>
+          <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+          <div class='hero-section--description'>
+            All articles
+
+            <div class="hero-section--blurb">
+              Find tutorials and answers to frequently asked questions
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if show_community_join_button? %>
+      <div class='hero-section'>
+        <div class='hero-section--inner-wrapper'>
+          <%= link_to new_user_registration_path do %>
+            <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+            <div class='hero-section--description'>
+              Join the community
+
+              <div class="hero-section--blurb">
+                Sign up for a more personalized experience
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class='hero-section'>
+      <div class='hero-section--inner-wrapper'>
+        <%= link_to new_discussion_path do %>
+          <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+          <div class='hero-section--description'>
+            Start a discussion
+
+            <div class="hero-section--blurb">
+              Share something or ask the community a question
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

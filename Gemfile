@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails'
+gem 'active_model_serializers'
 gem 'annotate'
 gem 'aws-sdk'
 gem 'carrierwave'

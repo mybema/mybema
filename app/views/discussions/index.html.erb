@@ -1,26 +1,8 @@
-<section class='home-search'>
-  <div class='home-hero-message'>
-    Welcome to the Mybema community. If you've got a question about Mybema, try finding here before contacting our customer service. You can search below or navigate via the links above. See our knowledge base for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representitives and customers by joining or starting a new discussion.
-  </div>
-
-  <%= render 'shared/search' %>
-
-  <ul class='right-action-nav'>
-    <li class='right-action-nav-li'>
-      <%= link_to 'add discussion', new_discussion_path, class: 'greenbutton' %>
-    </li>
-  </ul>
-
-  <% if current_user.guest? %>
-    <ul class='join-community-wrapper'>
-      <li class='right-action-nav-li'>
-        <%= link_to 'join community', new_user_registration_path, class: 'greenbutton' %>
-      </li>
-    </ul>
-  <% end %>
-</section>
-
 <section class='community-content'>
+  <span class='mobile-categories'>
+    <%= render 'categories' %>
+  </span>
+
   <div class='community-container'>
     <% @discussions.each do |discussion| %>
       <article class='single-community-item'>
@@ -49,18 +31,7 @@
     <% end %>
   </div>
 
-  <div class='categories'>
-    <div class='category-wrap'>
-      <ul>
-          <li class='<%= all_categories?(@category) %>'>
-            <%= link_to 'All categories', discussions_path %>
-          </li>
-        <% @categories.each do |category| %>
-          <li class='<%= active_category?(@category, category) %>'>
-            <%= link_to category.name, discussions_path(category: category.slug) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+  <span class='desktop-categories'>
+    <%= render 'categories' %>
+  </span>
 </section>

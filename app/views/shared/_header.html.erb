@@ -1,33 +1,61 @@
 <nav>
   <div class='nav-wrapper'>
-    <%= link_to 'Mybema', root_path, class: 'logo-wrapper' %>
+    <div class='logo-wrapper'>
+      <%= link_to image_tag('new-logo.png'), root_path, class: 'nav--logo' %>
+    </div>
+
+    <span class='desktop-categories'>
+      <%= render 'shared/search' %>
+    </span>
 
     <div class='nav--list'>
       <ul>
-        <li class='nav--li'>
-          <%= link_to 'Discussions', discussions_path %>
-        </li>
-
-        <li class='nav--li'>
-          <%= link_to 'Answers', sections_path %>
-        </li>
-
-        <% if @current_user.logged_in? %>
-          <li class='nav--li'>
-            <%= link_to 'Profile', profile_path %>
+        <%= link_to discussions_path, class: 'nav--li' do %>
+          <li>
+            Discussions
           </li>
         <% end %>
 
-        <li class='nav--li'>
-          <% if current_admin %>
-            <%= link_to 'Admin', admin_path %>
-          <% elsif @current_user.guest? %>
-            <%= link_to 'Log in', new_user_session_path %>
-          <% else %>
-            <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+        <%= link_to sections_path, class: 'nav--li' do %>
+          <li>
+            Answers
+          </li>
+        <% end %>
+
+        <% if @current_user.logged_in? %>
+          <%= link_to profile_path, class: 'nav--li' do %>
+            <li>
+              Profile
+            </li>
           <% end %>
-        </li>
+        <% end %>
+
+        <% if current_admin %>
+          <%= link_to admin_path, class: 'nav--li' do %>
+            <li>
+              Admin
+            </li>
+          <% end %>
+        <% elsif @current_user.guest? %>
+          <%= link_to new_user_session_path, class: 'nav--li' do %>
+            <li>
+              Log in
+            </li>
+          <% end %>
+        <% else %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'nav--li' do %>
+            <li>
+              Log out
+            </li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
+
+<span class='mobile-categories'>
+  <div class='mobile-search-wrapper'>
+    <%= render 'shared/search' %>
+  </div>
+</span>

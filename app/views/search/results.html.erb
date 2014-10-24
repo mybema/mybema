@@ -1,12 +1,6 @@
-<section class='home-search'>
-  <br />
-  <%= render 'shared/search' %>
-</section>
-
 <h1 class='sv-margin ctr-txt'>
   <%= pluralize @search_results.size, 'search result' %>:
 </h1>
-
 
 <section class='search-container'>
   <% @search_results.each do |result| %>
