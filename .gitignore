@@ -19,3 +19,5 @@
 dump.rdb
 config/database.yml
 config/secrets.yml
+/playbooks/public_keys/mybema-user
+/playbooks/hosts

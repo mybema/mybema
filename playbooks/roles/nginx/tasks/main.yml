@@ -1,0 +1,16 @@
+---
+- name: install nginx
+  apt: name=nginx state=present
+
+- name: copy nginx.conf to the server
+  template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf
+
+- name: delete default virtualhost
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: add mybema site-available
+  template: src=mybema.conf.j2 dest=/etc/nginx/sites-available/mybema.conf
+  sudo: yes
+
+- name: link mybema site-enabled
+  file: path=/etc/nginx/sites-enabled/mybema src=/etc/nginx/sites-available/mybema.conf state=link

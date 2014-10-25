@@ -1,0 +1,17 @@
+- name: Create deployment directory
+  file: path={{app_directory}} owner=deploy group=deploy state=directory
+
+- name: Make shared directories
+  file: path={{app_directory}}/shared/{{item}} group=deploy owner=deploy state=directory
+  with_items:
+    - tmp
+    - log
+    - public
+    - bundle
+    - bin
+    - config
+    - config/puma
+  tags: shared
+
+- name: Install database.yml
+  template: src=database.yml.j2 dest={{app_directory}}/config/database.yml force=yes mode=755 owner=deploy

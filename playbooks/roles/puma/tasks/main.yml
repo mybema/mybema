@@ -1,0 +1,11 @@
+- name: copy puma config template
+  template: src=puma.rb.j2 dest={{ app_directory }}config/puma.rb
+
+- name: create puma tmp directory
+  file: path={{ app_directory }}tmp/puma/ state=directory
+
+- name: touch puma pid
+  file: path={{ app_directory }}tmp/puma/pid state=touch
+
+- name: touch puma state
+  file: path={{ app_directory }}tmp/puma/state state=touch

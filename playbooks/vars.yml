@@ -1,0 +1,8 @@
+---
+redis_port: 6379
+ruby: ruby-2.1.2
+app_name: mybema
+app_directory: /home/deploy/mybema/
+system_packages:
+  - build-essential
+  - git
