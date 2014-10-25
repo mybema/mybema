@@ -28,6 +28,7 @@ require 'file_size_validator'
 class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   validates :avatar, file_size: { maximum: 1.megabytes.to_i }
+  validates :username, :email, presence: true, uniqueness: true
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussions, dependent: :nullify

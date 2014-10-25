@@ -26,6 +26,15 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  test "raises validation warning if no username is added" do
+    User.new.invalid?(:username).must_equal true
+  end
+
+  test "username name must be unique" do
+    create(:user, username: 'uniquename')
+    User.new(username: 'uniquename').invalid?(:username).must_equal true
+  end
+
   test "nullifies foreign key for discussion when user is deleted" do
     user = create(:user)
     discussion = create(:discussion, user: user)
