@@ -5,7 +5,7 @@ class DiscussionEditing < Capybara::Rails::TestCase
     create(:user, username: 'Guest')
     create(:discussion_category, name: 'Cool category')
     visit root_path
-    click_link 'add discussion'
+    click_link 'Start a discussion'
     fill_in 'Add a title', with: 'A title'
     select 'Cool category', from: 'Choose category'
     fill_in 'Add your content', with: 'Some cool content'

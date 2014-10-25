@@ -5,7 +5,7 @@ class DiscussionCreation < Capybara::Rails::TestCase
     create(:user, username: 'Guest')
     create(:discussion_category, name: 'Cool category')
     visit root_path
-    click_link 'add discussion'
+    click_link 'Start a discussion'
     fill_in 'Add a title', with: 'A title'
     select 'Cool category', from: 'Choose category'
     fill_in 'Add your content', with: 'Some cool content'
@@ -18,7 +18,7 @@ class DiscussionCreation < Capybara::Rails::TestCase
     create(:user, username: 'Guest')
     create(:discussion_category, name: 'Cool category')
     visit root_path
-    click_link 'add discussion'
+    click_link 'Start a discussion'
     click_button 'add discussion'
     assert_content page, 'Your discussion could not be created'
     assert_content page, 'A category needs to be added'

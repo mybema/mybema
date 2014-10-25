@@ -7,13 +7,14 @@ class RegisteringTest < Capybara::Rails::TestCase
   test 'user can sign up' do
     create(:user, username: 'Guest')
     visit root_path
-    click_link 'join community'
+    click_link 'Join the community'
     fill_in 'Email', with: 'bob@gmail.com'
+    fill_in 'Username', with: 'bobby_G'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_button 'Sign up'
     assert_content page, 'Welcome! You have signed up successfully'
-    refute_content page, 'join community'
+    refute_content page, 'Join the community'
     assert_content page, 'Log out'
     refute_content page, 'Log in'
   end
@@ -22,14 +23,14 @@ class RegisteringTest < Capybara::Rails::TestCase
     guest = create(:user, id: 65, username: 'Guest')
     create(:discussion_category, name: 'Cool category')
     visit root_path
-    click_link 'add discussion'
+    click_link 'Start a discussion'
     fill_in 'Add a title', with: 'A title'
     select 'Cool category', from: 'Choose category'
     fill_in 'Add your content', with: 'Some cool content'
     click_button 'add discussion'
     assert_equal guest.discussions.count, 1
     visit root_path
-    click_link 'join community'
+    click_link 'Join the community'
     fill_in 'Email', with: 'bob@gmail.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -47,7 +48,7 @@ class RegisteringTest < Capybara::Rails::TestCase
     click_button 'Respond'
     assert_equal guest.discussion_comments.count, 1
     visit root_path
-    click_link 'join community'
+    click_link 'Join the community'
     fill_in 'Email', with: 'bob@gmail.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
