@@ -8,8 +8,10 @@ class Search < Capybara::Rails::TestCase
                                      user: guest, title: 'Good chat', body: 'This is very informative')
     Discussion.import force: true, refresh: true
     visit root_path
-    fill_in 'query', with: 'chat'
-    click_button 'SEARCH'
+    within '.desktop-categories' do
+      fill_in 'query', with: 'chat'
+      click_button 'SEARCH'
+    end
     assert_content page, 'Good chat'
   end
 
@@ -19,8 +21,10 @@ class Search < Capybara::Rails::TestCase
     create(:discussion, user: guest, hidden: true, title: 'Good chat', body: 'Will not show')
     Discussion.import force: true, refresh: true
     visit root_path
-    fill_in 'query', with: 'chat'
-    click_button 'SEARCH'
+    within '.desktop-categories' do
+      fill_in 'query', with: 'chat'
+      click_button 'SEARCH'
+    end
     assert_content page, 'Will show'
     assert_content page, '1 search result'
     refute_content page, 'Will not show'
@@ -31,8 +35,10 @@ class Search < Capybara::Rails::TestCase
     create(:article, title: 'White walls', body: 'and black doors')
     Article.import force: true, refresh: true
     visit root_path
-    fill_in 'query', with: 'walls'
-    click_button 'SEARCH'
+    within '.desktop-categories' do
+      fill_in 'query', with: 'walls'
+      click_button 'SEARCH'
+    end
     assert_content page, 'White walls'
     assert_content page, '1 search result'
   end
