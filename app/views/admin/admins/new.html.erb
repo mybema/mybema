@@ -4,7 +4,7 @@
   </h2>
 
   <div class='guideline-form' %>
-    <%= form_for @admin, url: admins_path do |f| %>
+    <%= form_for @admin, url: administrators_path do |f| %>
       <div>
         <% if @admin.errors.any? %>
           <ul>
@@ -33,5 +33,5 @@
     <% end %>
   </div>
 
-  <%= link_to 'Cancel and return to list of admin', admins_path, class: 'discussion-form--cancel' %>
+  <%= link_to 'Cancel and return to list of admin', administrators_path, class: 'discussion-form--cancel' %>
 </section>

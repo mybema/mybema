@@ -29,6 +29,12 @@
 require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
+  test '#can_destroy' do
+    admin = Admin.new
+    assert_equal admin.can_destroy(Admin.new), true
+    assert_equal admin.can_destroy(admin), false
+  end
+
   test '#username' do
     admin = Admin.new(name: 'Mike')
     assert_equal 'Mike', admin.username

@@ -1,32 +1,38 @@
 <section class='dashboard-container'>
   <p class='guidelines-intro'>
-    Your knowledgebase currently has the following sections:
+    Below is the list of admins.
   </p>
 
-  <%= link_to 'Invite admin', new_admin_path, class: 'admin-btn green-btn flt-rght' %>
+  <%= link_to 'Invite admin', new_administrator_path, class: 'admin-btn green-btn flt-rght' %>
 
   <table class='table table-hover'>
     <thead>
       <tr>
-        <th>Section</th>
+        <th>Name</th>
         <th>Joined?</th>
-        <th class='rght-txt'>Articles</th>
+        <th>Email</th>
+        <th class='ctr-txt'>Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <% @admins.each do |admin| %>
         <tr>
-          <td class='clickable-row js-clickable-row' data-url='<%= root_path %>'>
-            <%= link_to admin.name, root_path %>
+          <td>
+            <%= admin.name %>
           </td>
 
           <td>
             <%= admin.invitation_accepted_at? %>
           </td>
 
-          <td class='rght-txt'>
+          <td>
             <%= admin.email %>
+          </td>
+
+          <td class='ctr-txt'>
+            <%= link_to 'delete', administrator_path(admin), method: :delete,
+                data: { confirm: 'Are you sure?' }, id: dom_id(admin) %>
           </td>
         </tr>
       <% end %>

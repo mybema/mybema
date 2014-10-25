@@ -45,6 +45,19 @@ class Admin::AdminsControllerTest < ActionController::TestCase
 
   test "POST create will redirect to admins_path" do
     post :create, admin: { name: 'Bob', email: 'bob@fake.com' }
-    assert_redirected_to admins_path
+    assert_redirected_to administrators_path
+  end
+
+  test "DELETE destroy will destroy an admin" do
+    create(:admin, name: 'name', id: 101)
+    assert_difference 'Admin.count', -1 do
+      delete :destroy, id: 101
+    end
+  end
+
+  test "DELETE destroy redirects to the administrators index" do
+    create(:admin, name: 'name', id: 102)
+    delete :destroy, id: 102
+    assert_redirected_to administrators_path
   end
 end

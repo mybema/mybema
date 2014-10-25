@@ -10,10 +10,21 @@ class Admin::AdminsController < AdminsController
   def create
     if Admin.invite!(email: admin_params[:email], name: admin_params[:name])
       flash[:notice] = 'Your invitation was sent'
-      redirect_to admins_path
+      redirect_to administrators_path
     else
       flash[:alert] = 'Invitation could not be sent'
       render 'new'
+    end
+  end
+
+  def destroy
+    @admin = Admin.find(params[:id])
+
+    if current_admin.can_destroy(@admin) && @admin.destroy
+      redirect_to administrators_path
+    else
+      flash[:alert] = 'You cannot delete yourself'
+      redirect_to administrators_path
     end
   end
 
