@@ -59,3 +59,21 @@ strong { font-weight: bold; }
     padding: 0;
   }
 }
+
+.flash {
+  display: inline-block;
+  width: 83.334%;
+  padding: 1em;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.flash-notice {
+  background-color: #C0DA6E;
+}
+
+.flash-alert {
+  background-color: #B02D32;
+  color: #FFF;
+}
