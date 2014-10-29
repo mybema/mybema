@@ -16,3 +16,6 @@ Admin.create(name: 'Admin', email: 'admin@admin.admin', password: 'password')
 
 # Add default hero message
 HeroMessage.create(message: "Welcome to the Mybema community. If you've got a question about Mybema, try finding here before contacting our customer service. You can search below or navigate via the links above. See our knowledge base for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representitives and customers by joining or starting a new discussion.")
+
+# Create general category
+DiscussionCategory.create(name: 'General', description: 'General off-topic chat')
