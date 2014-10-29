@@ -1,0 +1,28 @@
+<h4 class='config-section--heading'>
+  Hero message
+</h4>
+
+<p class='config-section--description'>
+  Your hero message is shown on your community's homepage to new visitors.
+</p>
+
+<%= form_for @hero_message do |f| %>
+  <div>
+    <% if @hero_message.errors.any? %>
+      <ul>
+        <% @hero_message.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class='discussion-form--body'>
+      <%= f.label :message %>
+      <%= f.text_area :message, class: 'discussion-form--input' %>
+    </div>
+  </div>
+
+  <%= f.submit "update hero message", class: "greenbutton" %>
+<% end %>
