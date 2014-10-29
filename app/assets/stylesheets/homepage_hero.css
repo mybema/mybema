@@ -13,6 +13,11 @@
   width: 100%;
 }
 
+.hero-section--inner-wrapper a:hover {
+  color: #12C;
+  text-decoration: none;
+}
+
 .homepage-hero {
   background-color: #EEE;
   border: 1px solid #DEDEDE;
