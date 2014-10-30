@@ -1,7 +1,9 @@
 <section class='homepage-hero'>
-  <div class='home-hero-message'>
-    <%= @hero_message.message %>
-  </div>
+  <% if @hero_message %>
+    <div class='home-hero-message'>
+      <%= @hero_message.message %>
+    </div>
+  <% end %>
 
   <div class="hero-section-container">
     <div class='hero-section'>
