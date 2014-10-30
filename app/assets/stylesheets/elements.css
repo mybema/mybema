@@ -434,9 +434,28 @@
 
   /* Homepage hero */
   .home-hero-message {
-    clear:both;
+    background-color: #E2E2E2;
+    border: 1px solid #8A8A8A;
+    border-radius: 5px;
+    clear: both;
     font-size:1.2em;
     margin: 0 10% 2em 10%;
+    padding: 0.75em;
+  }
+
+  .home-hero--dismiss-btn {
+    color: #000;
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 0.25em;
+    opacity: 0.3;
+    text-decoration: none;
+  }
+
+  .home-hero--dismiss-btn:hover {
+    opacity: 0.5;
+    cursor: pointer;
   }
 
   /* Homepage search */

@@ -1,6 +1,7 @@
 <section class='homepage-hero'>
-  <% if @hero_message %>
+  <% if displayable_hero(@hero_message) %>
     <div class='home-hero-message'>
+      <div class='home-hero--dismiss-btn'>&times;</div>
       <%= @hero_message.message %>
     </div>
   <% end %>

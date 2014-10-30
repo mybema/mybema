@@ -17,6 +17,16 @@ class ApplicationHelperTest < ActionView::TestCase
     active_category?(same, same).must_equal 'active-category'
   end
 
+  test 'displayable_hero' do
+    displayable_hero.must_equal nil
+
+    msg = create(:hero_message)
+    displayable_hero(msg).must_equal true
+
+    cookies['dismissed_hero'] = 'true'
+    displayable_hero(msg).must_equal false
+  end
+
   test 'show_community_join_button?' do
     def self.current_admin; false; end
     def self.current_user; User.new(username: 'Guest'); end
