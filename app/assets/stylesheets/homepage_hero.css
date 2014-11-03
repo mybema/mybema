@@ -5,7 +5,11 @@
 .hero-section--description {
   margin: 0.5em auto;
   text-align: center;
-  width: 80%;
+  width: 90%;
+}
+
+.hero-section--inner-wrapper a {
+  color: #000;
 }
 
 .hero-section--inner-wrapper {
@@ -25,6 +29,11 @@
   padding: 0.5em;
   margin: 0 auto;
   width: 96%;
+}
+
+.homepage-hero-image {
+  width: 75px;
+  height: 75px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -52,5 +61,10 @@
     border-radius: 0;
     padding: 2em 0 0 0;
     width: 100%;
+  }
+
+  .homepage-hero-image {
+    width: 150px;
+    height: 150px;
   }
 }
