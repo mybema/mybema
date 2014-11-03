@@ -63,8 +63,8 @@ strong { font-weight: bold; }
 .flash {
   display: inline-block;
   width: 83.334%;
-  padding: 1em;
   margin: 0;
+  padding: 1em;
   text-align: center;
   font-weight: bold;
 }

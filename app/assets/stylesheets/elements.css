@@ -1,3 +1,8 @@
+.view-all-link {
+  text-align: center;
+  margin: 2em auto;
+}
+
 .greenbutton {
   background-color: rgb(150,190,115);
   border-radius: 3px;
