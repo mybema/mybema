@@ -19,6 +19,8 @@ class Discussion < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
   include UserDetails
 
+  index_name "discussion_#{Rails.env}"
+
   belongs_to :discussion_category, counter_cache: true
   belongs_to :user
   has_many :discussion_comments, dependent: :destroy

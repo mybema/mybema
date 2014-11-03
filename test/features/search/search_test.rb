@@ -1,12 +1,21 @@
 require 'test_helper'
 
 class Search < Capybara::Rails::TestCase
+  def setup
+    create(:app_settings)
+    @guest = create(:user, username: 'Guest')
+  end
+
+  def refresh_search_indices
+    Discussion.import force: true, refresh: true
+    Article.import force: true, refresh: true
+  end
+
   test 'user can search for a discussion' do
-    guest      = create(:user, username: 'Guest')
     category   = create(:discussion_category, name: 'Cool category')
     discussion = create(:discussion, discussion_category: category,
-                                     user: guest, title: 'Good chat', body: 'This is very informative')
-    Discussion.import force: true, refresh: true
+                                     user: @guest, title: 'Good chat', body: 'This is very informative')
+    refresh_search_indices
     visit root_path
     within '.desktop-categories' do
       fill_in 'query', with: 'chat'
@@ -16,10 +25,9 @@ class Search < Capybara::Rails::TestCase
   end
 
   test 'search only returns visible discussions' do
-    guest = create(:user, username: 'Guest')
-    create(:discussion, user: guest, title: 'Good chat', body: 'Will show')
-    create(:discussion, user: guest, hidden: true, title: 'Good chat', body: 'Will not show')
-    Discussion.import force: true, refresh: true
+    create(:discussion, user: @guest, title: 'Good chat', body: 'Will show')
+    create(:discussion, user: @guest, hidden: true, title: 'Good chat', body: 'Will not show')
+    refresh_search_indices
     visit root_path
     within '.desktop-categories' do
       fill_in 'query', with: 'chat'
@@ -31,9 +39,8 @@ class Search < Capybara::Rails::TestCase
   end
 
   test 'search returns relevant articles' do
-    guest = create(:user, username: 'Guest')
     create(:article, title: 'White walls', body: 'and black doors')
-    Article.import force: true, refresh: true
+    refresh_search_indices
     visit root_path
     within '.desktop-categories' do
       fill_in 'query', with: 'walls'

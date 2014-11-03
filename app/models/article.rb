@@ -14,6 +14,8 @@ class Article < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  index_name "article_#{Rails.env}"
+
   belongs_to :section, counter_cache: true
   validates_uniqueness_of :title, scope: [:section_id]
   validates :title, :body, presence: true
