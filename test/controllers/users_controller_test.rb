@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   def setup
+    create(:app_settings)
     create(:user, username: 'Guest')
     @user = create(:user)
   end

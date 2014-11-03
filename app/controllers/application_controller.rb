@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :fetch_user_and_handle_guest_cookie
+  before_action :initialize_app, :fetch_user_and_handle_guest_cookie
+
+  def initialize_app
+    @app ||= AppSettings.first
+  end
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(Admin)

@@ -3,6 +3,7 @@ require 'test_helper'
 class SectionsControllerTest < ActionController::TestCase
   def setup
     create(:user, username: 'Guest')
+    create(:app_settings)
   end
 
   test "GET index responds successfully" do

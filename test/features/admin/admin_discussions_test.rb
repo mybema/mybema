@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AdminDiscussionsTest < Capybara::Rails::TestCase
   def setup
+    create(:app_settings)
     create(:user, username: 'Guest')
     create(:admin, name: 'Super Admin', email: 'admin@test.com', password: 'password')
     visit root_path

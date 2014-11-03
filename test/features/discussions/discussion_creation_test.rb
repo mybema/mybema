@@ -1,9 +1,13 @@
 require 'test_helper'
 
 class DiscussionCreation < Capybara::Rails::TestCase
-  test 'user can create a discussion' do
+  def setup
+    create(:app_settings)
     create(:user, username: 'Guest')
     create(:discussion_category, name: 'Cool category')
+  end
+
+  test 'user can create a discussion' do
     visit root_path
     click_link 'Start a discussion'
     fill_in 'Add a title', with: 'A title'
@@ -15,8 +19,6 @@ class DiscussionCreation < Capybara::Rails::TestCase
   end
 
   test 'user sees validation errors when unsuccessfully creating a new discussion' do
-    create(:user, username: 'Guest')
-    create(:discussion_category, name: 'Cool category')
     visit root_path
     click_link 'Start a discussion'
     click_button 'add discussion'

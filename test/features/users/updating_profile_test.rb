@@ -1,15 +1,18 @@
 require 'test_helper'
 
 class UpdatingProfile < Capybara::Rails::TestCase
-  test 'guest user cannot view their profile page' do
+  def setup
+    create(:app_settings)
     create(:user, username: 'Guest')
+  end
+
+  test 'guest user cannot view their profile page' do
     visit profile_path
     assert_content page, 'You have to be signed in to do that'
     refute_content page, 'Profile'
   end
 
   test 'signed in users can update their profiles' do
-    create(:user, username: 'Guest')
     create(:user, email: 'bob@gmail.com', password: 'password')
     visit root_path
     click_link 'Log in'

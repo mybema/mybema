@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AdminDeletingTest < Capybara::Rails::TestCase
   def setup
+    create(:app_settings)
     create(:user, username: 'Guest')
     create(:admin, name: 'Other Admin', id: 666)
     create(:admin, name: 'Super Admin', id: 665, email: 'admin@test.com', password: 'password')

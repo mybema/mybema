@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Admin::AdminsControllerTest < ActionController::TestCase
   def setup
+    create(:app_settings)
     @admin = create(:admin)
     create(:user, username: 'Guest')
     sign_in(:admin, @admin)

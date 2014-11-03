@@ -6,11 +6,11 @@
   Your hero message is shown on your community's homepage to new visitors.
 </p>
 
-<%= form_for @hero_message do |f| %>
+<%= form_for @app do |f| %>
   <div>
-    <% if @hero_message.errors.any? %>
+    <% if @app.errors.any? %>
       <ul>
-        <% @hero_message.errors.full_messages.each do |message| %>
+        <% @app.errors.full_messages.each do |message| %>
           <li>
             <%= message %>
           </li>
@@ -19,8 +19,8 @@
     <% end %>
 
     <div class='discussion-form--body'>
-      <%= f.label :message %>
-      <%= f.text_area :message, class: 'discussion-form--input' %>
+      <%= f.label :hero_message %>
+      <%= f.text_area :hero_message, class: 'discussion-form--input' %>
     </div>
   </div>
 

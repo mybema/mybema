@@ -3,6 +3,7 @@ require 'test_helper'
 class ArticlesControllerTest < ActionController::TestCase
   def setup
     create(:user, username: 'Guest')
+    create(:app_settings)
   end
 
   test "GET show assigns the article" do

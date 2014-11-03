@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025150202) do
+ActiveRecord::Schema.define(version: 20141031174801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20141025150202) do
   add_index "admins", ["invitations_count"], name: "index_admins_on_invitations_count", using: :btree
   add_index "admins", ["invited_by_id"], name: "index_admins_on_invited_by_id", using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "app_settings", force: true do |t|
+    t.string   "all_articles_img"
+    t.string   "all_discussions_img"
+    t.string   "join_community_img"
+    t.string   "new_discussion_img"
+    t.string   "logo"
+    t.text     "hero_message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "articles", force: true do |t|
     t.text     "body"
@@ -97,12 +108,6 @@ ActiveRecord::Schema.define(version: 20141025150202) do
 
   create_table "guidelines", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "hero_messages", force: true do |t|
-    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

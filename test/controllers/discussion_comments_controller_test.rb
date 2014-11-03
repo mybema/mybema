@@ -3,6 +3,7 @@ require 'test_helper'
 class DiscussionCommentsControllerTest < ActionController::TestCase
   def setup
     create(:user, username: 'Guest')
+    create(:app_settings)
   end
 
   test "POST create will create a new comment" do

@@ -3,6 +3,7 @@ require 'test_helper'
 class DashboardTest < Capybara::Rails::TestCase
   def setup
     create(:user, username: 'Guest')
+    create(:app_settings)
   end
 
   test "visitors cannot access sidekiq dashboard" do

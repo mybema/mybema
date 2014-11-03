@@ -3,6 +3,7 @@ require 'test_helper'
 class DiscussionsControllerTest < ActionController::TestCase
   def setup
     @guest = create(:user, username: 'Guest')
+    create(:app_settings)
   end
 
   test "GET index responds successfully" do

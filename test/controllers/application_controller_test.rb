@@ -9,6 +9,7 @@ end
 class AppControllerTest < ActionController::TestCase
   def setup
     @guest_user = create(:user, username: 'Guest')
+    @app = create(:app_settings)
   end
 
   def with_fake_routing
@@ -17,6 +18,13 @@ class AppControllerTest < ActionController::TestCase
         get '/example' => "app#index"
       end
       yield
+    end
+  end
+
+  test "assigns the app settings" do
+    with_fake_routing do
+      get :index
+      assert_equal @app, assigns(:app)
     end
   end
 

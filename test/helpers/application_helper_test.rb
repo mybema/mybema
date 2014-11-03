@@ -20,7 +20,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test 'displayable_hero' do
     displayable_hero.must_equal nil
 
-    msg = create(:hero_message)
+    msg = create(:app_settings).hero_message
     displayable_hero(msg).must_equal true
 
     cookies['dismissed_hero'] = 'true'

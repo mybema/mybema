@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class DiscussionEditing < Capybara::Rails::TestCase
+  def setup
+    create(:app_settings)
+    @guest = create(:user, username: 'Guest')
+  end
+
   test 'guest can edit a guest discussion if the discussion guid matches their cookie guid' do
-    create(:user, username: 'Guest')
     create(:discussion_category, name: 'Cool category')
     visit root_path
     click_link 'Start a discussion'
@@ -19,7 +23,6 @@ class DiscussionEditing < Capybara::Rails::TestCase
   end
 
   test 'guest cannot edit a guest discussion if the discussion guid differs from their cookie guid' do
-    create(:user, username: 'Guest')
     discussion = create(:discussion, title: 'Not my discussion')
     visit discussion_path(discussion)
     refute_content page, 'Edit this post'
@@ -28,7 +31,6 @@ class DiscussionEditing < Capybara::Rails::TestCase
   end
 
   test 'signed in user can edit their own discussion' do
-    create(:user, username: 'Guest')
     user = create(:user, email: 'bob@gmail.com', password: 'password')
     discussion = create(:discussion, user: user, title: "Bob's discussion")
     visit root_path
@@ -45,9 +47,8 @@ class DiscussionEditing < Capybara::Rails::TestCase
   end
 
   test "signed in user cannot edit another user's discussion" do
-    guest = create(:user, username: 'Guest')
     user = create(:user, email: 'bob@gmail.com', password: 'password')
-    discussion = create(:discussion, user: guest, title: "Guest's discussion")
+    discussion = create(:discussion, user: @guest, title: "Guest's discussion")
     visit root_path
     click_link 'Log in'
     fill_in 'Email', with: 'bob@gmail.com'

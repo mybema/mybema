@@ -9,7 +9,7 @@
 #
 
 FactoryGirl.define do
-  factory :hero_message do
-    message { Faker::Lorem.sentence(10) }
+  factory :app_settings do
+    hero_message { Faker::Lorem.sentence(10) }
   end
 end
