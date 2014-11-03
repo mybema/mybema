@@ -10,7 +10,7 @@
     <div class='hero-section'>
       <div class='hero-section--inner-wrapper'>
         <%= link_to discussions_path do %>
-          <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+          <%= image_tag(@app.all_discussions_image, class: 'homepage-hero-image', alt: 'all discussions') %>
           <div class='hero-section--description'>
             All discussions
 
@@ -24,8 +24,8 @@
 
     <div class='hero-section'>
       <div class='hero-section--inner-wrapper'>
-        <%= link_to discussions_path do %>
-          <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+        <%= link_to sections_path do %>
+          <%= image_tag(@app.all_articles_image, class: 'homepage-hero-image', alt: 'all articles') %>
           <div class='hero-section--description'>
             All articles
 
@@ -41,7 +41,7 @@
       <div class='hero-section'>
         <div class='hero-section--inner-wrapper'>
           <%= link_to new_user_registration_path do %>
-            <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+            <%= image_tag(@app.join_community_image, class: 'homepage-hero-image', alt: 'join community') %>
             <div class='hero-section--description'>
               Join the community
 
@@ -57,7 +57,7 @@
     <div class='hero-section'>
       <div class='hero-section--inner-wrapper'>
         <%= link_to new_discussion_path do %>
-          <img src='http://i.imgur.com/AjZ9OnH.png' width='150' height='150'>
+          <%= image_tag(@app.new_discussion_image, class: 'homepage-hero-image', alt: 'start new discussion') %>
           <div class='hero-section--description'>
             Start a discussion
 
