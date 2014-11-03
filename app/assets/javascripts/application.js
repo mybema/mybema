@@ -7,8 +7,10 @@
 //= require typeahead_implementation.js
 //= require_self
 
+// Users can dismiss the hero message by clicking on the X.
+// This sets a cookie that determines visibility of the message.
 $(document).ready(function() {
-  var dismissBtn = $('.home-hero--dismiss-btn'),
+  var dismissBtn = $('#dismiss-hero-msg'),
       heroMsg = $('.home-hero-message');
 
   dismissBtn.click(function() {
