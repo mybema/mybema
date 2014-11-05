@@ -36,7 +36,6 @@ Mybema::Application.routes.draw do
   put 'admin/comments/:id/toggle-visibility' => 'admin/discussion_comments#toggle_visibility', as: :admin_toggle_comment_visibility
 
   scope :admin, module: 'admin' do
-    get 'settings' => 'settings#index'
     resources :admins, only: [:index, :new, :create, :destroy], as: :administrators
     resources :guidelines, only: [:index, :new, :create, :destroy], as: :guidelines
     resources :discussions, only: [:index, :edit, :update, :destroy], as: :admin_discussions
@@ -46,5 +45,6 @@ Mybema::Application.routes.draw do
     end
     resources :hero_messages, only: [:update]
     resources :articles, only: :index, as: :admin_articles
+    resources :app_settings
   end
 end

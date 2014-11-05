@@ -1,0 +1,57 @@
+<h4 class='config-section--heading'>
+  Homepage icons
+</h4>
+
+<p class='config-section--description'>
+  Upload new images to replace the existing icons on the homepage for each of the 4 sections.
+</p>
+
+<%= form_for @app do |f| %>
+  <div class='admin-image-upload-container'>
+    <div class='admin-image-upload-wrapper'>
+      <div class='discussion-form--label'>
+        <div class='homepage-image-header'>
+          All discussions
+        </div>
+
+        <%= image_tag @app.all_discussions_image, class: 'user-avatar inline-avatar', alt: 'avatar' %>
+        <%= f.file_field :all_discussions_img, class: 'borderless inline-upload-form' %>
+      </div>
+    </div>
+
+    <div class='admin-image-upload-wrapper'>
+      <div class='discussion-form--label'>
+        <div class='homepage-image-header'>
+          All articles
+        </div>
+
+        <%= image_tag @app.all_articles_image, class: 'user-avatar inline-avatar', alt: 'avatar' %>
+        <%= f.file_field :all_articles_img, class: 'borderless inline-upload-form' %>
+      </div>
+    </div>
+
+    <div class='admin-image-upload-wrapper'>
+      <div class='discussion-form--label'>
+        <div class='homepage-image-header'>
+          Join community
+        </div>
+
+        <%= image_tag @app.join_community_image, class: 'user-avatar inline-avatar', alt: 'avatar' %>
+        <%= f.file_field :join_community_img, class: 'borderless inline-upload-form' %>
+      </div>
+    </div>
+
+    <div class='admin-image-upload-wrapper'>
+      <div class='discussion-form--label'>
+        <div class='homepage-image-header'>
+          New discussion
+        </div>
+
+        <%= image_tag @app.new_discussion_image, class: 'user-avatar inline-avatar', alt: 'avatar' %>
+        <%= f.file_field :new_discussion_img, class: 'borderless inline-upload-form' %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit "upload new images", class: "greenbutton" %>
+<% end %>

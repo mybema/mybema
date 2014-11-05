@@ -10,23 +10,16 @@
 
 label { color: #000; }
 
+.admin-image-upload-container {
+  margin-top: 1em;
+}
+
+.admin-image-upload-wrapper {
+  margin-bottom: 2em;
+}
+
 .config-section--description {
   margin: 0.5em 0;
-}
-
-.discussion-warning-wrapper {
-  background-color:rgb(240,130,60);
-  border-radius: 3px;
-  color: #333;
-  margin-bottom: 0.5em;
-  padding: 0.25em;
-  text-align: center;
-}
-
-.flt-rght {
-  float: right;
-  clear: both;
-  margin-bottom: 1em;
 }
 
 .clickable-row,
@@ -72,6 +65,21 @@ label { color: #000; }
   width: 49%;
 }
 
+.discussion-warning-wrapper {
+  background-color:rgb(240,130,60);
+  border-radius: 3px;
+  color: #333;
+  margin-bottom: 0.5em;
+  padding: 0.25em;
+  text-align: center;
+}
+
+.flt-rght {
+  float: right;
+  clear: both;
+  margin-bottom: 1em;
+}
+
 .full-height {
   min-height: calc(100% - 4em);
 }
@@ -92,6 +100,21 @@ label { color: #000; }
   display: inline-block;
   margin-left: 1.5em;
   width: 50%;
+}
+
+.homepage-image-header {
+  margin-bottom: 0.5em;
+}
+
+.inline-avater {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inline-upload-form {
+  margin-left: 1em;
+  display: inline-block!important;
+  vertical-align: middle;
 }
 
 .main-description {

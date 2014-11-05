@@ -15,7 +15,7 @@ class AdminArticlesTest < Capybara::Rails::TestCase
 
   test 'admin sees the list of sections' do
     create(:section, title: 'Only section')
-    visit settings_path
+    visit app_settings_path
     fill_in 'Hero message', with: 'A shorter message'
     click_button 'update hero message'
     assert_content page, 'App settings have been updated'
