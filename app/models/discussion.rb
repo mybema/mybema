@@ -55,10 +55,10 @@ class Discussion < ActiveRecord::Base
   def user_is_guest
     user = User.where(id: self.user_id).first
 
-    if guest_id
-      true
-    elsif Rails.env.test?
+    if Rails.env.test?
       false
+    elsif guest_id
+      true
     else
       !(user && user.logged_in?)
     end
