@@ -41,12 +41,25 @@
 @media only screen and (min-width: 768px) {
   .home-search--btn {
     border-radius: 0 0.5em 0.5em 0;
+    font-size: 0.5em;
+    line-height: 4.5em;
   }
 
   .home-search--wrapper {
     margin-left: 1%;
     float: left;
     margin-top: 0.75em;
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .home-search--wrapper {
     width: 30em;
+  }
+
+  .home-search--btn {
+    font-size: 0.75em;
+    line-height: 3em;
   }
 }
