@@ -10,10 +10,21 @@
   </head>
   <body>
     <%= render 'shared/header' %>
-    <% if notice || alert %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <div id='flash-notices'>
+      <% if notice %>
+        <p class="flash flash-notice">
+          <span id='dismiss-flash-msg' class='home-hero--dismiss-btn'>&times;</span>
+          <%= notice %>
+        </p>
+      <% end %>
+
+      <% if alert %>
+        <p class="flash flash-alert">
+          <span id='dismiss-flash-msg' class='home-hero--dismiss-btn'>&times;</span>
+          <%= alert %>
+        </p>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

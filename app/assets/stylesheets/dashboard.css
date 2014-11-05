@@ -74,6 +74,15 @@ label { color: #000; }
   text-align: center;
 }
 
+.flash {
+  display: inline-block;
+  width: 83.334%;
+  margin: 0;
+  padding: 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
 .flt-rght {
   float: right;
   clear: both;
