@@ -34,6 +34,7 @@ class RegisteringTest < Capybara::Rails::TestCase
     assert_equal @guest.discussions.count, 1
     visit root_path
     click_link 'Join the community'
+    fill_in 'Username', with: 'bob'
     fill_in 'Email', with: 'bob@gmail.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
@@ -51,6 +52,7 @@ class RegisteringTest < Capybara::Rails::TestCase
     assert_equal @guest.discussion_comments.count, 1
     visit root_path
     click_link 'Join the community'
+    fill_in 'Username', with: 'bob'
     fill_in 'Email', with: 'bob@gmail.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
