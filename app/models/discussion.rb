@@ -18,12 +18,15 @@ class Discussion < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   include UserDetails
+  include Humanizer
 
   index_name "discussion_#{Rails.env}"
 
   belongs_to :discussion_category, counter_cache: true
   belongs_to :user
   has_many :discussion_comments, dependent: :destroy
+
+  require_human_on :create, if: :user_is_guest
 
   validates :discussion_category_id, :body, :title, presence: true
 
@@ -44,6 +47,20 @@ class Discussion < ActiveRecord::Base
       user.username
     else
       'Admin'
+    end
+  end
+
+  private
+
+  def user_is_guest
+    user = User.where(id: self.user_id).first
+
+    if guest_id
+      true
+    elsif Rails.env.test?
+      false
+    else
+      !(user && user.logged_in?)
     end
   end
 end

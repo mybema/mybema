@@ -43,6 +43,7 @@ class DiscussionsController < ApplicationController
   def show
     @discussion = Discussion.find(params[:id])
     @admin_id   = current_admin.id if current_admin
+    @comment    = DiscussionComment.new
     @comments   = @discussion.discussion_comments.sort_by(&:created_at)
 
     if @discussion.hidden? && @admin_id == nil
@@ -82,7 +83,7 @@ class DiscussionsController < ApplicationController
   end
 
   def discussion_params
-    params.require(:discussion).permit(:body, :title, :user_id, :discussion_category_id, :guest_id)
+    params.require(:discussion).permit(:body, :title, :user_id, :discussion_category_id, :guest_id, :humanizer_answer, :humanizer_question_id)
   end
 
   def editable_discussion
