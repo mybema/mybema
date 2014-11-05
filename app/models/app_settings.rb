@@ -56,7 +56,7 @@ class AppSettings < ActiveRecord::Base
 
   def logo_image
     if logo.present?
-      logo_img.url
+      logo.url
     else
       logo.default_url
     end
