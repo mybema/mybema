@@ -7,7 +7,7 @@
 //= require typeahead_implementation.js
 //= require_self
 
-jQuery(document).ready(function($) {
+$(document).ready(function() {
 
   // Make entire row clickable as opposed to just the link text
   $(".js-clickable-row").click(function() {
