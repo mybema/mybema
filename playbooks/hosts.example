@@ -1,5 +1,0 @@
-[production]
-255.255.255.255
-
-[production:vars]
-server_name=www.example.com

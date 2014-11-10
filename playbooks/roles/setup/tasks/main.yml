@@ -1,5 +1,0 @@
-- include: system.yml tags=system
-- include: user.yml tags=user
-- include: setup.yml tags=setup
-- include: firewall.yml tags=firewall
-- include: ruby.yml tags=ruby

@@ -1,8 +1,0 @@
----
-- hosts: production
-  remote_user: deploy
-  roles:
-    - deploy
-
-  vars_files:
-    - vars.yml

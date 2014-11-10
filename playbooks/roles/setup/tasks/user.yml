@@ -1,7 +1,0 @@
-- name: add deploy user
-  user: name=deploy shell=/bin/bash append=yes state=present
-
-- name: set up authorized_keys for the deploy user
-  authorized_key: user=deploy key="{{ item }}"
-  with_file:
-    - public_keys/mybema-user
