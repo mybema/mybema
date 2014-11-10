@@ -4,6 +4,7 @@ Mybema is an open source community platform. It allows users to participate in d
 
 Installation
 ============
+You can install Mybema in one of two ways at the moment. We recommend using Ansible.
 
 Using Ansible
 -------------
