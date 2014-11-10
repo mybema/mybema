@@ -24,6 +24,14 @@ Install Postgres if you haven't alrady
 
     brew install postgresql
 
+Install Redis if you haven't alrady
+
+    brew install redis
+
+Install Elasticsearch if you haven't alrady
+
+    brew install elasticsearch
+
 Create a database configuration file:
 
     cp config/database.example.yml config/database.yml
