@@ -39,9 +39,8 @@
 
         <% unless current_admin %>
           <%= f.hidden_field :user_id, value: @current_user.id %>
+          <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
         <% end %>
-
-        <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
       </div>
 
       <footer class='discussion-form--footer'>
