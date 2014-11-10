@@ -18,6 +18,11 @@ label { color: #000; }
   margin-bottom: 2em;
 }
 
+.admin-section-header {
+  margin-top: 0;
+  text-align: center;
+}
+
 .config-section--description {
   margin: 0.5em 0;
 }
@@ -35,12 +40,8 @@ label { color: #000; }
 }
 
 .dashboard-container {
-  display: inline-block;
-  width: 83.334%;
   background-color: #eee;
   padding: 1em;
-  max-height: calc(100% - 4em);
-  overflow: scroll;
 }
 
 .discussion-comment {
@@ -83,12 +84,6 @@ label { color: #000; }
   font-weight: bold;
 }
 
-.flt-rght {
-  float: right;
-  clear: both;
-  margin-bottom: 1em;
-}
-
 .full-height {
   min-height: calc(100% - 4em);
 }
@@ -98,17 +93,17 @@ label { color: #000; }
 }
 
 .guidelines-intro {
-  display: inline-block;
   font-size: 1.15em;
-  margin: 0 5% 1em 0;
-  vertical-align: top;
-  width: calc(90% - 8.5em);
 }
 
 .guidelines-form--wrapper {
   display: inline-block;
   margin-left: 1.5em;
   width: 50%;
+}
+
+.home-search--btn {
+  font-size: 0.8em!important;
 }
 
 .homepage-image-header {
@@ -131,7 +126,6 @@ label { color: #000; }
   margin: 0.5em 0;
 }
 
-.main-heading,
 .config-section--heading {
   margin: 0;
 }
@@ -153,17 +147,45 @@ label { color: #000; }
 }
 
 .sidebar {
-  position: relative;
-  z-index: 1000;
-  display: block;
-  padding: 20px;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   background-color: #f5f5f5;
-  border-right: 1px solid #eee;
-  min-height: calc(100% - 4em);
+  text-align: center;
 }
 
 .table {
   margin-bottom: 0!important;
+}
+
+@media only screen and (min-width: 768px) {
+  .admin-section-header {
+    text-align: left;
+  }
+
+  .dashboard-container {
+    display: inline-block;
+    width: 83.334%;
+    background-color: #eee;
+    padding: 1em;
+    max-height: calc(100% - 4em);
+    overflow: scroll;
+  }
+
+  .guidelines-intro {
+    display: inline-block;
+    font-size: 1.15em;
+    margin: 0 5% 1em 0;
+    vertical-align: top;
+    width: calc(90% - 8.5em);
+  }
+
+  .sidebar {
+    position: relative;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    border-right: 1px solid #eee;
+    min-height: calc(100% - 4em);
+    text-align: left;
+  }
 }

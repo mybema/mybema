@@ -3,6 +3,11 @@
   margin: 2em auto;
 }
 
+.kb-items {
+  list-style: none;
+  text-align: center;
+}
+
 .greenbutton {
   background-color: rgb(150,190,115);
   border-radius: 3px;
@@ -124,7 +129,7 @@
 .article-wrapper {
   display: inline-block;
   vertical-align: top;
-  width: 49%;
+  width: 100%;
 }
 
 /* Discussion form */
@@ -333,6 +338,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .article-wrapper {
+    width: 49%;
+  }
+
   .btm-space {
     margin-bottom: 1em;
   }
@@ -343,13 +352,6 @@
   }
 
   /* Homepage content */
-  .kb-items {
-    list-style: disc outside none;
-    margin: 0;
-    padding-left: 1em;
-    padding-top: 1em;
-  }
-
   .single-discussion--reply {
     width: 80%;
   }

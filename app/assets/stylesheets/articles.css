@@ -1,6 +1,6 @@
 .kb-wrapper {
   margin: 1em auto;
-  width: 80%;
+  width: 100%;
 }
 
 .kb-title {
@@ -15,4 +15,10 @@
 
 .kb-paragraph {
   margin: 1em 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .kb-wrapper {
+    width: 80%;
+  }
 }

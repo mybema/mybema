@@ -50,15 +50,6 @@ nav {
 
 strong { font-weight: bold; }
 
-@media only screen and (min-width: 768px) {
-  a { text-decoration: none; }
-  nav {
-    clear: none;
-    height: 4em;
-    min-height: 4em;
-    padding: 0;
-  }
-}
 
 .flash-notice {
   background-color: #C0DA6E;
@@ -67,4 +58,22 @@ strong { font-weight: bold; }
 .flash-alert {
   background-color: #B02D32;
   color: #FFF;
+}
+
+.non-mobile {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  a { text-decoration: none; }
+  nav {
+    clear: none;
+    height: 4em;
+    min-height: 4em;
+    padding: 0;
+  }
+
+  .non-mobile {
+    display: block;
+  }
 }

@@ -2,7 +2,7 @@
   border-radius: 3px;
   border: 0;
   color: #FFF;
-  display: inline-block;
+  display: block;
   padding: 0 20px;
   font-size: 1em;
   line-height: 3em;
@@ -16,6 +16,11 @@
   color: #FFF;
   cursor: pointer;
   text-decoration: none;
+}
+
+.admin-btn-wrapper {
+  margin: 0.5em auto;
+  width: 12em;
 }
 
 .btn-group {
@@ -45,4 +50,17 @@
 
 .red-btn:hover {
   background-color: rgb(255,75,75);
+}
+
+@media only screen and (min-width: 768px) {
+  .admin-btn {
+    display: inline-block;
+  }
+
+  .admin-btn-wrapper {
+    clear: both;
+    float: right;
+    margin: 0 0 1em 0;
+    min-width: 12em;
+  }
 }
