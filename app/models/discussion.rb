@@ -57,6 +57,8 @@ class Discussion < ActiveRecord::Base
 
     if Rails.env.test?
       false
+    elsif !guest_id && !user
+      false
     elsif guest_id
       true
     else

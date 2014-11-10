@@ -44,6 +44,8 @@ class DiscussionComment < ActiveRecord::Base
 
     if Rails.env.test?
       false
+    elsif admin_id
+      false
     elsif guest_id
       true
     else
