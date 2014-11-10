@@ -1,5 +1,5 @@
 <section class='dashboard-container'>
-  <h2>
+  <h2 class='admin-section-header'>
     Community guidelines
   </h2>
 
@@ -8,7 +8,9 @@
       These are the contribution guidelines that your community should be adhering to. All of the guidelines you add are visible next to the discussion creation form <%= link_to 'found here', new_discussion_path %>. You can add and delete as many guidelines as you want. We'd recommend sticking between 8 and 9. All changes are reflected immediatly.
     </p>
 
-    <%= link_to 'add guideline', new_guideline_path, class: 'admin-btn green-btn' %>
+    <div class='admin-btn-wrapper'>
+      <%= link_to 'add guideline', new_guideline_path, class: 'admin-btn green-btn' %>
+    </div>
   </div>
 
   <table class='table table-hover'>

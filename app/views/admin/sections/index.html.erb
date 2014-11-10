@@ -1,9 +1,15 @@
 <section class='dashboard-container'>
+  <h2 class='admin-section-header'>
+    Sections
+  </h2>
+
   <p class='guidelines-intro'>
     Your knowledgebase currently has the following sections:
   </p>
 
-  <%= link_to 'New section', new_admin_section_path, class: 'admin-btn green-btn flt-rght' %>
+  <div class='admin-btn-wrapper'>
+    <%= link_to 'New section', new_admin_section_path, class: 'admin-btn green-btn' %>
+  </div>
 
   <table class='table table-hover'>
     <thead>

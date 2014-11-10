@@ -1,16 +1,22 @@
 <section class='dashboard-container'>
+  <h2 class='admin-section-header'>
+    Discussions
+  </h2>
+
   <p class='guidelines-intro'>
     These are the existing discussions in your community. You can and should regularly also start new discussions.
   </p>
 
-  <%= link_to 'New discussion', new_discussion_path, class: 'admin-btn green-btn flt-rght' %>
+  <div class='admin-btn-wrapper'>
+    <%= link_to 'New discussion', new_discussion_path, class: 'admin-btn green-btn' %>
+  </div>
 
   <table class='table table-hover'>
     <thead>
       <tr>
         <th>Discussion</th>
         <th class='ctr-txt'>Responses</th>
-        <th class='ctr-txt'>Activity</th>
+        <th class='ctr-txt non-mobile'>Activity</th>
         <th class='ctr-txt'>Visibility</th>
         <th class='ctr-txt'>Actions</th>
       </tr>
@@ -31,7 +37,7 @@
             <%= discussion.discussion_comments_count %>
           </td>
 
-          <td class='ctr-txt' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
+          <td class='ctr-txt non-mobile' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
             <%= discussion.updated_at.to_date %>
           </td>
 

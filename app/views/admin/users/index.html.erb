@@ -1,10 +1,14 @@
 <section class='dashboard-container'>
+  <h2 class='admin-section-header'>
+    Users
+  </h2>
+
   <table class='table table-hover'>
     <thead>
       <tr>
-        <th>Name</th>
+        <th class='non-mobile'>Name</th>
         <th>Username</th>
-        <th>Email</th>
+        <th class='non-mobile'>Email</th>
         <th class='ctr-txt'>Discussions</th>
         <th class='ctr-txt'>Comments</th>
       </tr>
@@ -13,7 +17,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td>
+          <td class='non-mobile'>
             <%= user.name %>
           </td>
 
@@ -21,7 +25,7 @@
             <%= user.username %>
           </td>
 
-          <td>
+          <td class='non-mobile'>
             <%= user.email %>
           </td>
 

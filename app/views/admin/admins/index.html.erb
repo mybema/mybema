@@ -1,9 +1,15 @@
 <section class='dashboard-container'>
+  <h2 class='admin-section-header'>
+    Admins
+  </h2>
+
   <p class='guidelines-intro'>
     Below is the list of admins.
   </p>
 
-  <%= link_to 'Invite admin', new_administrator_path, class: 'admin-btn green-btn flt-rght' %>
+  <div class='admin-btn-wrapper'>
+    <%= link_to 'Invite admin', new_administrator_path, class: 'admin-btn green-btn' %>
+  </div>
 
   <table class='table table-hover'>
     <thead>
