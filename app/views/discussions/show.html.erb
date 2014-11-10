@@ -66,7 +66,7 @@
           <%= f.text_area :body, class: 'discussion-form--input comment-form--textarea' %>
         </div>
 
-        <% if @current_user.guest? %>
+        <% if @current_user.guest? && !current_admin %>
           <%= f.label :humanizer_answer, "Prove you're human: #{@comment.humanizer_question}",
               class: 'discussion-form--label' %>
           <%= f.text_field :humanizer_answer, class: 'discussion-form--input' %>
