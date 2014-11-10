@@ -4,14 +4,14 @@
       <div class='article-wrapper'>
         <article class='single-community-item--borderless'>
           <div class='kb-description'>
-            <h2>
-              <%= link_to section.first.title, '#' %>
+            <h2 class='kb-title'>
+              <%= section.first.title %>
             </h2>
 
             <ul class='kb-items'>
               <% section.first.articles.each do |article| %>
                 <li>
-                  <%= article.title %>
+                  <%= link_to article.title, article_path(article) %>
                 </li>
               <% end %>
             </ul>
@@ -23,8 +23,8 @@
         <div class='article-wrapper'>
           <article class='single-community-item--borderless'>
             <div class='kb-description'>
-              <h2>
-                <%= link_to section.last.title, '#' %>
+              <h2 class='kb-title'>
+                <%= section.last.title %>
               </h2>
 
               <ul class='kb-items'>
