@@ -2,3 +2,7 @@ machine:
   services:
     - elasticsearch
     - redis-server
+
+test:
+  pre:
+    - cp config/secrets.yml.ci config/secrets.yml
