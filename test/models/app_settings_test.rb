@@ -6,6 +6,10 @@ class AppSettingsTest < ActiveSupport::TestCase
     @app = create(:app_settings)
   end
 
+  test "raises validation warning if no hero_message is added" do
+    AppSettings.new.invalid?(:hero_message).must_equal true
+  end
+
   test '#all_articles_image' do
     assert_equal @app.all_articles_image, 'folder.png'
 
