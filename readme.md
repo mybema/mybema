@@ -1,6 +1,6 @@
 Mybema
 ======
-![CI badge](https://circleci.com/gh/pawel2105/mybema.png?circle-token=90c4da5a58b2d537ebc3e508bae7b1aa931347e0)
+[![Circle CI](https://circleci.com/gh/mybema/mybema/tree/master.svg?style=svg&circle-token=90c4da5a58b2d537ebc3e508bae7b1aa931347e0)](https://circleci.com/gh/mybema/mybema/tree/master)
 
 Mybema is an open source community platform. It allows users to participate in discussions and lets you create knowledgebase articles for your community.
 
