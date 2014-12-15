@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031174801) do
+ActiveRecord::Schema.define(version: 20141216002528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20141031174801) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "guest_id"
+    t.integer  "admin_id"
   end
 
   add_index "discussions", ["discussion_category_id"], name: "index_discussions_on_discussion_category_id", using: :btree
@@ -108,6 +109,12 @@ ActiveRecord::Schema.define(version: 20141031174801) do
 
   create_table "guidelines", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hero_messages", force: true do |t|
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

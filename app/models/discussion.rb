@@ -12,6 +12,7 @@
 #  created_at                :datetime
 #  updated_at                :datetime
 #  guest_id                  :string(255)
+#  admin_id                  :integer
 #
 
 class Discussion < ActiveRecord::Base
@@ -24,6 +25,7 @@ class Discussion < ActiveRecord::Base
 
   belongs_to :discussion_category, counter_cache: true
   belongs_to :user
+  belongs_to :admin
   has_many :discussion_comments, dependent: :destroy
 
   require_human_on :create, if: :user_is_guest
@@ -46,7 +48,7 @@ class Discussion < ActiveRecord::Base
     if user_id?
       user.username
     else
-      'Admin'
+      admin.username
     end
   end
 

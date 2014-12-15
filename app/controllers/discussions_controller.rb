@@ -83,7 +83,7 @@ class DiscussionsController < ApplicationController
   end
 
   def discussion_params
-    params.require(:discussion).permit(:body, :title, :user_id, :discussion_category_id, :guest_id, :humanizer_answer, :humanizer_question_id)
+    params.require(:discussion).permit(:body, :title, :admin_id, :user_id, :discussion_category_id, :guest_id, :humanizer_answer, :humanizer_question_id)
   end
 
   def editable_discussion

@@ -37,7 +37,9 @@
           <%= f.hidden_field :humanizer_question_id %>
         <% end %>
 
-        <% unless current_admin %>
+        <% if current_admin %>
+          <%= f.hidden_field :admin_id, value: current_admin.id %>
+        <% else %>
           <%= f.hidden_field :user_id, value: @current_user.id %>
           <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
         <% end %>

@@ -12,6 +12,7 @@
 #  created_at                :datetime
 #  updated_at                :datetime
 #  guest_id                  :string(255)
+#  admin_id                  :integer
 #
 
 require 'test_helper'
@@ -75,8 +76,9 @@ class DiscussionTest < ActiveSupport::TestCase
     discussion = Discussion.new(user_id: 1)
     assert_equal 'John', discussion.username
 
-    discussion = Discussion.new
-    assert_equal 'Admin', discussion.username
+    create(:admin, id: 100, name: 'CoolAdmin')
+    discussion = Discussion.new(admin_id: 100)
+    assert_equal 'CoolAdmin', discussion.username
   end
 
   test '#category_name' do

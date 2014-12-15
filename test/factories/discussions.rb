@@ -12,6 +12,7 @@
 #  created_at                :datetime
 #  updated_at                :datetime
 #  guest_id                  :string(255)
+#  admin_id                  :integer
 #
 
 FactoryGirl.define do
