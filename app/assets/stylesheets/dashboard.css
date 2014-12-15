@@ -19,6 +19,7 @@ label { color: #000; }
 }
 
 .admin-section-header {
+  font-family: 'Lato', sans-serif;
   margin-top: 0;
   text-align: center;
 }
@@ -126,12 +127,38 @@ label { color: #000; }
   margin: 0.5em 0;
 }
 
+.new-admin-warning--header {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  margin: 1em auto;
+}
+
+.new-admin-warning--paragraph {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.new-admin-warning--sub-header {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+.new-admin-warning--wrapper {
+  font-size: 1.25em;
+  margin: 2em auto;
+}
+
 .config-section--heading {
   margin: 0;
 }
 
 .manage-comment-link {
   float: right;
+}
+
+.profile-form {
+  display: inline-block;
+  width: 83.33%;
 }
 
 .rght-txt {
@@ -156,10 +183,6 @@ label { color: #000; }
 }
 
 @media only screen and (min-width: 768px) {
-  .admin-section-header {
-    text-align: left;
-  }
-
   .dashboard-container {
     display: inline-block;
     width: 83.334%;
