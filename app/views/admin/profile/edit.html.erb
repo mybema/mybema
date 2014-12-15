@@ -1,0 +1,45 @@
+<section class='guidelines-form--wrapper'>
+  <h2>
+    Profile update:
+  </h2>
+
+  <div class='profile-form' %>
+    <%= form_for(current_admin, :url => { :action => "update" } ) do |f| %>
+      <div>
+        <% if current_admin.errors.any? %>
+          <ul>
+            <% current_admin.errors.full_messages.each do |message| %>
+              <li>
+                <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <div class='discussion-form--body'>
+          <%= f.label :name, "Name" %><br />
+          <%= f.text_field :name, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :email, "Email" %><br />
+          <%= f.email_field :email, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :password, "New password" %><br />
+          <%= f.password_field :password, class: 'discussion-form--input' %>
+        </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :password_confirmation, 'New password confirmation' %><br />
+          <%= f.password_field :password_confirmation, class: 'discussion-form--input' %>
+        </div>
+      </div>
+
+      <footer>
+        <%= f.submit "update profile", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+</section>

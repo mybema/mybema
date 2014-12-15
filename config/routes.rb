@@ -34,6 +34,8 @@ Mybema::Application.routes.draw do
   get 'admin/users' => 'admin/users#index'
   put 'admin/discussions/:id/toggle-visibility' => 'admin/discussions#toggle_visibility', as: :admin_toggle_discussion_visibility
   put 'admin/comments/:id/toggle-visibility' => 'admin/discussion_comments#toggle_visibility', as: :admin_toggle_comment_visibility
+  get 'admin/profile' => 'admin/profile#edit', as: :admin_profile
+  patch 'admin/profile' => 'admin/profile#update'
 
   scope :admin, module: 'admin' do
     resources :admins, only: [:index, :new, :create, :destroy], as: :administrators
