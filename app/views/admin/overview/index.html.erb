@@ -2,4 +2,17 @@
   <h2 class='admin-section-header'>
     Welcome to your dashboard
   </h2>
+
+  <% if current_admin.has_default_password? %>
+    <div class='new-admin-warning--wrapper'>
+      <h3 class='new-admin-warning--sub-header'>
+        Password change is required
+      </h3>
+
+      <p class='new-admin-warning--paragraph'>
+        Your current admin login credentials are the same credentials that come with every default installation of Mybema. They are not secure. To prevent attackers from gaining access to this admin dashboard, please <%= link_to "update your profile", admin_profile_path %> right away. You can also set your name and email address using the same form.
+      </p>
+
+    <div>
+  <% end %>
 </section>

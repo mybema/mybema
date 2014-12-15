@@ -30,6 +30,10 @@ class Admin < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussion_comments, dependent: :nullify
 
+  def has_default_password?
+    Admin.last.valid_password?('password')
+  end
+
   def can_destroy(admin)
     self != admin
   end
