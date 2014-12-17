@@ -26,7 +26,7 @@ class Search < Capybara::Rails::TestCase
 
   test 'search only returns visible discussions' do
     create(:discussion, user: @guest, title: 'Good chat', body: 'Will show')
-    create(:discussion, user: @guest, hidden: true, title: 'Good chat', body: 'Will not show')
+    create(:discussion, user: @guest, hidden: true, title: 'Another good chat', body: 'Will not show')
     refresh_search_indices
     visit root_path
     within '.desktop-categories' do

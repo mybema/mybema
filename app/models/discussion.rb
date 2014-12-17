@@ -31,6 +31,7 @@ class Discussion < ActiveRecord::Base
   require_human_on :create, if: :user_is_guest
 
   validates :discussion_category_id, :body, :title, presence: true
+  validates :title, uniqueness: { scope: [:user_id, :admin_id], message: 'is the same as the discussion you have just created' }
 
   scope :by_recency, -> { order('updated_at DESC') }
   scope :visible, -> { where(hidden: false) }

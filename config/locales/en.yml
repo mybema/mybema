@@ -25,7 +25,7 @@ en:
       discussion:
         discussion_category_id: 'A category'
         body: 'Some content'
-        title: 'A title'
+        title: 'Your title'
     errors:
       messages:
         wrong_size: "is the wrong size. It should be %{file_size}"
