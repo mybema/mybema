@@ -8,6 +8,26 @@
   text-align: center;
 }
 
+.hero-cta {
+  margin-top: 1em;
+  background-color: #446EB0;
+  border-radius: 3px;
+  border: 0;
+  color: #FFF;
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 0.75em;
+  line-height: 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hero-cta:hover {
+  background-color: #477CC0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .greenbutton {
   background-color: rgb(150,190,115);
   border-radius: 3px;
@@ -422,6 +442,10 @@
     list-style: none outside none;
     margin-right: 0.5%;
     margin-top: -1.5em;
+  }
+
+  .hero-cta {
+    margin-top: 0;
   }
 
   .kb-description {
