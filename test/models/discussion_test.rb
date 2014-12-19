@@ -30,6 +30,17 @@ class DiscussionTest < ActiveSupport::TestCase
     build(:discussion, discussion_category_id: nil).invalid?(:discussion).must_equal true
   end
 
+  test "raises validation warning if title is the same for the same user" do
+    create(:discussion, user_id: 5, title: 'this is unique')
+    build(:discussion, user_id: 5, title: 'this is unique').invalid?(:discussion).must_equal true
+  end
+
+
+  test "raises validation warning if title is the same for the same admin" do
+    create(:discussion, user_id: nil, admin_id: 3, title: 'this too is unique')
+    build(:discussion, user_id: nil, admin_id: 3, title: 'this too is unique').invalid?(:discussion).must_equal true
+  end
+
   test "updates the discussion comments counter cache with comment creation" do
     discussion = create(:discussion)
     assert_equal 0, discussion.reload.discussion_comments_count

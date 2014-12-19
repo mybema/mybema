@@ -25,6 +25,6 @@ class DiscussionCreation < Capybara::Rails::TestCase
     assert_content page, 'Your discussion could not be created'
     assert_content page, 'A category needs to be added'
     assert_content page, 'Some content needs to be added'
-    assert_content page, 'A title needs to be added'
+    assert_content page, 'Your title needs to be added'
   end
 end

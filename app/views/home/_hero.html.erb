@@ -11,14 +11,17 @@
       <div class='hero-section--inner-wrapper'>
         <%= link_to discussions_path do %>
           <%= image_tag(@app.all_discussions_image, class: 'homepage-hero-image', alt: 'all discussions') %>
-          <div class='hero-section--description'>
-            All discussions
-
-            <div class="hero-section--blurb">
-              View all of the community's categories and discussions
-            </div>
-          </div>
         <% end %>
+
+        <div class='hero-section--description'>
+          <div class="hero-section--blurb">
+            View all of the community's categories and discussions
+          </div>
+
+          <%= link_to discussions_path do %>
+            <button class='hero-cta'>All discussions</button>
+          <% end %>
+        </div>
       </div>
     </div>
 
@@ -26,14 +29,17 @@
       <div class='hero-section--inner-wrapper'>
         <%= link_to sections_path do %>
           <%= image_tag(@app.all_articles_image, class: 'homepage-hero-image', alt: 'all articles') %>
-          <div class='hero-section--description'>
-            All articles
-
-            <div class="hero-section--blurb">
-              Find tutorials and answers to frequently asked questions
-            </div>
-          </div>
         <% end %>
+
+        <div class='hero-section--description'>
+          <div class="hero-section--blurb">
+            Find tutorials and answers to frequently asked questions
+          </div>
+
+          <%= link_to sections_path do %>
+            <button class='hero-cta'>All articles</button>
+          <% end %>
+        </div>
       </div>
     </div>
 
@@ -42,14 +48,17 @@
         <div class='hero-section--inner-wrapper'>
           <%= link_to new_user_registration_path do %>
             <%= image_tag(@app.join_community_image, class: 'homepage-hero-image', alt: 'join community') %>
-            <div class='hero-section--description'>
-              Join the community
-
-              <div class="hero-section--blurb">
-                Sign up for a more personalized experience
-              </div>
-            </div>
           <% end %>
+
+          <div class='hero-section--description'>
+            <div class="hero-section--blurb">
+              Sign up for a more personalized experience
+            </div>
+
+            <%= link_to new_user_registration_path do %>
+              <button class='hero-cta'>Join the community</button>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
@@ -58,14 +67,17 @@
       <div class='hero-section--inner-wrapper'>
         <%= link_to new_discussion_path do %>
           <%= image_tag(@app.new_discussion_image, class: 'homepage-hero-image', alt: 'start new discussion') %>
-          <div class='hero-section--description'>
-            Start a discussion
-
-            <div class="hero-section--blurb">
-              Share something or ask the community a question
-            </div>
-          </div>
         <% end %>
+
+        <div class='hero-section--description'>
+          <div class="hero-section--blurb">
+            Share something or ask the community a question
+          </div>
+
+          <%= link_to new_discussion_path do %>
+            <button class='hero-cta'>Start a discussion</button>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

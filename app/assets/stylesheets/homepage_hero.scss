@@ -8,26 +8,17 @@
   width: 90%;
 }
 
-.hero-section--inner-wrapper a {
-  color: #000;
-}
-
 .hero-section--inner-wrapper {
   text-align:center;
   width: 100%;
 }
 
-.hero-section--inner-wrapper a:hover {
-  color: #12C;
-  text-decoration: none;
-}
-
 .homepage-hero {
-  background-color: #EEE;
+  @extend %center-margin;
+  background-color: $lighter-grey;
   border: 1px solid #DEDEDE;
   border-radius: 3px;
   padding: 0.5em;
-  margin: 0 auto;
   width: 96%;
 }
 
