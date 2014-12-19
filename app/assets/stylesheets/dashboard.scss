@@ -1,10 +1,13 @@
+@import '_extends.scss';
+@import '_variables.scss';
+@import 'bootstrap.min.css';
+@import 'inputs.scss';
+@import 'base.scss';
+@import 'header.scss';
+@import 'category_box.scss';
+@import 'typeahead.css';
+
 /*
-*= require bootstrap.min.css
-*= require inputs.css
-*= require base.css
-*= require header.css
-*= require category_box.css
-*= require typeahead.css
 *= require_self
 */
 
