@@ -11,7 +11,7 @@
 }
 
 .categories {
-  border: 1px solid #74747A;
+  border: 1px solid $medium-grey;
   border-radius: 3px;
   margin: 1em auto;
 }
@@ -42,7 +42,7 @@
 }
 
 .category-wrap li:hover {
-  background-color: rgb(150,190,115);
+  background-color: $green-cta;
   cursor: pointer;
 }
 

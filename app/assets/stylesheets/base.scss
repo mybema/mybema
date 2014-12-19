@@ -31,7 +31,7 @@ body {
   font-weight: 300;
 }
 
-hr { border-color: #eee; }
+hr { border-color: $lighter-grey; }
 
 input[type="submit"] {
   -webkit-appearance:none;
@@ -52,12 +52,12 @@ strong { font-weight: bold; }
 
 
 .flash-notice {
-  background-color: #C0DA6E;
+  background-color: $flash-notice;
 }
 
 .flash-alert {
-  background-color: #B02D32;
-  color: #FFF;
+  background-color: $flash-alert;
+  color: $white;
 }
 
 .non-mobile {

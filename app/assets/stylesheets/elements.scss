@@ -15,7 +15,7 @@
 
 .hero-cta {
   margin-top: 1em;
-  background-color: #446EB0;
+  background-color: $blue-cta;
   border-radius: 3px;
   border: 0;
   color: #FFF;
@@ -28,16 +28,16 @@
 }
 
 .hero-cta:hover {
-  background-color: #477CC0;
+  background-color: $blue-cta-hover;
   cursor: pointer;
   text-decoration: none;
 }
 
 .greenbutton {
-  background-color: rgb(150,190,115);
+  background-color: $green-cta;
   border-radius: 3px;
   border: 0;
-  color: #FFF;
+  color: $white;
   display: inline-block;
   padding: 0 10px;
   font-size: 0.75em;
@@ -47,13 +47,13 @@
 }
 
 .greenbutton:hover {
-  background-color: rgb(180,190,115);
+  background-color: $green-cta-hover;
   cursor: pointer;
   text-decoration: none;
 }
 
 .comment-count {
-  color: #74747A;
+  color: $medium-grey;
   font-weight: bold;
   text-align: center;
   margin-bottom: 1em;
@@ -97,8 +97,8 @@
 }
 
 .single-community-item {
-  border-bottom: 1px solid #DDD;
-  color: #74747A;
+  border-bottom: 1px solid $lighter-grey;
+  color: $medium-grey;
   display: block;
   width: 100%;
 }
@@ -159,8 +159,7 @@
 
 /* Discussion form */
 .comment-form--container {
-  border: 2px solid #DDD;
-  color: #7E7E7E;
+  border: 2px solid $light-grey;
   display: block;
   min-height: 20em;
 }
@@ -171,7 +170,6 @@
 }
 
 .discussion-form {
-  margin: 0 auto;
   padding: 1em 0.5em 0;
 }
 
@@ -182,9 +180,8 @@
 }
 
 .discussion-form--container {
-  border: 2px solid #DDD;
+  border: 2px solid $light-grey;
   border-top: none;
-  color: #7E7E7E;
   display: block;
   min-height: 30em;
 }
@@ -197,10 +194,10 @@
 }
 
 .discussion-form--header {
-  background: none repeat scroll 0% 0% #75C4A3;
-  border-shadow: 0px 1px 0px #FFF;
+  background: none repeat scroll 0% 0% $slurm-green;
+  border-shadow: 0px 1px 0px $white;
   border-radius: 3px 3px 0 0;
-  color: #FFF;
+  color: $white;
   font-size: 1.5em;
   font-weight: bold;
   height: 3em;
@@ -210,7 +207,7 @@
 }
 
 .discussion-form--input {
-  border: 2px solid #DDD;
+  border: 2px solid $light-grey;
   border-radius: 3px;
   font-family: 'Lato';
   font-size: 1.25em;
@@ -221,7 +218,7 @@
 }
 
 .standard-form--input {
-  border: 2px solid #DDD;
+  border: 2px solid $light-grey;
   border-radius: 3px;
   font-family: 'Lato';
   font-size: 1.25em;
@@ -247,7 +244,7 @@
 }
 
 .discussion-guidelines {
-  background-color: #EEDD96;
+  background-color: $notepad-yellow;
   padding: 1em;
 }
 
@@ -264,10 +261,10 @@
 /* Discussions */
 .breadcrumb-wrapper {
   padding: 1em;
-  background-color: #74747A;
+  background-color: $medium-grey;
   color: #FFF;
   border-radius: 5px 5px 0 0;
-  border: 1px solid #74747A;
+  border: 1px solid $medium-grey;
 }
 
 .breadcrumb-wrapper a {
@@ -382,7 +379,7 @@
   }
 
   .greenbutton {
-    background-color: rgb(150,190,115);
+    background-color: $green-cta;
     border-radius: 3px;
     border: 0;
     color: #FFF;
@@ -395,12 +392,11 @@
   }
 
   .discussion-form {
-    margin: 0 auto;
     padding: 2em 2em 0;
   }
 
   .comment-count {
-    color: #74747A;
+    color: $medium-grey;
     display: table-cell;
     font-size: 1.5em;
     font-weight: bold;
@@ -433,7 +429,7 @@
   }
 
   .discussion-guidelines {
-    background-color: #EEDD96;
+    background-color: $notepad-yellow;
     display: inline-block;
     margin: 2em 2em 0 0;
     padding: 1em;
@@ -493,8 +489,8 @@
 
   /* Homepage hero */
   .home-hero-message {
-    background-color: #E2E2E2;
-    border: 1px solid #8A8A8A;
+    background-color: $hero-bg;
+    border: 1px solid $hero-border;
     border-radius: 5px;
     clear: both;
     font-size:1.2em;
@@ -503,7 +499,7 @@
   }
 
   .home-hero--dismiss-btn {
-    color: #000;
+    color: $black;
     float: right;
     font-size: 1.5em;
     font-weight: bold;
