@@ -8,7 +8,7 @@
 *= require_self
 */
 
-label { color: #000; }
+label { color: $black; }
 
 .admin-image-upload-container {
   margin-top: 1em;
@@ -30,7 +30,7 @@ label { color: #000; }
 
 .clickable-row,
 .clickable-row a {
-  color: #000;
+  color: $black;
 }
 
 .clickable-row:hover,

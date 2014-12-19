@@ -14,11 +14,11 @@
 }
 
 .homepage-hero {
-  background-color: #EEE;
+  @extend %center-margin;
+  background-color: $lighter-grey;
   border: 1px solid #DEDEDE;
   border-radius: 3px;
   padding: 0.5em;
-  margin: 0 auto;
   width: 96%;
 }
 

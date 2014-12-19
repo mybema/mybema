@@ -1,8 +1,8 @@
 .home-search--btn {
-  background-color: #446EB0;
+  background-color: $blue-cta;
   border: 0;
   border-radius: 0 0.25em 0.25em 0;
-  color: #FFF;
+  color: $white;
   cursor: pointer;
   float: right;
   font-size: 0.75em;
@@ -13,13 +13,13 @@
 }
 
 .home-search--btn:hover {
-  background-color: #477CC0;
+  background-color: $blue-cta-hover;
 }
 
 .home-search--input {
-  border: 1px solid #CCC;
+  border: 1px solid $light-grey;
   border-radius: 0.25em 0 0 0.25em;
-  color: #555;
+  color: $dark-grey;
   display: inline-block;
   font-family: 'Lato';
   font-size: 0.75em;
@@ -30,7 +30,7 @@
 
 .home-search--input:focus {
   border-radius: 0.25em 0 0 0.25em;
-  box-shadow: 0 0 1px #477CC0;;
+  box-shadow: 0 0 1px $blue-cta-hover;;
 }
 
 .mobile-search-wrapper {

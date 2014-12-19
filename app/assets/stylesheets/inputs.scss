@@ -1,7 +1,7 @@
 .admin-btn {
   border-radius: 3px;
   border: 0;
-  color: #FFF;
+  color: $white;
   display: block;
   padding: 0 20px;
   font-size: 1em;
@@ -13,7 +13,7 @@
 }
 
 .admin-btn:hover {
-  color: #FFF;
+  color: $white;
   cursor: pointer;
   text-decoration: none;
 }
@@ -29,11 +29,11 @@
 }
 
 .green-btn {
-  background-color: rgb(150,190,115);
+  background-color: $green-cta;
 }
 
 .green-btn:hover {
-  background-color: rgb(180,190,115);
+  background-color: $green-cta-hover;
 }
 
 .grey-btn {
