@@ -11,6 +11,7 @@
 #  hero_message        :text
 #  created_at          :datetime
 #  updated_at          :datetime
+#  seed_level          :integer          default(0)
 #
 
 FactoryGirl.define do
