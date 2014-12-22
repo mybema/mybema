@@ -14,7 +14,13 @@
           </h2>
 
           <ul class='post-items'>
-            <li class='post-item'>By <%= discussion.username %></li>
+            <li class='post-item'>
+              By <% if discussion.admin_id? %>
+                <span class='admin-post'><%= discussion.username %></span>
+              <% else %>
+                <%= discussion.username %>
+              <% end %>
+            </li>
             <li class='post-item' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
               <%= discussion.updated_at.to_date %>
             </li>
