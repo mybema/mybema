@@ -2,12 +2,8 @@
   background-color: rgb(115, 170, 190);
 }
 
-.active-category a {
-  color: #FFF;
-}
-
-.active-category a:hover {
-  text-decoration: none;
+a > .active-category {
+  color: $white;
 }
 
 .categories {
@@ -35,9 +31,9 @@
   padding: 0.5em;
 }
 
-.category-wrap li:active {
+.category-wrap a:active {
   background-color: rgb(115, 170, 190);
-  color: #FFF;
+  color: $white;
   cursor: pointer;
 }
 
@@ -46,8 +42,8 @@
   cursor: pointer;
 }
 
-.category-wrap li:hover a {
-  color: #FFF;
+.category-wrap a:hover {
+  color: $white;
   text-decoration: none;
 }
 
