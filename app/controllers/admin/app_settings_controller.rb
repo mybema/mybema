@@ -12,6 +12,13 @@ class Admin::AppSettingsController < AdminsController
     end
   end
 
+  def toggle_guest_posting
+    if @app.toggle!(:guest_posting)
+      flash[:notice] = 'Guest posting setting changed'
+      redirect_to app_settings_path
+    end
+  end
+
   private
 
   def app_settings_params

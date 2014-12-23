@@ -1,0 +1,11 @@
+<h4 class='config-section--heading'>
+  Guest posting
+</h4>
+
+<p class='config-section--description'>
+  Toggle the option to allow guests to be able to post comments and create discussions. Guest posting is currently <strong><%= @app.guest_posting? ? 'enabled' : 'disabled' %></strong>.
+</p>
+
+<%= form_for @app, url: admin_toggle_guest_posting_path do |f| %>
+  <%= f.submit (@app.guest_posting? ? 'disable guest posting' : 'enable guest posting'), class: "greenbutton" %>
+<% end %>
