@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221173053) do
+ActiveRecord::Schema.define(version: 20141223191351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141221173053) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "seed_level",          default: 0
+    t.boolean  "guest_posting",       default: true
   end
 
   create_table "articles", force: true do |t|

@@ -68,30 +68,36 @@
 <% end %>
 
 <article class='community-content single-discussion--reply'>
-  <div class='comment-form--container'>
-    <%= form_for @comment do |f| %>
-      <div class='discussion-form'>
-        <div class='discussion-form--body'>
-          <%= f.label :body, 'Have something to add?', class: 'discussion-form--label' %>
-          <%= f.text_area :body, class: 'discussion-form--input comment-form--textarea' %>
+  <% if @current_user.can_contribute? || current_admin %>
+    <div class='comment-form--container'>
+      <%= form_for @comment do |f| %>
+        <div class='discussion-form'>
+          <div class='discussion-form--body'>
+            <%= f.label :body, 'Have something to add?', class: 'discussion-form--label' %>
+            <%= f.text_area :body, class: 'discussion-form--input comment-form--textarea' %>
+          </div>
+
+          <% if @current_user.guest? && !current_admin %>
+            <%= f.label :humanizer_answer, "Prove you're human: #{@comment.humanizer_question}",
+                class: 'discussion-form--label' %>
+            <%= f.text_field :humanizer_answer, class: 'discussion-form--input' %>
+            <%= f.hidden_field :humanizer_question_id %>
+          <% end %>
+
+          <%= f.hidden_field :user_id, value: @current_user.id %>
+          <%= f.hidden_field :admin_id, value: @admin_id %>
+          <%= f.hidden_field :discussion_id, value: @discussion.id %>
+          <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
         </div>
 
-        <% if @current_user.guest? && !current_admin %>
-          <%= f.label :humanizer_answer, "Prove you're human: #{@comment.humanizer_question}",
-              class: 'discussion-form--label' %>
-          <%= f.text_field :humanizer_answer, class: 'discussion-form--input' %>
-          <%= f.hidden_field :humanizer_question_id %>
-        <% end %>
-
-        <%= f.hidden_field :user_id, value: @current_user.id %>
-        <%= f.hidden_field :admin_id, value: @admin_id %>
-        <%= f.hidden_field :discussion_id, value: @discussion.id %>
-        <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
-      </div>
-
-      <footer class='discussion-form--footer'>
-        <%= f.submit "Respond", class: "greenbutton" %>
-      </footer>
-    <% end %>
-  </div>
+        <footer class='discussion-form--footer'>
+          <%= f.submit "Respond", class: "greenbutton" %>
+        </footer>
+      <% end %>
+    </div>
+  <% else %>
+    <div class='join-community-wrapper'>
+      Please <%= link_to 'sign in', new_user_session_path %> to contribute.
+    </div>
+  <% end %>
 </article>

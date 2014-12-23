@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def can_contribute?
+    logged_in? || AppSettings.first.guest_posting == true
+  end
+
   def guest?
     username == 'Guest'
   end

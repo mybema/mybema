@@ -11,6 +11,10 @@ class DiscussionsController < ApplicationController
   end
 
   def new
+    unless @current_user.can_contribute? || current_admin
+      return redirect_to new_user_registration_path
+    end
+
     @discussion = Discussion.new
     @guidelines = Guideline.all.reverse
   end
@@ -27,6 +31,10 @@ class DiscussionsController < ApplicationController
 
   def create
     @discussion = Discussion.new discussion_params
+
+    unless @current_user.can_contribute? || current_admin
+      return redirect_to new_user_registration_path
+    end
 
     if @discussion.save
       create_identicon('Discussion', @discussion.id)
@@ -87,6 +95,6 @@ class DiscussionsController < ApplicationController
   end
 
   def editable_discussion
-    @current_user.logged_in? || (@discussion.guest_id == cookies.permanent[:mybema_guest_id])
+    @current_user.logged_in? || (@discussion.guest_id == cookies.permanent[:mybema_guest_id] && @current_user.can_contribute?)
   end
 end

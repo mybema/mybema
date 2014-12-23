@@ -2,7 +2,7 @@ class DiscussionCommentsController < ApplicationController
   def create
     @comment = DiscussionComment.new comment_params
 
-    if @comment.save
+    if @current_user.can_contribute? && @comment.save
       flash[:notice] = 'Your response was added'
       create_identicon('DiscussionComment', @comment.id)
       redirect_to discussion_path(@comment.discussion)

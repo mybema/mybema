@@ -152,6 +152,13 @@ class DiscussionsControllerTest < ActionController::TestCase
     assert_equal 'The title', Discussion.last.title
   end
 
+  test "POST create will not create a new discussion if guest posting is turned off" do
+    AppSettings.first.update_attributes(guest_posting: false)
+    category = create(:discussion_category)
+    post :create, discussion: { body: 'The body', title: 'The title', user_id: 5, discussion_category_id: 1 }
+    assert_equal Discussion.count, 0
+  end
+
   test "POST create will render 'new' template if discussion not created successfully" do
     category = create(:discussion_category)
     post :create, discussion: { user_id: 5, discussion_category_id: 1 }

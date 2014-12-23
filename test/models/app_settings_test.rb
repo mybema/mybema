@@ -12,6 +12,7 @@
 #  created_at          :datetime
 #  updated_at          :datetime
 #  seed_level          :integer          default(0)
+#  guest_posting       :boolean          default(TRUE)
 #
 
 require 'test_helper'
