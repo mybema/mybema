@@ -39,6 +39,7 @@ Mybema::Application.routes.draw do
     resources :admins, only: [:index, :new, :create, :destroy], as: :administrators
     resources :guidelines, only: [:index, :new, :create, :destroy], as: :guidelines
     resources :discussions, only: [:index, :edit, :update, :destroy], as: :admin_discussions
+    resources :discussion_categories, except: [:show], as: :admin_discussion_categories
     resources :comments, only: [:index, :edit, :update, :destroy], as: :admin_comments, controller: 'discussion_comments'
     resources :sections, as: :admin_sections do
       resources :articles, except: [:index, :show]

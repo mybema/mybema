@@ -1,0 +1,31 @@
+<section class='guidelines-form--wrapper'>
+  <h2>
+    New category:
+  </h2>
+
+  <div class='guideline-form' %>
+    <%= form_for @category, url: admin_discussion_categories_path do |f| %>
+      <div>
+        <% if @category.errors.any? %>
+          <ul>
+            <% @category.errors.full_messages.each do |message| %>
+              <li>
+                <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <div class='discussion-form--body'>
+          <%= f.text_field :name, class: 'discussion-form--input' %>
+        </div>
+      </div>
+
+      <footer>
+        <%= f.submit "add category", class: "greenbutton" %>
+      </footer>
+    <% end %>
+  </div>
+
+  <%= link_to 'Cancel and return to list of categories', admin_discussion_categories_path, class: 'discussion-form--cancel' %>
+</section>

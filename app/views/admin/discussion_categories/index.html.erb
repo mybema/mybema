@@ -1,0 +1,47 @@
+<section class='dashboard-container'>
+  <h2 class='admin-section-header'>
+    Categories
+  </h2>
+
+  <p class='guidelines-intro'>
+    These are the existing categories in your community.
+  </p>
+
+  <div class='admin-btn-wrapper'>
+    <%= link_to 'new category', new_admin_discussion_category_path, class: 'admin-btn green-btn' %>
+  </div>
+
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th class='ctr-txt'>Discussions</th>
+        <th class='ctr-txt non-mobile'>Slug</th>
+        <th class='ctr-txt'>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td class='clickable-row js-clickable-row' data-url='<%= discussions_path(category: category.slug) %>'>
+            <%= link_to category.name, discussions_path(category: category.slug) %>
+          </td>
+
+          <td class='ctr-txt'>
+            <%= category.discussions_count %>
+          </td>
+
+          <td class='ctr-txt non-mobile'>
+            <%= category.slug %>
+          </td>
+
+          <td class='ctr-txt clickable-row js-clickable-row'
+              data-url='<%= edit_admin_discussion_category_path(category) %>'>
+            <%= link_to 'manage', edit_admin_discussion_category_path(category) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
