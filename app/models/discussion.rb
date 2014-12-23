@@ -62,7 +62,7 @@ class Discussion < ActiveRecord::Base
       false
     elsif !guest_id && !user
       false
-    elsif guest_id
+    elsif guest_id.present?
       true
     else
       !(user && user.logged_in?)

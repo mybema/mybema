@@ -46,7 +46,7 @@ class DiscussionComment < ActiveRecord::Base
       false
     elsif admin_id
       false
-    elsif guest_id
+    elsif guest_id.present?
       true
     else
       !(user && user.logged_in?)
