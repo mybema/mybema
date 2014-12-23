@@ -59,6 +59,11 @@
   margin-bottom: 1em;
 }
 
+.join-community-wrapper {
+  padding: 1em;
+  text-align: center;
+}
+
 .post-item, .post-item--last {
   display: inline-block;
   color: #888;
@@ -291,8 +296,7 @@
 
 .post-content {
   display: inline-block;
-  /*margin-top: 2.75em;*/
-  vertical-align: baseline;
+  text-align: justify;
 }
 
 .replies {
@@ -361,7 +365,11 @@
 
 @media only screen and (min-width: 768px) {
   .article-wrapper {
-    width: 49%;
+    width: 45%;
+    border: 1px solid $light-grey;
+    border-radius: 5px;
+    margin: 0 1em;
+    padding: 1em;
   }
 
   .btm-space {
@@ -437,14 +445,6 @@
     width: calc(40% - 3.5em);
   }
 
-  .join-community-wrapper {
-    display: block;
-    float: right;
-    list-style: none outside none;
-    margin-right: 0.5%;
-    margin-top: -1.5em;
-  }
-
   .hero-cta {
     margin-top: 0;
   }
@@ -455,7 +455,12 @@
 
   .kb-items > li {
     color: #313131;
-    padding: 0.5em 5% 0.5em 0;
+    margin: 0;
+    padding: 0.5em 0;
+  }
+
+  .post-content {
+    width: 80%;
   }
 
   .post-description {
