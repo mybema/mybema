@@ -11,7 +11,7 @@ class Admin::DiscussionCategoriesController < AdminsController
     @category = DiscussionCategory.new params.require(:discussion_category).permit(:name)
 
     if @category.save
-      flash[:alert] = 'Your category has been added'
+      flash[:notice] = 'Your category has been added'
       redirect_to admin_discussion_categories_path
     else
       render 'new'
@@ -26,7 +26,7 @@ class Admin::DiscussionCategoriesController < AdminsController
     @category = DiscussionCategory.find(params[:id])
 
     if @category.update_attributes(discussion_category_params)
-      flash[:alert] = 'Your category has been updated'
+      flash[:notice] = 'Your category has been updated'
       redirect_to admin_discussion_categories_path
     else
       render 'edit'
