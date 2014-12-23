@@ -24,6 +24,17 @@ class Search < Capybara::Rails::TestCase
     assert_content page, 'Good chat'
   end
 
+  test 'searching with no value returns everything' do
+    create(:discussion, user: @guest, title: 'random title')
+    create(:discussion, user: @guest, title: 'another strange one')
+    refresh_search_indices
+    visit root_path
+    within '.desktop-categories' do
+      click_button 'SEARCH'
+    end
+    assert_content page, '2 search results'
+  end
+
   test 'search only returns visible discussions' do
     create(:discussion, user: @guest, title: 'Good chat', body: 'Will show')
     create(:discussion, user: @guest, hidden: true, title: 'Another good chat', body: 'Will not show')
