@@ -23,4 +23,10 @@ class Article < ActiveRecord::Base
   def class_name
     'article'
   end
+
+  def markdown_body
+    # This is just because I'm lazy right now. This WILL very soon be moved to a Decorator method.
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    markdown.render(body).html_safe
+  end
 end
