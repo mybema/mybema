@@ -11,9 +11,6 @@ Mybema::Application.routes.draw do
 
   resources :articles, only: [:show]
   resources :discussions
-  resources :discussion_categories, path: 'categories' do
-    resources :discussions, only: :index
-  end
   resources :discussion_comments
   resources :sections
 
