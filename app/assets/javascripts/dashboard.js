@@ -1,3 +1,4 @@
+//= require ga
 //= require jquery
 //= require jquery_ujs
 //= require moment.min.js
