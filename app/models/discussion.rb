@@ -13,6 +13,7 @@
 #  updated_at                :datetime
 #  guest_id                  :string(255)
 #  admin_id                  :integer
+#  slug                      :string(255)
 #
 
 class Discussion < ActiveRecord::Base
@@ -29,6 +30,8 @@ class Discussion < ActiveRecord::Base
   has_many :discussion_comments, dependent: :destroy
 
   require_human_on :create, if: :user_is_guest
+
+  before_save :sluggify_title
 
   validates :discussion_category_id, :body, :title, presence: true
   validates :title, uniqueness: { scope: [:user_id, :admin_id], message: 'is the same as the discussion you have just created' }
@@ -54,6 +57,10 @@ class Discussion < ActiveRecord::Base
   end
 
   private
+
+  def sluggify_title
+    self.slug = title.parameterize
+  end
 
   def user_is_guest
     user = User.where(id: self.user_id).first

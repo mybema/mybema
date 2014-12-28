@@ -13,6 +13,7 @@
 #  updated_at                :datetime
 #  guest_id                  :string(255)
 #  admin_id                  :integer
+#  slug                      :string(255)
 #
 
 require 'test_helper'
@@ -34,7 +35,6 @@ class DiscussionTest < ActiveSupport::TestCase
     create(:discussion, user_id: 5, title: 'this is unique')
     build(:discussion, user_id: 5, title: 'this is unique').invalid?(:discussion).must_equal true
   end
-
 
   test "raises validation warning if title is the same for the same admin" do
     create(:discussion, user_id: nil, admin_id: 3, title: 'this too is unique')
@@ -96,5 +96,12 @@ class DiscussionTest < ActiveSupport::TestCase
     category = create(:discussion_category, name: 'Categlory')
     discussion = create(:discussion, discussion_category: category)
     assert_equal discussion.category_name, 'Categlory'
+  end
+
+  test "sluggifies the title during every save" do
+    discussion = create(:discussion, title: "Adventure Time")
+    assert_equal 'adventure-time', discussion.reload.slug
+    discussion.update_attributes(title: "Despicable me's an alright movie")
+    assert_equal 'despicable-me-s-an-alright-movie', discussion.reload.slug
   end
 end
