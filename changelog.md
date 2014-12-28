@@ -1,3 +1,8 @@
+0.1.6
+-----
+
+- Make the hero message html safe
+
 0.1.5
 -----
 
