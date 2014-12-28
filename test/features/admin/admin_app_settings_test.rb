@@ -30,4 +30,12 @@ class AdminAppSettingsTest < Capybara::Rails::TestCase
     assert_content page, 'App settings have been updated'
     assert_equal AppSettings.first.ga_code, 'UA-12345678-1'
   end
+
+  test 'admin can update the domain address' do
+    visit app_settings_path
+    fill_in 'Domain', with: 'http://example.example.com'
+    click_button 'update domain'
+    assert_content page, 'App settings have been updated'
+    assert_equal AppSettings.first.domain_address, 'http://example.example.com'
+  end
 end

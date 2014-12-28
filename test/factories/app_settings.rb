@@ -14,6 +14,7 @@
 #  seed_level          :integer          default(0)
 #  guest_posting       :boolean          default(TRUE)
 #  ga_code             :string(255)
+#  domain_address      :string(255)
 #
 
 FactoryGirl.define do

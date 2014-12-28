@@ -1,0 +1,16 @@
+<h4 class='config-section--heading'>
+  Domain
+</h4>
+
+<p class='config-section--description'>
+  Update your domain URL. This will be the prefix that gets added to all of your sitemap URLs. The sitemap gets submitted to Google and Bing on a weekly basis.
+</p>
+
+<%= form_for @app do |f| %>
+  <div class='discussion-form--body'>
+    <%= f.label :domain_address, 'Domain' %>
+    <%= f.text_field :domain_address, placeholder: 'http://community.example.com', class: 'discussion-form--input' %>
+  </div>
+
+  <%= f.submit 'update domain', class: "greenbutton" %>
+<% end %>
