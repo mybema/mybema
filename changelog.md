@@ -1,3 +1,8 @@
+0.1.4
+-----
+
+- Change AppSetting defaults to empty strings not nil
+
 0.1.3
 -----
 
