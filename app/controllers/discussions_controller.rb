@@ -39,7 +39,7 @@ class DiscussionsController < ApplicationController
     if @discussion.save
       create_identicon('Discussion', @discussion.id)
       flash[:notice] = 'Your discussion has been added'
-      redirect_to discussion_path(@discussion)
+      redirect_to discussion_path(@discussion.slug)
     else
       @categories = DiscussionCategory.all
       @guidelines = Guideline.all.reverse
@@ -49,7 +49,7 @@ class DiscussionsController < ApplicationController
   end
 
   def show
-    @discussion = Discussion.find(params[:id])
+    @discussion = Discussion.find_by_slug(params[:slug]) || not_found
     @admin_id   = current_admin.id if current_admin
     @comment    = DiscussionComment.new
     @comments   = @discussion.discussion_comments.sort_by(&:created_at)
@@ -71,7 +71,7 @@ class DiscussionsController < ApplicationController
     if editable_discussion
       if @discussion.update_attributes(discussion_params)
         flash[:notice] = 'Your discussion has been updated'
-        redirect_to discussion_path(@discussion)
+        redirect_to discussion_path(@discussion.slug)
       else
         flash[:alert] = 'This discussion could not be updated'
         @guidelines = Guideline.all.reverse

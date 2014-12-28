@@ -11,7 +11,7 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     discussion = create(:discussion, discussion_category: @category,
                                      user: @guest, title: 'Good chat', body: 'This is very informative')
     create(:discussion_comment, body: 'In before 2 cents', discussion: discussion)
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     assert_content page, 'In before 2 cents'
     fill_in 'Have something to add?', with: 'My very valuable 2 cents'
     click_button 'Respond'
@@ -22,7 +22,7 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     discussion = create(:discussion, discussion_category: @category,
                                      user: @guest, title: 'Good chat', body: 'This is very informative')
     create(:discussion_comment, body: 'A hidden comment', discussion: discussion, hidden: true)
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     refute_content page, 'A hidden comment'
     assert_content page, 'This response has been removed'
   end
@@ -31,7 +31,7 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     discussion = create(:discussion, discussion_category: @category,
                                      user: @guest, title: 'Good chat', body: 'This is very informative')
     create(:discussion_comment, body: 'A hidden comment', discussion: discussion, hidden: true)
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     refute_content page, 'View comment in dashboard'
   end
 
@@ -46,7 +46,7 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     fill_in 'Email', with: 'admin@test.com'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     assert_content page, 'View comment in dashboard'
   end
 
@@ -60,7 +60,7 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     fill_in 'Email', with: 'admin@test.com'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     fill_in 'Have something to add?', with: 'I am the almighty admin'
     click_button 'Respond'
     assert_content page, 'I am the almighty admin'
@@ -77,7 +77,7 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     fill_in 'Email', with: 'admin@test.com'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     fill_in 'Have something to add?', with: 'I am the almighty admin'
     click_button 'Respond'
     assert_equal admin.id, DiscussionComment.last.admin_id

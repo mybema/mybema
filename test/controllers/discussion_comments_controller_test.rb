@@ -21,7 +21,7 @@ class DiscussionCommentsControllerTest < ActionController::TestCase
 
   test "POST create redirects to the discussion" do
     discussion = create(:discussion, id: 4)
-    post :create, discussion_comment: { body: 'The body', user_id: 5, discussion_id: 4 }
-    assert_redirected_to discussion_path(4)
+    post :create, discussion_comment: { body: 'The body', title: 'slug', user_id: 5, discussion_id: 4 }
+    assert_redirected_to discussion_path(discussion.slug)
   end
 end

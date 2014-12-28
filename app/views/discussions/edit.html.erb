@@ -38,7 +38,7 @@
       </div>
 
       <footer class='discussion-form--footer'>
-        <%= link_to 'Cancel', discussion_path(@discussion), class: 'discussion-form--cancel' %>
+        <%= link_to 'Cancel', discussion_path(@discussion.slug), class: 'discussion-form--cancel' %>
         <%= f.submit "update discussion", class: "greenbutton" %>
       </footer>
     <% end %>

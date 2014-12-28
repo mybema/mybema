@@ -7,7 +7,7 @@
     <% @discussions.each do |discussion| %>
       <article class='single-community-item'>
         <div class='post-description'>
-          <h2><%= link_to discussion.title, discussion_path(discussion) %></h2>
+          <h2><%= link_to discussion.title, discussion_path(discussion.slug) %></h2>
 
           <ul class='post-items'>
             <li class='post-item'>

@@ -90,7 +90,7 @@ class AdminDiscussionsTest < Capybara::Rails::TestCase
     click_link 'Admin'
     click_link 'Sign out'
     discussion = create(:discussion, title: 'Visible in admin section', body: 'Too sexy for my shirt')
-    visit edit_admin_discussion_path(discussion)
+    visit edit_admin_discussion_path(discussion.slug)
     assert_content page, 'You need to sign in or sign up before continuing.'
   end
 end

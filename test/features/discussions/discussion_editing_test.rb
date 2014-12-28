@@ -24,9 +24,9 @@ class DiscussionEditing < Capybara::Rails::TestCase
 
   test 'guest cannot edit a guest discussion if the discussion guid differs from their cookie guid' do
     discussion = create(:discussion, title: 'Not my discussion')
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     refute_content page, 'Edit this post'
-    visit edit_discussion_path(discussion)
+    visit edit_discussion_path(discussion.slug)
     assert_content page, "You don't have permission to do that"
   end
 
@@ -38,7 +38,7 @@ class DiscussionEditing < Capybara::Rails::TestCase
     fill_in 'Email', with: 'bob@gmail.com'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     click_link 'Edit this post'
     fill_in 'Title', with: 'Still belong to Bob'
     click_button 'update discussion'
@@ -54,9 +54,9 @@ class DiscussionEditing < Capybara::Rails::TestCase
     fill_in 'Email', with: 'bob@gmail.com'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     refute_content page, 'Edit this post'
-    visit edit_discussion_path(discussion)
+    visit edit_discussion_path(discussion.slug)
     assert_content page, "You don't have permission to do that"
   end
 end

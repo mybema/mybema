@@ -46,7 +46,7 @@ class RegisteringTest < Capybara::Rails::TestCase
 
   test 'comment created when guest is transfered to new account' do
     discussion = create(:discussion, user: @guest)
-    visit discussion_path(discussion)
+    visit discussion_path(discussion.slug)
     fill_in 'Have something to add?', with: 'My very valuable 2 cents'
     click_button 'Respond'
     assert_equal @guest.discussion_comments.count, 1

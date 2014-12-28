@@ -10,10 +10,11 @@ Mybema::Application.routes.draw do
   root 'home#index'
 
   resources :articles, only: [:show]
-  resources :discussions
+  resources :discussions, except: [:show]
   resources :discussion_comments
   resources :sections
 
+  get 'discussions/:slug' => 'discussions#show'
   get 'profile' => 'users#profile'
   patch 'profile/update' => 'users#update_profile', as: :user
 

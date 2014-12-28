@@ -1,7 +1,7 @@
 SitemapGenerator::Sitemap.default_host = AppSettings.first.domain_address
 SitemapGenerator::Sitemap.create do
   Discussion.find_each do |discussion|
-    add discussion_path(discussion.id), lastmod: discussion.updated_at
+    add discussion_path(discussion.slug), lastmod: discussion.updated_at
   end
 
   Article.find_each do |article|

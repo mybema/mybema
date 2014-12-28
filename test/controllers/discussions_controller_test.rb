@@ -50,7 +50,7 @@ class DiscussionsControllerTest < ActionController::TestCase
 
   test "GET show assigns the discussion" do
     discussion = create(:discussion)
-    get :show, id: discussion.id
+    get :show, slug: discussion.slug
     assert_equal discussion, assigns(:discussion)
   end
 
@@ -58,7 +58,7 @@ class DiscussionsControllerTest < ActionController::TestCase
     category_one = create(:discussion_category)
     category_two = create(:discussion_category)
     discussion   = create(:discussion, discussion_category: category_one)
-    get :show, id: discussion.id
+    get :show, slug: discussion.slug
     assert_equal [category_two, category_one], assigns(:categories)
   end
 
@@ -66,7 +66,7 @@ class DiscussionsControllerTest < ActionController::TestCase
     category_one = create(:discussion_category)
     category_two = create(:discussion_category)
     discussion   = create(:discussion, discussion_category: category_one)
-    get :show, id: discussion.id
+    get :show, slug: discussion.slug
     assert_response :success, @response.body
   end
 
@@ -74,13 +74,13 @@ class DiscussionsControllerTest < ActionController::TestCase
     discussion = create(:discussion, hidden: true)
     admin = create(:admin)
     sign_in(:admin, admin)
-    get :show, id: discussion.id
+    get :show, slug: discussion.slug
     assert_response :success, @response.body
   end
 
   test "GET show redirects if discussion is hidden and user is not an admin" do
     discussion   = create(:discussion, hidden: true)
-    get :show, id: discussion.id
+    get :show, slug: discussion.slug
     assert_redirected_to discussions_path
   end
 
@@ -88,7 +88,7 @@ class DiscussionsControllerTest < ActionController::TestCase
     discussion  = create(:discussion)
     comment_one = create(:discussion_comment, discussion: discussion)
     comment_two = create(:discussion_comment, discussion: discussion)
-    get :show, id: discussion.id
+    get :show, slug: discussion.slug
     assert_equal [comment_one, comment_two], assigns(:comments)
   end
 
@@ -167,7 +167,7 @@ class DiscussionsControllerTest < ActionController::TestCase
 
   test "POST create will redirect to discussion after creation" do
     post :create, discussion: { body: 'The body', title: 'The title', user_id: 5, discussion_category_id: 1 }
-    assert_redirected_to discussion_path(assigns(:discussion))
+    assert_redirected_to discussion_path(assigns(:discussion).slug)
   end
 
   test "PUT update will update a guest discussion if the guid matches the guest cookie" do
@@ -192,7 +192,7 @@ class DiscussionsControllerTest < ActionController::TestCase
     discussion = create(:discussion, id: 90, user: @guest, guest_id: 'guest')
     @request.cookies['mybema_guest_id'] = 'guest'
     put :update, id: 90, discussion: { body: 'An updated body' }
-    assert_redirected_to discussion_path(discussion)
+    assert_redirected_to discussion_path(discussion.slug)
   end
 
   test "PUT update will render the edit page if not updated successfully" do

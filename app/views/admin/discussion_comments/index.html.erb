@@ -17,9 +17,9 @@
       <% @comments.each do |comment| %>
         <tr>
           <td class='clickable-row js-clickable-row'
-              data-url='<%= discussion_path(comment.discussion, anchor: "comment-#{comment.id}") %>'>
+              data-url='<%= discussion_path(comment.discussion.slug, anchor: "comment-#{comment.id}") %>'>
 
-            <%= link_to comment.body.truncate(150), discussion_path(comment.discussion,
+            <%= link_to comment.body.truncate(150), discussion_path(comment.discussion.slug,
                 anchor: "comment-#{comment.id}") %>
 
             <div class='discussion-detail'>
