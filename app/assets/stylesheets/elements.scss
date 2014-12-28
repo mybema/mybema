@@ -211,6 +211,18 @@
   padding: 1em 0 1em 1em;
 }
 
+.discussion-form--short-input {
+  border: 2px solid $light-grey;
+  border-radius: 3px;
+  display: block;
+  font-family: 'Lato';
+  font-size: 1.25em;
+  font-weight: 400;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  width: auto;
+}
+
 .discussion-form--input {
   border: 2px solid $light-grey;
   border-radius: 3px;

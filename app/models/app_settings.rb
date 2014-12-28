@@ -13,6 +13,7 @@
 #  updated_at          :datetime
 #  seed_level          :integer          default(0)
 #  guest_posting       :boolean          default(TRUE)
+#  ga_code             :string(255)
 #
 
 class AppSettings < ActiveRecord::Base

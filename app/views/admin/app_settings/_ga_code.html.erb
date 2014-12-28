@@ -1,0 +1,16 @@
+<h4 class='config-section--heading'>
+  Google Analytics
+</h4>
+
+<p class='config-section--description'>
+  Add your Google Analytics tracking code here to automatically setup and enable GA tracking for your community.
+</p>
+
+<%= form_for @app do |f| %>
+  <div class='discussion-form--body'>
+    <%= f.label :ga_code, 'Your GA code' %>
+    <%= f.text_field :ga_code, placeholder: 'UA-XXXXXXXX-X', class: 'discussion-form--short-input' %>
+  </div>
+
+  <%= f.submit 'update tracking code', class: "greenbutton" %>
+<% end %>
