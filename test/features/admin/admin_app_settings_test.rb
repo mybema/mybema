@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AdminArticlesTest < Capybara::Rails::TestCase
+class AdminAppSettingsTest < Capybara::Rails::TestCase
   def setup
     create(:user, username: 'Guest')
     create(:app_settings)
@@ -21,5 +21,13 @@ class AdminArticlesTest < Capybara::Rails::TestCase
     assert_content page, 'App settings have been updated'
     visit root_path
     assert_content page, 'A shorter message'
+  end
+
+  test 'admin can update the Google Analytics tracking code' do
+    visit app_settings_path
+    fill_in 'Your GA code', with: 'UA-12345678-1'
+    click_button 'update tracking code'
+    assert_content page, 'App settings have been updated'
+    assert_equal AppSettings.first.ga_code, 'UA-12345678-1'
   end
 end
