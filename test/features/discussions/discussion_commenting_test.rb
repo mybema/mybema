@@ -66,4 +66,21 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     assert_content page, 'I am the almighty admin'
     assert_content page, 'Super Admin posted'
   end
+
+  test 'admin responding to comment will save the comment without admin a user_id' do
+    admin      = create(:admin, name: 'Super Admin', email: 'admin@test.com', password: 'password')
+    discussion = create(:discussion, discussion_category: @category,
+                                     user: @guest, title: 'Good chat', body: 'This is very informative')
+    visit root_path
+    click_link 'Log in'
+    click_link 'Admin sign in'
+    fill_in 'Email', with: 'admin@test.com'
+    fill_in 'Password', with: 'password'
+    click_button 'Sign in'
+    visit discussion_path(discussion)
+    fill_in 'Have something to add?', with: 'I am the almighty admin'
+    click_button 'Respond'
+    assert_equal admin.id, DiscussionComment.last.admin_id
+    assert_equal nil, DiscussionComment.last.user_id
+  end
 end

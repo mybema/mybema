@@ -84,10 +84,13 @@
             <%= f.hidden_field :humanizer_question_id %>
           <% end %>
 
-          <%= f.hidden_field :user_id, value: @current_user.id %>
-          <%= f.hidden_field :admin_id, value: @admin_id %>
           <%= f.hidden_field :discussion_id, value: @discussion.id %>
-          <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
+          <% if current_admin %>
+            <%= f.hidden_field :admin_id, value: @admin_id %>
+          <% else %>
+            <%= f.hidden_field :user_id, value: @current_user.id %>
+            <%= f.hidden_field :guest_id, value: cookies[:mybema_guest_id] %>
+          <% end %>
         </div>
 
         <footer class='discussion-form--footer'>
