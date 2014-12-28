@@ -27,6 +27,11 @@ group :assets do
   gem 'therubyracer'
 end
 
+group :production do
+  gem 'sitemap_generator'
+  gem 'whenever'
+end
+
 group :development do
   gem 'quiet_assets'
 end

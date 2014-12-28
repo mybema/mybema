@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails-api/active_model_serializers.git
-  revision: baf3db13653cd5ecfed23f542722bd47b0c01dea
+  revision: 282de2198455b5de33d3465e507083c490383941
   branch: master
   specs:
     active_model_serializers (0.10.0.pre)
@@ -59,6 +59,7 @@ GEM
       json (>= 1.7)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    chronic (0.10.2)
     chunky_png (1.3.1)
     connection_pool (2.0.0)
     database_cleaner (1.3.0)
@@ -119,7 +120,7 @@ GEM
     hashie (3.3.1)
     hike (1.2.3)
     humanizer (2.6.0)
-    i18n (0.6.11)
+    i18n (0.7.0)
     identicon (0.0.3)
       chunky_png
     inflecto (0.0.2)
@@ -137,7 +138,7 @@ GEM
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
     mini_portile (0.6.0)
-    minitest (5.4.2)
+    minitest (5.5.0)
     minitest-capybara (0.7.1)
       capybara (~> 2.2)
       minitest (~> 5.0)
@@ -207,6 +208,8 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    sitemap_generator (5.0.5)
+      builder
     slim (2.0.3)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
@@ -235,6 +238,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    whenever (0.9.2)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -269,6 +275,8 @@ DEPENDENCIES
   sass-rails
   sidekiq
   sinatra
+  sitemap_generator
   slim
   therubyracer
   uglifier
+  whenever
