@@ -1,3 +1,8 @@
+0.1.5
+-----
+
+- Move GA JavaScript out of the asset pipeline
+
 0.1.4
 -----
 
