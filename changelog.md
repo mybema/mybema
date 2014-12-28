@@ -1,3 +1,10 @@
+0.1.7
+-----
+
+- Remove the hero html_safe and add auto_link instead
+- Add auto_link gem
+- Also add auto_link to discussions and comments
+
 0.1.6
 -----
 

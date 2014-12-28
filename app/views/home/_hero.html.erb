@@ -2,7 +2,9 @@
   <% if displayable_hero(@app.hero_message) %>
     <div class='home-hero-message'>
       <div id='dismiss-hero-msg' class='home-hero--dismiss-btn'>&times;</div>
-      <%= @app.hero_message.html_safe %>
+      <div>
+        <%= auto_link @app.hero_message %>
+      </div>
     </div>
   <% end %>
 
