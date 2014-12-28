@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     fetch_or_assign_guest_cookie if @current_user.guest?
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   private
 
   def create_identicon(klass, object_id)
