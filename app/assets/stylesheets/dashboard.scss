@@ -1,8 +1,9 @@
 @import '_extends.scss';
 @import '_variables.scss';
+@import 'reset.scss';
+@import 'base.scss';
 @import 'bootstrap.min.scss';
 @import 'inputs.scss';
-@import 'base.scss';
 @import 'header.scss';
 @import 'category_box.scss';
 @import 'typeahead.scss';
