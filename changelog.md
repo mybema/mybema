@@ -1,3 +1,8 @@
+0.1.9
+-----
+
+- Add IE8 CSS compatibility fixes
+
 0.1.8
 -----
 
