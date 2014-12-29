@@ -50,6 +50,14 @@ nav {
 
 strong { font-weight: bold; }
 
+/* Remove button padding in FF */
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner {
+     padding: 0 !important;
+     border: 0 none !important;
+ }
 
 .flash-notice {
   background-color: $flash-notice;
