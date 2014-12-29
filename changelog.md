@@ -1,3 +1,10 @@
+0.1.8
+-----
+
+- Add rails-autoprefixer
+- Add reset.css
+- Fix some cross-browser styling issues
+
 0.1.7
 -----
 
