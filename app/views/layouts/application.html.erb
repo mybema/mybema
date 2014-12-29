@@ -6,6 +6,12 @@
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300', media: "all" %>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <%= stylesheet_link_tag "ie8-and-down.css", media: "all" %>
+    <![endif]-->
+
     <%= javascript_include_tag "application" %>
     <script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
