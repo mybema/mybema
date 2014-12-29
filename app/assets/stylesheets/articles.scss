@@ -4,21 +4,35 @@
 }
 
 .kb-title {
-  margin-bottom: 1em;
-  margin-top: 1em;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
   text-align: center;
 }
 
 .kb-content {
+  font-size: 1.2em;
   margin: 1em 1em 3em;
   text-align: justify;
+}
+
+.kb-content h1 {
+  font-size: 2em;
+}
+
+.kb-content ul {
+  list-style: inside disc none!important;
+}
+
+.kb-content h2 {
+  font-size: 1.5em;
 }
 
 .kb-content h1,
 .kb-content h2,
 .kb-content h3,
 .kb-content h4 {
-  margin: 0.5em 0;
+  margin: 0.75em 0;
 }
 
 .kb-items > li {

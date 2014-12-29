@@ -1,3 +1,8 @@
+0.2.0
+-----
+
+- CSS style changes for answers section
+
 0.1.9
 -----
 
