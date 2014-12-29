@@ -20,7 +20,7 @@
 .tt-query,
 .tt-hint {
   font-size: 0.75em;
-  line-height: 3em;
+  line-height: $search-bar-height - 2px;
   border: 1px solid #ccc;
   outline: none;
 }

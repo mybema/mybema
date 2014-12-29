@@ -6,7 +6,7 @@
   cursor: pointer;
   float: right;
   font-size: 0.75em;
-  line-height: 3em;
+  line-height: $search-bar-height;
   padding: 0 0.5em;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   width: 20%;
@@ -23,7 +23,7 @@
   display: inline-block;
   font-family: 'Lato';
   font-size: 0.75em;
-  line-height: 3em;
+  line-height: $search-bar-height - 2px;
   padding: 0 1em;
   width: 100%;
 }
@@ -42,7 +42,7 @@
   .home-search--btn {
     border-radius: 0 0.5em 0.5em 0;
     font-size: 0.5em;
-    line-height: 4.5em;
+    line-height: $search-bar-height;
   }
 
   .home-search--wrapper {
@@ -60,6 +60,6 @@
 
   .home-search--btn {
     font-size: 0.75em;
-    line-height: 3em;
+    line-height: $search-bar-height;
   }
 }

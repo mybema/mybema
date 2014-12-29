@@ -1,5 +1,5 @@
 .logo-wrapper {
-  height: 4em;
+  height: $nav-height;
   line-height: 1em;
   padding: 0.75em;
   text-decoration: none;
@@ -45,8 +45,8 @@ a.nav--li {
 }
 
 .nav-wrapper {
-  min-height: 4em;
   @extend %center-margin;
+  min-height: 4em;
   text-align: center;
   width: 96%;
 }
@@ -57,7 +57,7 @@ a.nav--li {
     color: $white;
     display: inline-block;
     font-weight: bold;
-    height: 4em;
+    height: $nav-height;
     line-height: 1em;
     padding: 0.75em;
     text-decoration: none;
@@ -79,7 +79,7 @@ a.nav--li {
     display: inline-block;
     font-size: 0.75em;
     font-weight: bold;
-    height: 5.25em;
+    height: $nav-height;
     line-height: 3.25em;
     padding: 1em;
     text-decoration: none;
@@ -89,7 +89,6 @@ a.nav--li {
 
   .nav-wrapper {
     clear: both;
-    // margin: 0 auto;
     width: 80%;
   }
 }

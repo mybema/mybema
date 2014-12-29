@@ -74,10 +74,12 @@ input[type="reset"]::-moz-focus-inner {
 
 @media only screen and (min-width: 768px) {
   a { text-decoration: none; }
+
   nav {
     clear: none;
-    height: 4em;
-    min-height: 4em;
+    height: $nav-height;
+    margin-bottom: 2px;
+    min-height: $nav-height;
     padding: 0;
   }
 
