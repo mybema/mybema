@@ -1,3 +1,9 @@
+0.2.1
+-----
+
+- CSS bugfix for flash notice
+- Add search helper for results paths
+
 0.2.0
 -----
 
