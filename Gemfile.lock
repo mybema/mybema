@@ -119,6 +119,7 @@ GEM
     fog-json (1.0.0)
       multi_json (~> 1.0)
     formatador (0.2.5)
+    gemoji (2.1.0)
     hashie (3.3.1)
     hike (1.2.3)
     humanizer (2.6.0)
@@ -265,6 +266,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   fog
+  gemoji
   humanizer
   identicon
   jquery-rails

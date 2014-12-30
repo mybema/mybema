@@ -5,3 +5,5 @@ require 'elasticsearch/rails/tasks/import'
 require File.expand_path('../config/application', __FILE__)
 
 Mybema::Application.load_tasks
+
+load 'tasks/emoji.rake'

@@ -1,5 +1,6 @@
 class DiscussionsController < ApplicationController
   before_action :fetch_categories, only: [:show, :index, :edit, :new]
+  include EmojiHelper
 
   def index
     if slug = params[:category]
