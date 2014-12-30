@@ -59,6 +59,10 @@ input[type="reset"]::-moz-focus-inner {
      border: 0 none !important;
  }
 
+#flash-notices {
+  margin-top: -2px;
+}
+
 .flash-notice {
   background-color: $flash-notice;
 }
