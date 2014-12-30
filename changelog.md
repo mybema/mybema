@@ -1,3 +1,8 @@
+0.2.4
+-----
+
+- Add discussions stylesheet
+
 0.2.3
 -----
 
