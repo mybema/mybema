@@ -1,3 +1,8 @@
+0.2.2
+-----
+
+- Add code highlighting CSS
+
 0.2.1
 -----
 
