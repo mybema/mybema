@@ -12,7 +12,7 @@
 
     <div class='post-content'>
       <div class='discussion-body'>
-        <%= auto_link simple_format @discussion.body, class: 'kb-paragraph' %>
+        <%= auto_link simple_format @discussion.body %>
       </div>
 
       <div class='discussion-details'>
@@ -47,7 +47,7 @@
         <%= image_tag(comment.user_avatar(*avatar_opts), class: 'user-avatar', alt: 'avatar') %>
         <div class='post-content'>
           <div class='discussion-body'>
-            <%= auto_link simple_format comment.body, class: 'kb-paragraph' %>
+            <%= auto_link simple_format comment.body %>
           </div>
 
           <div class='discussion-details'>
