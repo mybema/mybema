@@ -12,7 +12,7 @@
       </div>
 
       <div class="search-result--content">
-        <%= link_to result.title, eval("#{result._type}_path(result.id)") %>
+        <%= search_result_link(result) %>
         <div class='sv-margin'>
           <%= result.body.truncate(350) %>
         </div>
