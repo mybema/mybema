@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
     source: discussionsEngine.ttAdapter(),
     templates: {
       header: '<h3 class="typeahead-results-header">Discussions</h3>',
-      suggestion: Handlebars.compile('<a href="/discussions/{{id}}">{{title}}</a>')
+      suggestion: Handlebars.compile('<a href="/discussions/{{slug}}">{{title}}</a>')
     },
     engine: Handlebars
   },

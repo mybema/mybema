@@ -24,6 +24,6 @@ class Api::SearchControllerTest < ActionController::TestCase
   test "GET typeahead_discussion_prefetch returns a json response" do
     create(:discussion, body: 'body', title: 'title', id: 1)
     get :typeahead_discussion_prefetch
-    assert_equal [{"id"=>1,"title"=>"title","body"=>"body","class_name"=>"discussion"}], JSON.parse(@response.body)
+    assert_equal [{"id"=>1,"title"=>"title","slug"=>"title","body"=>"body","class_name"=>"discussion"}], JSON.parse(@response.body)
   end
 end

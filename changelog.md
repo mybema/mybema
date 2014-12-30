@@ -1,3 +1,8 @@
+0.2.5
+-----
+
+- Fix typeahead discussions to link to slug not ID
+
 0.2.4
 -----
 
