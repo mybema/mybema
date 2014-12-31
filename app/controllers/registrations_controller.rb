@@ -13,7 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
       transfer_guest_content resource
       remove_guest_cookie
 
-      MybemaDeviseMailer.send_welcome(resource).deliver unless resource.invalid?
+      EmailSendingWorker.perform_async(resource.id) unless resource.invalid?
 
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
