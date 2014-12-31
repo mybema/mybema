@@ -1,0 +1,16 @@
+<h4 class='config-section--heading'>
+  Welcome email
+</h4>
+
+<p class='welcome-mailer-description'>
+  Configure the welcome email that gets sent out when a new user joins. If you use <pre class='short-code-block'>{{USERNAME}}</pre> in the template, the email will magically convert that to the user's name in the actual email.
+</p>
+
+<%= form_for @app do |f| %>
+  <div class='discussion-form--body'>
+    <%= f.label :welcome_mailer_copy %>
+    <%= f.text_area :welcome_mailer_copy, class: 'discussion-form--input discussion-form--textarea' %>
+  </div>
+
+  <%= f.submit 'update welcome email', class: "greenbutton" %>
+<% end %>

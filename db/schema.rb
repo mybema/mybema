@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228170630) do
+ActiveRecord::Schema.define(version: 20141231120657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20141228170630) do
     t.boolean  "guest_posting",       default: true
     t.string   "ga_code"
     t.string   "domain_address"
+    t.string   "smtp_address",        default: ""
+    t.integer  "smtp_port",           default: 587
+    t.string   "smtp_domain",         default: ""
+    t.string   "smtp_username",       default: ""
+    t.string   "smtp_password",       default: ""
+    t.string   "mailer_sender",       default: "change-me@example.com"
+    t.string   "mailer_reply_to",     default: "change-me@example.com"
+    t.string   "welcome_mailer_copy", default: "Hello {{USERNAME}}! \n\nThank you for signing up to our community!"
   end
 
   create_table "articles", force: true do |t|

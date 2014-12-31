@@ -1,0 +1,46 @@
+<h4 class='config-section--heading'>
+  Email settings
+</h4>
+
+<p class='config-section--description'>
+  Configure your email provider SMTP settings so that Mybema will be able to send emails out to your users.
+</p>
+
+<%= form_for @app do |f| %>
+  <div class='discussion-form--body'>
+    <%= f.label :smtp_address, 'SMTP Address' %>
+    <%= f.text_field :smtp_address, placeholder: 'smtp.example.com', class: 'discussion-form--input' %>
+  </div>
+
+  <div class='discussion-form--body'>
+    <%= f.label :smtp_port, 'SMTP Port' %>
+    <%= f.text_field :smtp_port, placeholder: '587', class: 'discussion-form--short-input' %>
+  </div>
+
+  <div class='discussion-form--body'>
+    <%= f.label :smtp_domain, 'SMTP Domain' %>
+    <%= f.text_field :smtp_domain, placeholder: 'example.com', class: 'discussion-form--input' %>
+  </div>
+
+  <div class='discussion-form--body'>
+    <%= f.label :smtp_username, 'SMTP Username' %>
+    <%= f.text_field :smtp_username, placeholder: 'user@example.com', class: 'discussion-form--input' %>
+  </div>
+
+  <div class='discussion-form--body'>
+    <%= f.label :smtp_password, 'SMTP Password' %>
+    <%= f.password_field :smtp_password, class: 'discussion-form--input' %>
+  </div>
+
+  <div class='discussion-form--body'>
+    <%= f.label :mailer_sender, 'From address' %>
+    <%= f.text_field :mailer_sender, placeholder: 'from-us@example.com', class: 'discussion-form--input' %>
+  </div>
+
+  <div class='discussion-form--body'>
+    <%= f.label :mailer_reply_to, 'reply-to address' %>
+    <%= f.text_field :mailer_reply_to, placeholder: 'reply-to@example.com', class: 'discussion-form--input' %>
+  </div>
+
+  <%= f.submit 'update email settings', class: "greenbutton" %>
+<% end %>

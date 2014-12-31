@@ -15,6 +15,14 @@
 #  guest_posting       :boolean          default(TRUE)
 #  ga_code             :string(255)
 #  domain_address      :string(255)
+#  smtp_address        :string(255)      default("")
+#  smtp_port           :integer          default(587)
+#  smtp_domain         :string(255)      default("")
+#  smtp_username       :string(255)      default("")
+#  smtp_password       :string(255)      default("")
+#  mailer_sender       :string(255)      default("change-me@example.com")
+#  mailer_reply_to     :string(255)      default("change-me@example.com")
+#  welcome_mailer_copy :string(255)      default("Hello {{USERNAME}}! \n\nThank you for signing up to our community!")
 #
 
 require 'test_helper'
