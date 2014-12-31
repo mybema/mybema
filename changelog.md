@@ -1,3 +1,11 @@
+0.2.6
+-----
+
+- Add emoji support
+- Use Google Analytics only in production
+- Move user_is_guest() methods to a concern
+- Fix search for opera mini users
+
 0.2.5
 -----
 
