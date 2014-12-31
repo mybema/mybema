@@ -1,4 +1,15 @@
 class MybemaDeviseMailer < Devise::Mailer
+  self.default_url_options = { host: AppSettings.first.domain_address }
+  self.smtp_settings = {
+    :address              => AppSettings.first.smtp_address,
+    :port                 => AppSettings.first.smtp_port,
+    :domain               => AppSettings.first.smtp_domain,
+    :user_name            => AppSettings.first.smtp_username,
+    :password             => AppSettings.first.smtp_password,
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
   def confirmation_instructions(record, token, opts={})
     @token = token
     opts[:from] = AppSettings.first.mailer_sender
