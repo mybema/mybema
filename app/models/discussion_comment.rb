@@ -36,20 +36,4 @@ class DiscussionComment < ActiveRecord::Base
       'Guest'
     end
   end
-
-  private
-
-  def user_is_guest
-    user = User.where(id: self.user_id).first
-
-    if Rails.env.test?
-      false
-    elsif admin_id
-      false
-    elsif guest_id.present?
-      true
-    else
-      !(user && user.logged_in?)
-    end
-  end
 end

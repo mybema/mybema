@@ -61,18 +61,4 @@ class Discussion < ActiveRecord::Base
   def sluggify_title
     self.slug = title.parameterize
   end
-
-  def user_is_guest
-    user = User.where(id: self.user_id).first
-
-    if Rails.env.test?
-      false
-    elsif !guest_id && !user
-      false
-    elsif guest_id.present?
-      true
-    else
-      !(user && user.logged_in?)
-    end
-  end
 end
