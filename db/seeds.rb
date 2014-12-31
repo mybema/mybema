@@ -32,3 +32,9 @@ if AppSettings.first.seed_level < 4
   DiscussionCategory.create(name: 'General', description: 'General off-topic chat')
   AppSettings.first.update_attributes(seed_level: 4)
 end
+
+# Add emoji images
+if AppSettings.first.seed_level < 5
+  Rake::Task['emoji'].invoke
+  AppSettings.first.update_attributes(seed_level: 5)
+end
