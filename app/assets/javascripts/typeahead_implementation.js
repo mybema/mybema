@@ -21,8 +21,15 @@ jQuery(document).ready(function($) {
   articlesEngine.clearPrefetchCache();
 
   // kicks off the loading/processing of `local` and `prefetch`
-  discussionsEngine.initialize();
-  articlesEngine.initialize();
+  // discussionsEngine.initialize();
+  // articlesEngine.initialize();
+
+  if ( window.operamini ) {
+    $('.home-search--input').unbind('focus');
+  } else {
+    discussionsEngine.initialize();
+    articlesEngine.initialize();
+  }
 
   $('.home-search--input').typeahead({
     highlight: true
