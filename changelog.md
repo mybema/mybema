@@ -1,3 +1,10 @@
+0.2.7
+-----
+
+- Rename answers to articles
+- CSS tweaks
+- Fix styling of Devise pages
+
 0.2.6
 -----
 
