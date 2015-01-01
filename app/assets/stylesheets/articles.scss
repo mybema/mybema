@@ -12,6 +12,7 @@
 
 .kb-content {
   font-size: 1.2em;
+  line-height: 1.25em;
   margin: 1em 1em 3em;
   text-align: justify;
 }
@@ -45,9 +46,8 @@
 
 .kb-content img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 90vw;
+  margin: 0.5em auto;
+  max-width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
