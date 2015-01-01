@@ -20,10 +20,6 @@ jQuery(document).ready(function($) {
   discussionsEngine.clearPrefetchCache();
   articlesEngine.clearPrefetchCache();
 
-  // kicks off the loading/processing of `local` and `prefetch`
-  // discussionsEngine.initialize();
-  // articlesEngine.initialize();
-
   if ( window.operamini ) {
     $('.home-search--input').unbind('focus');
   } else {
