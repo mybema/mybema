@@ -1,6 +1,6 @@
 # Create application settings with a default hero message
 unless AppSettings.any?
-  AppSettings.create(hero_message: "Welcome to the Mybema community. If you've got a question about Mybema, try finding it here before contacting our customer service team. See the answers section for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representatives and other customers by joining a discussion or starting a new one.")
+  AppSettings.create(hero_message: "Welcome to the Mybema community. If you've got a question about Mybema, try finding it here before contacting our customer service team. See the articles section for official articles written by us about the most common issues you may experience. If you don't find what you're looking for there, you can also interact with our representatives and other customers by joining a discussion or starting a new one.")
 end
 
 # Create guest user
