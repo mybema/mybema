@@ -181,6 +181,12 @@ label { color: $black; }
   padding: 1em;
 }
 
+.short-code-block {
+  display: inline-block;
+  padding: 3px;
+  margin: 0 4px;
+}
+
 .sidebar {
   background-color: #f5f5f5;
   text-align: center;
@@ -188,6 +194,12 @@ label { color: $black; }
 
 .table {
   margin-bottom: 0!important;
+}
+
+.welcome-mailer-description {
+  display: inline-block;
+  margin-top: 0.75em;
+  margin-bottom: 0em;
 }
 
 @media only screen and (min-width: 768px) {

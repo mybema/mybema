@@ -12,6 +12,9 @@ class RegistrationsController < Devise::RegistrationsController
     if resource_saved
       transfer_guest_content resource
       remove_guest_cookie
+
+      EmailSendingWorker.perform_async(resource.id) unless resource.invalid?
+
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
