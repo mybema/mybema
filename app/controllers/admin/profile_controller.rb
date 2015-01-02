@@ -15,7 +15,7 @@ class Admin::ProfileController < AdminsController
   private
 
   def admin_params
-    admin_params_dup = params.require(:admin).permit(:name, :email, :password, :password_confirmation)
+    admin_params_dup = params.require(:admin).permit(:name, :email, :password, :password_confirmation, :avatar)
 
     if admin_params_dup[:password].blank? && admin_params_dup[:password_confirmation].blank?
       admin_params_dup.delete(:password)

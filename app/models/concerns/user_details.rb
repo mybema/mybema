@@ -7,7 +7,7 @@ module UserDetails
     elsif user_id? # Registered user
       user.avatar_url
     else
-      "admin.png"
+      admin.avatar_url
     end
   end
 

@@ -24,11 +24,22 @@
 #  invited_by_id          :integer
 #  invited_by_type        :string(255)
 #  invitations_count      :integer          default(0)
+#  avatar                 :string(255)
 #
 
 class Admin < ActiveRecord::Base
+  mount_uploader :avatar, AdminAvatarUploader
+
   devise :invitable, :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussion_comments, dependent: :nullify
+
+  def avatar_url
+    if avatar.present?
+      avatar.thumb.url
+    else
+      avatar.default_url
+    end
+  end
 
   def has_default_password?
     Admin.last.valid_password?('password')

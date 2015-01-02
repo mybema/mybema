@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class AvatarUploader < CarrierWave::Uploader::Base
+class UserAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Override the directory where uploaded files will be stored.
