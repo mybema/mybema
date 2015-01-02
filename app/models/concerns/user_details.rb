@@ -14,10 +14,9 @@ module UserDetails
   private
 
   def user_is_guest
-    user = User.where(id: self.user_id).first
-
     return false if Rails.env.test?
 
+    user = User.where(id: self.user_id).first
     if user && user.guest?
       true
     else
