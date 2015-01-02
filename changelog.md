@@ -1,3 +1,9 @@
+0.2.9
+-----
+
+- Send out welcome mailer when new users register
+- Allow admins to configure SMTP settings
+
 0.2.8
 -----
 
