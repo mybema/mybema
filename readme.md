@@ -79,4 +79,4 @@ Contributions are welcome. Please add unit tests as well as feature tests with y
 
 License
 =======
-An appropriate license for this project is coming soon.
+Please see [LICENSE.txt](https://github.com/mybema/mybema/blob/master/LICENSE.txt) for licensing details.
