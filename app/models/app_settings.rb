@@ -13,8 +13,8 @@
 #  updated_at          :datetime
 #  seed_level          :integer          default(0)
 #  guest_posting       :boolean          default(TRUE)
-#  ga_code             :string(255)
-#  domain_address      :string(255)
+#  ga_code             :string(255)      default("")
+#  domain_address      :string(255)      default("example.com")
 #  smtp_address        :string(255)      default("")
 #  smtp_port           :integer          default(587)
 #  smtp_domain         :string(255)      default("")

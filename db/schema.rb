@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102101418) do
+ActiveRecord::Schema.define(version: 20150102122633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150102101418) do
     t.integer  "seed_level",          default: 0
     t.boolean  "guest_posting",       default: true
     t.string   "ga_code",             default: ""
-    t.string   "domain_address",      default: ""
+    t.string   "domain_address",      default: "example.com"
     t.string   "smtp_address",        default: ""
     t.integer  "smtp_port",           default: 587
     t.string   "smtp_domain",         default: ""
