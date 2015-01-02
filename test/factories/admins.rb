@@ -24,6 +24,7 @@
 #  invited_by_id          :integer
 #  invited_by_type        :string(255)
 #  invitations_count      :integer          default(0)
+#  avatar                 :string(255)
 #
 
 FactoryGirl.define do

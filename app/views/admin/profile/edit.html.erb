@@ -35,6 +35,15 @@
           <%= f.label :password_confirmation, 'New password confirmation' %><br />
           <%= f.password_field :password_confirmation, class: 'discussion-form--input' %>
         </div>
+
+        <div class='discussion-form--body'>
+          <%= f.label :avatar, "Current avatar" %><br />
+          <%= image_tag current_admin.avatar_url, class: 'user-avatar', alt: 'avatar' %>
+        </div>
+
+        <div class='admin-avatar'>
+          Change your avatar: <%= f.file_field :avatar, class: 'borderless' %>
+        </div>
       </div>
 
       <footer>
