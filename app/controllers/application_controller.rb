@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :initialize_app, :fetch_user_and_handle_guest_cookie
+  before_action :app_settings, :fetch_user_and_handle_guest_cookie
   before_filter :configure_action_mailer_settings
 
-  def initialize_app
+  def app_settings
     @app ||= AppSettings.first
   end
 
@@ -28,15 +28,15 @@ class ApplicationController < ActionController::Base
 
   def configure_action_mailer_settings
     ActionMailer::Base.smtp_settings = {
-      :address              => AppSettings.first.smtp_address,
-      :port                 => AppSettings.first.smtp_port,
-      :domain               => AppSettings.first.smtp_domain,
-      :user_name            => AppSettings.first.smtp_username,
-      :password             => AppSettings.first.smtp_password,
+      :address              => app_settings.smtp_address,
+      :port                 => app_settings.smtp_port,
+      :domain               => app_settings.smtp_domain,
+      :user_name            => app_settings.smtp_username,
+      :password             => app_settings.smtp_password,
       :authentication       => "plain",
       :enable_starttls_auto => true
     }
-    ActionMailer::Base.default_url_options[:host] = AppSettings.first.domain_address
+    ActionMailer::Base.default_url_options[:host] = app_settings.domain_address
   end
 
   def create_identicon(klass, object_id)
