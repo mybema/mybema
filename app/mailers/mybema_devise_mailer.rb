@@ -1,6 +1,4 @@
 class MybemaDeviseMailer < Devise::Mailer
-  before_filter :use_smtp_settings
-
   def invitation_instructions(record, token, opts={})
     opts[:from] = AppSettings.first.mailer_sender
     opts[:reply_to] = AppSettings.first.mailer_reply_to
@@ -35,20 +33,5 @@ class MybemaDeviseMailer < Devise::Mailer
     opts[:from] = AppSettings.first.mailer_sender
     opts[:reply_to] = AppSettings.first.mailer_reply_to
     devise_mail(record, :unlock_instructions, opts)
-  end
-
-  private
-
-  def use_smtp_settings
-    self.default_url_options[:host] = AppSettings.first.domain_address
-    self.smtp_settings = {
-      :address              => AppSettings.first.smtp_address,
-      :port                 => AppSettings.first.smtp_port,
-      :domain               => AppSettings.first.smtp_domain,
-      :user_name            => AppSettings.first.smtp_username,
-      :password             => AppSettings.first.smtp_password,
-      :authentication       => "plain",
-      :enable_starttls_auto => true
-    }
   end
 end
