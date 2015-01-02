@@ -1,3 +1,8 @@
+0.3.3
+-----
+
+- Change smtp settings in MybemaDeviseMailer to class methods
+
 0.3.2
 -----
 

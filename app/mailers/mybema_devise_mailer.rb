@@ -40,8 +40,8 @@ class MybemaDeviseMailer < Devise::Mailer
   private
 
   def use_smtp_settings
-    default_url_options[:host] = AppSettings.first.domain_address
-    smtp_settings = {
+    self.default_url_options[:host] = AppSettings.first.domain_address
+    self.smtp_settings = {
       :address              => AppSettings.first.smtp_address,
       :port                 => AppSettings.first.smtp_port,
       :domain               => AppSettings.first.smtp_domain,
