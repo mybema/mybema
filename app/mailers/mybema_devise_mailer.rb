@@ -10,6 +10,13 @@ class MybemaDeviseMailer < Devise::Mailer
     :enable_starttls_auto => true
   }
 
+  def invitation_instructions(record, token, opts={})
+    opts[:from] = AppSettings.first.mailer_sender
+    opts[:reply_to] = AppSettings.first.mailer_reply_to
+    @token = token
+    devise_mail(record, :invitation_instructions, opts)
+  end
+
   def confirmation_instructions(record, token, opts={})
     @token = token
     opts[:from] = AppSettings.first.mailer_sender
