@@ -1,3 +1,8 @@
+0.2.8
+-----
+
+- Allow admins to upload their own avatars
+
 0.2.7
 -----
 
