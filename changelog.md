@@ -1,3 +1,8 @@
+0.3.2
+-----
+
+- Change default domain address for AppSettings
+
 0.3.1
 -----
 
