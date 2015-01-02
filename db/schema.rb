@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20150102101418) do
     t.datetime "updated_at"
     t.integer  "seed_level",          default: 0
     t.boolean  "guest_posting",       default: true
-    t.string   "ga_code"
-    t.string   "domain_address"
+    t.string   "ga_code",             default: ""
+    t.string   "domain_address",      default: ""
     t.string   "smtp_address",        default: ""
     t.integer  "smtp_port",           default: 587
     t.string   "smtp_domain",         default: ""
