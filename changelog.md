@@ -1,3 +1,8 @@
+0.3.1
+-----
+
+- Critical MybemaDeviseMailer bugfix
+
 0.3.0
 -----
 
