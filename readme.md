@@ -30,7 +30,7 @@ Install Redis if you haven't alrady
 
     brew install redis
 
-Install Elasticsearch if you haven't alrady
+Install Elasticsearch if you haven't already
 
     brew install elasticsearch
 
