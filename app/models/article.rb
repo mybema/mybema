@@ -19,7 +19,7 @@ class Article < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
   mount_uploader :hero_image, ArticleHeroUploader
-  validates :hero_image, file_size: { maximum: 1.megabytes.to_i }
+  validates :hero_image, file_size: { maximum: 1.megabytes.to_i } if Proc.new { |article| article.hero_image.exists? }
 
   index_name "article_#{Rails.env}"
 
