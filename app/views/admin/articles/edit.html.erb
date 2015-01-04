@@ -19,6 +19,22 @@
         <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
       </div>
 
+      <div class='discussion-form--body'>
+        <%= f.label :excerpt %>
+        <%= f.text_area :excerpt, class: 'discussion-form--input' %>
+      </div>
+
+      <div class='discussion-form--selection'>
+        <%= f.label :section_id, class: 'discussion-form--label' %>
+        <%= f.select :section_id, @sections.map { |c| [c.title, c.id] },
+            { prompt: "Select one" }, { class: 'discussion-form--input' } %>
+      </div>
+
+      <%= f.label :hero_image, 'Attach a hero image:' %>
+      <%= f.file_field :hero_image, class: 'borderless' %>
+
+      <br/>
+
       <div class='btn-group'>
         <%= f.submit "update article", class: "admin-btn green-btn" %>
         <%= link_to 'delete article', admin_section_article_path(@section, @article),
