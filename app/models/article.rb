@@ -8,11 +8,18 @@
 #  section_id :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  excerpt    :string(255)
+#  hero_image :string(255)
 #
+
+require 'file_size_validator'
 
 class Article < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+
+  mount_uploader :hero_image, ArticleHeroUploader
+  validates :hero_image, file_size: { maximum: 1.megabytes.to_i }
 
   index_name "article_#{Rails.env}"
 
