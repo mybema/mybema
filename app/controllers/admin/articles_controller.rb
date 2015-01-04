@@ -29,7 +29,7 @@ class Admin::ArticlesController < AdminsController
     @section = Section.find(params[:admin_section_id])
     @article = Article.find(params[:id])
 
-    if @article.update_attributes params.require(:article).permit(:title, :body, :excerpt, :hero_image)
+    if @article.update_attributes article_params
       redirect_to admin_section_path(@section)
     else
       @sections = Section.all
@@ -43,5 +43,17 @@ class Admin::ArticlesController < AdminsController
     if @article.destroy
       redirect_to admin_articles_path
     end
+  end
+
+  private
+
+  def article_params
+    article_params_dup = params.require(:article).permit(:title, :body, :excerpt, :hero_image)
+
+    if article_params_dup[:hero_image].blank?
+      article_params_dup.delete(:hero_image)
+    end
+
+    article_params_dup
   end
 end
