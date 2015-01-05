@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mybema dashboard</title>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : @app.community_title %>
+    </title>
+
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= stylesheet_link_tag "dashboard", media: "all" %>
