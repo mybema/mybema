@@ -23,7 +23,7 @@ module ApplicationHelper
     msg && cookies[:dismissed_hero] != 'true'
   end
 
-  def editable_discussion discussion
+  def editable_discussion? discussion
     (current_user.logged_in? && discussion.user == current_user) ||
     (discussion.guest_id == cookies.permanent[:mybema_guest_id])
   end
