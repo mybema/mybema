@@ -29,7 +29,7 @@
         </span>
       </div>
 
-      <% if editable_discussion @discussion %>
+      <% if editable_discussion? @discussion %>
         <%= link_to 'Edit this post', edit_discussion_path(@discussion) %>
       <% end %>
     </div>
