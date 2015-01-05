@@ -1,9 +1,18 @@
+<%= @article.article_hero_section %>
+
 <div class='kb-wrapper'>
   <h1 class='kb-title'>
-    <%= @article.title %>
+    <%= @article.displayable_title %>
   </h1>
 
   <div class='kb-content'>
     <%= simple_format @article.markdown_body, class: 'kb-paragraph' %>
   </div>
 </end>
+
+<script type="text/javascript">
+  if ("<%= @article.hero_image %>".length > 0) {
+    $('.kb-hero-wrapper').css('background', 'url(<%= @article.hero_image.url %>) no-repeat scroll center center transparent');
+    $('.kb-hero-wrapper').css("background-size", "cover");
+  }
+</script>
