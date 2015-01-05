@@ -5,6 +5,10 @@
   text-align: justify;
 }
 
+.kb-content em {
+  font-style: italic;
+}
+
 .kb-content h1 {
   font-size: 2em;
 }
@@ -21,13 +25,19 @@
 .kb-content h2,
 .kb-content h3,
 .kb-content h4 {
+  color: #111;
   margin: 0.75em 0;
+  text-align: center;
 }
 
 .kb-content img {
   display: block;
   margin: 0.5em auto;
   max-width: 100%;
+}
+
+.kb-content strong {
+  color: #000;
 }
 
 .kb-excerpt {
@@ -98,6 +108,15 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .kb-content {
+    font-size: 1.4em;
+  }
+
+  .kb-content p {
+    width: 80%;
+    margin: 1.25em auto;
+  }
+
   .kb-excerpt {
     font-size: 1.5em;
     margin-bottom: 3em;
