@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104154229) do
+ActiveRecord::Schema.define(version: 20150105171245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150104154229) do
     t.string   "mailer_sender",       default: "change-me@example.com"
     t.string   "mailer_reply_to",     default: "change-me@example.com"
     t.string   "welcome_mailer_copy", default: "Hello {{USERNAME}}! \n\nThank you for signing up to our community!"
+    t.string   "community_title",     default: "Mybema"
   end
 
   create_table "articles", force: true do |t|

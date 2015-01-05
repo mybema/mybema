@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mybema</title>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : @app.community_title %>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all" %>

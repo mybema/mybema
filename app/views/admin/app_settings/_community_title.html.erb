@@ -1,0 +1,16 @@
+<h4 class='config-section--heading'>
+  Title
+</h4>
+
+<p class='config-section--description'>
+  This is the title that users will see in their browsers when visiting your community
+</p>
+
+<%= form_for @app do |f| %>
+  <div class='discussion-form--body'>
+    <%= f.label :community_title, 'Community title' %>
+    <%= f.text_field :community_title, class: 'discussion-form--input' %>
+  </div>
+
+  <%= f.submit 'update title', class: "greenbutton" %>
+<% end %>

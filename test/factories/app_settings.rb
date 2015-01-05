@@ -23,6 +23,7 @@
 #  mailer_sender       :string(255)      default("change-me@example.com")
 #  mailer_reply_to     :string(255)      default("change-me@example.com")
 #  welcome_mailer_copy :string(255)      default("Hello {{USERNAME}}! \n\nThank you for signing up to our community!")
+#  community_title     :string(255)      default("Mybema")
 #
 
 FactoryGirl.define do

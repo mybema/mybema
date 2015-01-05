@@ -65,6 +65,14 @@ class AdminAppSettingsTest < Capybara::Rails::TestCase
     assert_equal AppSettings.first.domain_address, 'http://example.example.com'
   end
 
+  test 'admin can update the community title' do
+    visit app_settings_path
+    fill_in 'Community title', with: 'A new title'
+    click_button 'update title'
+    assert_content page, 'App settings have been updated'
+    assert_equal AppSettings.first.community_title, 'A new title'
+  end
+
   test 'admin can update the welcome mailer copy' do
     visit app_settings_path
     fill_in 'Welcome mailer copy', with: 'Hello new user'
