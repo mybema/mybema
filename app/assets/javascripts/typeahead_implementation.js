@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
     engine: Handlebars
   }).on('typeahead:selected', function(e, object) {
     if (object.class_name == 'discussion') {
-      window.location = '/discussions/' + object.id;
+      window.location = '/discussions/' + object.slug;
     } else {
       window.location = '/articles/' + object.id;
     }
