@@ -26,8 +26,18 @@
           <%= f.text_area :body, class: 'discussion-form--input discussion-form--textarea' %>
         </div>
 
+        <div class='discussion-form--body'>
+          <%= f.label :excerpt %>
+          <%= f.text_area :excerpt, class: 'discussion-form--input' %>
+        </div>
+
         <%= f.hidden_field :section_id, value: @section.id %>
+
+        <%= f.label :hero_image, 'Attach a hero image:' %>
+        <%= f.file_field :hero_image, class: 'borderless' %>
       </div>
+
+      <br />
 
       <footer>
         <%= f.submit "add article", class: "greenbutton" %>

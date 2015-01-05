@@ -8,6 +8,8 @@
 #  section_id :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  excerpt    :string(255)
+#  hero_image :string(255)
 #
 
 require 'test_helper'

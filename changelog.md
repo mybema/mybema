@@ -1,3 +1,12 @@
+0.3.4
+-----
+
+- Move email configuration back to MybemaDeviseMailer
+- Add LGPL 3.0 license
+- Add hero image and excerpt to articles
+- Introduce pretty article layouts
+- Add draper gem and decorate articles
+
 0.3.3
 -----
 

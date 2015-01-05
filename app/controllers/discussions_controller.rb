@@ -24,7 +24,7 @@ class DiscussionsController < ApplicationController
     @discussion = @current_user.discussions.find_by_id(params[:id])
     @guidelines = Guideline.all.reverse
 
-    unless @discussion && editable_discussion
+    unless @discussion && editable_discussion?
       flash[:alert] = "You don't have permission to do that"
       return redirect_to discussions_path
     end
@@ -69,7 +69,7 @@ class DiscussionsController < ApplicationController
       return redirect_to discussions_path
     end
 
-    if editable_discussion
+    if editable_discussion?
       if @discussion.update_attributes(discussion_params)
         flash[:notice] = 'Your discussion has been updated'
         redirect_to discussion_path(@discussion.slug)
@@ -95,7 +95,7 @@ class DiscussionsController < ApplicationController
     params.require(:discussion).permit(:body, :title, :admin_id, :user_id, :discussion_category_id, :guest_id, :humanizer_answer, :humanizer_question_id)
   end
 
-  def editable_discussion
+  def editable_discussion?
     @current_user.logged_in? || (@discussion.guest_id == cookies.permanent[:mybema_guest_id] && @current_user.can_contribute?)
   end
 end
