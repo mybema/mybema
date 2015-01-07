@@ -80,4 +80,28 @@ class AdminAppSettingsTest < Capybara::Rails::TestCase
     assert_content page, 'App settings have been updated'
     assert_equal AppSettings.first.welcome_mailer_copy, 'Hello new user'
   end
+
+  test 'admin can update the navigation bar background color' do
+    visit app_settings_path
+    fill_in 'Header background color', with: '#123'
+    click_button 'update header'
+    assert_content page, 'App settings have been updated'
+    assert_equal AppSettings.first.nav_bg_color, '#123'
+  end
+
+  test 'admin can update the navigation bar link color' do
+    visit app_settings_path
+    fill_in 'Header link color', with: '#456'
+    click_button 'update header'
+    assert_content page, 'App settings have been updated'
+    assert_equal AppSettings.first.nav_link_color, '#456'
+  end
+
+  test 'admin can update the navigation bar link hover color' do
+    visit app_settings_path
+    fill_in 'Header link hover color', with: '#789'
+    click_button 'update header'
+    assert_content page, 'App settings have been updated'
+    assert_equal AppSettings.first.nav_link_hover_color, '#789'
+  end
 end

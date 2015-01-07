@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105171245) do
+ActiveRecord::Schema.define(version: 20150106204750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,19 +56,22 @@ ActiveRecord::Schema.define(version: 20150105171245) do
     t.text     "hero_message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "seed_level",          default: 0
-    t.boolean  "guest_posting",       default: true
-    t.string   "ga_code",             default: ""
-    t.string   "domain_address",      default: "example.com"
-    t.string   "smtp_address",        default: ""
-    t.integer  "smtp_port",           default: 587
-    t.string   "smtp_domain",         default: ""
-    t.string   "smtp_username",       default: ""
-    t.string   "smtp_password",       default: ""
-    t.string   "mailer_sender",       default: "change-me@example.com"
-    t.string   "mailer_reply_to",     default: "change-me@example.com"
-    t.string   "welcome_mailer_copy", default: "Hello {{USERNAME}}! \n\nThank you for signing up to our community!"
-    t.string   "community_title",     default: "Mybema"
+    t.integer  "seed_level",           default: 0
+    t.boolean  "guest_posting",        default: true
+    t.string   "ga_code",              default: ""
+    t.string   "domain_address",       default: "example.com"
+    t.string   "smtp_address",         default: ""
+    t.integer  "smtp_port",            default: 587
+    t.string   "smtp_domain",          default: ""
+    t.string   "smtp_username",        default: ""
+    t.string   "smtp_password",        default: ""
+    t.string   "mailer_sender",        default: "change-me@example.com"
+    t.string   "mailer_reply_to",      default: "change-me@example.com"
+    t.string   "welcome_mailer_copy",  default: "Hello {{USERNAME}}! \n\nThank you for signing up to our community!"
+    t.string   "community_title",      default: "Mybema"
+    t.string   "nav_bg_color",         default: "#333"
+    t.string   "nav_link_color",       default: "#FFF"
+    t.string   "nav_link_hover_color", default: "#212121"
   end
 
   create_table "articles", force: true do |t|

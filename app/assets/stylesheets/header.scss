@@ -1,10 +1,11 @@
 .logo-wrapper {
   height: $nav-height;
   line-height: 1em;
-  padding: 0.75em;
+  margin: 0 auto;
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
+  max-width: 9em;
 }
 
 .logo-wrapper:hover {
@@ -41,6 +42,7 @@ a.nav--li {
 }
 
 .nav--logo img {
+  height: 62px;
   max-width: 100%;
 }
 
@@ -59,7 +61,6 @@ a.nav--li {
     font-weight: bold;
     height: $nav-height;
     line-height: 1em;
-    padding: 0.75em;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;

@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Update nav background color
+    $('nav').css("background-color", "<%= @app.nav_bg_color %>");
+
+    // Update nav link text color
+    $('.nav--list li').css('color', '<%= @app.nav_link_color %>');
+
+    // Update nav link text hover color
+    $(".nav--li, .logo-wrapper").hover(function() {
+      $(this).css('background-color', '<%= @app.nav_link_hover_color %>');
+    }, function() {
+      $(this).css("background-color", "<%= @app.nav_bg_color %>");
+    });
+  });
+</script>
