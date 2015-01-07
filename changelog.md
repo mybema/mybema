@@ -1,3 +1,14 @@
+0.3.5
+-----
+
+- Allow logo uploading
+- Header CSS can be customized via the admin section
+- Fix typeahead bug
+- Each community can now customize its HTML title element
+- merge request from @firstrow
+- Add auto_link to articles
+- CSS tweaks
+
 0.3.4
 -----
 
