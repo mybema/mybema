@@ -9,21 +9,13 @@
   -webkit-box-sizing: border-box;
 }
 
-header, section, footer, aside, nav, article, figure,
-details, figcaption, figure, hgroup, menu {
-  display: block;
-}
-
-html, body {
-  height: 100%;
-}
-
 a {
   color: #28D;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
-
-a:hover { text-decoration: underline; }
 
 body {
   color: #565656;
@@ -31,7 +23,18 @@ body {
   font-weight: 300;
 }
 
-hr { border-color: $lighter-grey; }
+header, section, footer, aside, nav, article, figure,
+details, figcaption, figure, hgroup, menu {
+  display: block;
+}
+
+hr {
+  border-color: $lighter-grey;
+}
+
+html, body {
+  height: 100%;
+}
 
 input[type="submit"] {
   -webkit-appearance:none;
@@ -46,9 +49,18 @@ nav {
   min-height: 6em;
   list-style: none outside none;
   padding: 0.5em;
+  @media only screen and (min-width: $desktop) {
+    clear: none;
+    height: $nav-height;
+    margin-bottom: 2px;
+    min-height: $nav-height;
+    padding: 0;
+  }
 }
 
-strong { font-weight: bold; }
+strong {
+  font-weight: bold;
+}
 
 /* Remove button padding in FF */
 button::-moz-focus-inner,
@@ -74,20 +86,7 @@ input[type="reset"]::-moz-focus-inner {
 
 .non-mobile {
   display: none;
-}
-
-@media only screen and (min-width: 768px) {
-  a { text-decoration: none; }
-
-  nav {
-    clear: none;
-    height: $nav-height;
-    margin-bottom: 2px;
-    min-height: $nav-height;
-    padding: 0;
-  }
-
-  .non-mobile {
+  @media only screen and (min-width: $desktop) {
     display: block;
   }
 }

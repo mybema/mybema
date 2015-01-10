@@ -6,16 +6,21 @@
   text-transform: uppercase;
   vertical-align: middle;
   max-width: 9em;
-}
-
-.logo-wrapper:hover {
-  background-color: #212121;
-  text-decoration: none;
+  @media only screen and (min-width: $desktop) {
+    color: $white;
+    display: inline-block;
+    float: left;
+    font-weight: bold;
+  }
+  &:hover {
+    background-color: $natural-black;
+    text-decoration: none;
+  }
 }
 
 .nav--li,
 a.nav--li {
-  color: #FFF;
+  color: $white;
   display: block;
   font-size: 0.75em;
   font-weight: bold;
@@ -23,12 +28,24 @@ a.nav--li {
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
+  @media only screen and (min-width: $desktop) {
+    display: inline-block;
+    float: left;
+    height: $nav-height;
+    line-height: 3.25em;
+    padding: 1em;
+  }
+  &:hover {
+    background-color: $natural-black;
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
-.nav--li:hover {
-  background-color: #212121;
-  cursor: pointer;
-  text-decoration: none;
+.nav--list {
+  @media only screen and (min-width: $desktop) {
+    float: right;
+  }
 }
 
 .nav--list li {
@@ -51,44 +68,7 @@ a.nav--li {
   min-height: 4em;
   text-align: center;
   width: 96%;
-}
-
-@media only screen and (min-width: 768px) {
-  .logo-wrapper {
-    float: left;
-    color: $white;
-    display: inline-block;
-    font-weight: bold;
-    height: $nav-height;
-    line-height: 1em;
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-
-  .nav--list {
-    float: right;
-  }
-
-  .nav--li {
-    display: block;
-    float: left;
-  }
-
-  .nav--li {
-    color: #FFF;
-    display: inline-block;
-    font-size: 0.75em;
-    font-weight: bold;
-    height: $nav-height;
-    line-height: 3.25em;
-    padding: 1em;
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-
-  .nav-wrapper {
+  @media only screen and (min-width: $desktop) {
     clear: both;
     width: 80%;
   }

@@ -12,7 +12,9 @@
 *= require_self
 */
 
-label { color: $black; }
+label {
+  color: $black;
+}
 
 .admin-avatar {
   margin: 2em auto;
@@ -32,8 +34,20 @@ label { color: $black; }
   text-align: center;
 }
 
+.config-section {
+  background-color: #EAEAEA;
+  border: 1px solid #777;
+  border-radius: 3px;
+  margin: 1em auto;
+  padding: 1em;
+}
+
 .config-section--description {
   margin: 0.5em 0;
+}
+
+.config-section--heading {
+  margin: 0;
 }
 
 .clickable-row,
@@ -49,8 +63,14 @@ label { color: $black; }
 }
 
 .dashboard-container {
-  background-color: #eee;
+  background-color: $lighter-grey;
   padding: 1em;
+  @media only screen and (min-width: $desktop) {
+    display: inline-block;
+    max-height: calc(100% - 4em);
+    overflow: scroll;
+    width: 83.334%;
+  }
 }
 
 .discussion-comment {
@@ -103,6 +123,12 @@ label { color: $black; }
 
 .guidelines-intro {
   font-size: 1.15em;
+  @media only screen and (min-width: $desktop) {
+    display: inline-block;
+    margin: 0 5% 1em 0;
+    vertical-align: top;
+    width: calc(90% - 8.5em);
+  }
 }
 
 .guidelines-form--wrapper {
@@ -135,6 +161,10 @@ label { color: $black; }
   margin: 0.5em 0;
 }
 
+.manage-comment-link {
+  float: right;
+}
+
 .new-admin-warning--header {
   font-family: 'Lato', sans-serif;
   text-align: center;
@@ -156,14 +186,6 @@ label { color: $black; }
   margin: 2em auto;
 }
 
-.config-section--heading {
-  margin: 0;
-}
-
-.manage-comment-link {
-  float: right;
-}
-
 .profile-form {
   display: inline-block;
   width: 83.33%;
@@ -171,14 +193,6 @@ label { color: $black; }
 
 .rght-txt {
   text-align: right;
-}
-
-.config-section {
-  background-color: #EAEAEA;
-  border: 1px solid #777;
-  border-radius: 3px;
-  margin: 1em auto;
-  padding: 1em;
 }
 
 .short-code-block {
@@ -190,6 +204,17 @@ label { color: $black; }
 .sidebar {
   background-color: #f5f5f5;
   text-align: center;
+  @media only screen and (min-width: $desktop) {
+    border-right: 1px solid $lighter-grey;
+    display: block;
+    min-height: calc(100% - 4em);
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    padding: 20px;
+    position: relative;
+    text-align: left;
+    z-index: 1000;
+  }
 }
 
 .table {
@@ -200,35 +225,4 @@ label { color: $black; }
   display: inline-block;
   margin-top: 0.75em;
   margin-bottom: 0em;
-}
-
-@media only screen and (min-width: 768px) {
-  .dashboard-container {
-    display: inline-block;
-    width: 83.334%;
-    background-color: #eee;
-    padding: 1em;
-    max-height: calc(100% - 4em);
-    overflow: scroll;
-  }
-
-  .guidelines-intro {
-    display: inline-block;
-    font-size: 1.15em;
-    margin: 0 5% 1em 0;
-    vertical-align: top;
-    width: calc(90% - 8.5em);
-  }
-
-  .sidebar {
-    position: relative;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    border-right: 1px solid #eee;
-    min-height: calc(100% - 4em);
-    text-align: left;
-  }
 }

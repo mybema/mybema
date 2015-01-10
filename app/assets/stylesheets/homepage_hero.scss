@@ -1,5 +1,28 @@
 .hero-section {
   margin: 2em auto;
+  @media only screen and (min-width: $desktop) {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    margin: 0.25em;
+    min-height: 5em;
+    text-align: center;
+  }
+}
+
+.hero-section--blurb {
+  @media only screen and (min-width: $desktop) {
+    margin: 1em auto;
+    width: 80%;
+  }
+}
+
+.hero-section-container {
+  @media only screen and (min-width: $desktop) {
+    display: flex;
+    margin: 1em auto;
+    width: 80%;
+  }
 }
 
 .hero-section--description {
@@ -13,6 +36,18 @@
   width: 100%;
 }
 
+.home-hero-message {
+  @media only screen and (min-width: $desktop) {
+    background-color: $hero-bg;
+    border: 1px solid $hero-border;
+    border-radius: 5px;
+    clear: both;
+    font-size:1.2em;
+    margin: 0 10% 2em 10%;
+    padding: 0.75em;
+  }
+}
+
 .homepage-hero {
   @extend %center-margin;
   background-color: $lighter-grey;
@@ -20,42 +55,18 @@
   border-radius: 3px;
   padding: 0.5em;
   width: 96%;
-}
-
-.homepage-hero-image {
-  width: 75px;
-  height: 75px;
-}
-
-@media only screen and (min-width: 768px) {
-  .hero-section {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    margin: 0.25em;
-    min-height: 5em;
-    text-align: center;
-  }
-
-  .hero-section--blurb {
-    margin: 1em auto;
-    width: 80%;
-  }
-
-  .hero-section-container {
-    display: flex;
-    margin: 1em auto;
-    width: 80%;
-  }
-
-  .homepage-hero {
+  @media only screen and (min-width: $desktop) {
     border-radius: 0;
     margin-top: -2px;
     padding: 2em 0 0 0;
     width: 100%;
   }
+}
 
-  .homepage-hero-image {
+.homepage-hero-image {
+  width: 75px;
+  height: 75px;
+  @media only screen and (min-width: $desktop) {
     width: 150px;
     height: 150px;
   }

@@ -1,12 +1,15 @@
 .tt-dropdown-menu {
-  width: 100%;
-  margin-top: 6px;
-  padding: 8px 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: $white;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  margin-top: 6px;
+  padding: 8px 0;
+  width: 100%;
+  @media only screen and (min-width: $desktop) {
+    margin-top: 12px;
+    width: 422px;
+  }
 }
 
 .tt-hint {
@@ -41,7 +44,7 @@
 }
 
 .tt-suggestion.tt-cursor a {
-  color: #fff;
+  color: $white;
 }
 
 .twitter-typeahead {
@@ -49,15 +52,8 @@
 }
 
 .typeahead-results-header {
-  color: #212121;
+  color: $natural-black;
   margin: 0 20px 5px 20px;
   padding: 3px 0;
   border-bottom: 1px solid #ccc;
-}
-
-@media only screen and (min-width: 768px) {
-  .tt-dropdown-menu {
-    margin-top: 12px;
-    width: 422px;
-  }
 }

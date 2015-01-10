@@ -10,17 +10,23 @@
   text-transform: uppercase;
   min-width: 10em;
   text-align: center;
-}
-
-.admin-btn:hover {
-  color: $white;
-  cursor: pointer;
-  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+  }
+  @media only screen and (min-width: $desktop) {
+    display: inline-block;
+  }
 }
 
 .admin-btn-wrapper {
   margin: 0.5em auto;
   width: 12em;
+  @media only screen and (min-width: $desktop) {
+    clear: both;
+    float: right;
+    margin: 0 0 1em 0;
+    min-width: 12em;
+  }
 }
 
 .btn-group {
@@ -28,39 +34,82 @@
   margin-bottom: 1em;
 }
 
-.green-btn {
+.greenbutton {
   background-color: $green-cta;
+  border-radius: 3px;
+  border: 0;
+  color: $white;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 2em;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $green-cta-hover;
+    cursor: pointer;
+  }
+  @media only screen and (min-width: $desktop) {
+    font-size: 1em;
+    padding: 0 20px;
+    line-height: 3em;
+  }
 }
 
-.green-btn:hover {
-  background-color: $green-cta-hover;
+.green-btn {
+  background-color: $green-cta;
+  &:hover {
+    background-color: $green-cta-hover;
+  }
 }
 
 .grey-btn {
   background-color: rgb(120,140,150);
+  &:hover {
+    background-color: rgb(120,170,170);
+  }
 }
 
-.grey-btn:hover {
-  background-color: rgb(120,170,170);
+.hero-cta {
+  margin-top: 1em;
+  background-color: $blue-cta;
+  border-radius: 3px;
+  border: 0;
+  color: #FFF;
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 0.75em;
+  line-height: 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $blue-cta-hover;
+    cursor: pointer;
+  }
+  @media only screen and (min-width: $desktop) {
+    margin-top: 0;
+  }
+}
+
+.home-hero--dismiss-btn {
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  @media only screen and (min-width: $desktop) {
+    color: $black;
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 0.25em;
+    opacity: 0.3;
+    text-decoration: none;
+  }
 }
 
 .red-btn {
   background-color: rgb(255,55,55);
-}
-
-.red-btn:hover {
-  background-color: rgb(255,75,75);
-}
-
-@media only screen and (min-width: 768px) {
-  .admin-btn {
-    display: inline-block;
-  }
-
-  .admin-btn-wrapper {
-    clear: both;
-    float: right;
-    margin: 0 0 1em 0;
-    min-width: 12em;
+  &:hover {
+    background-color: rgb(255,75,75);
   }
 }

@@ -3,6 +3,9 @@
   line-height: 1.25em;
   margin: 1em 1em 3em;
   text-align: justify;
+  @media only screen and (min-width: $desktop) {
+    font-size: 1.4em;
+  }
 }
 
 .kb-content em {
@@ -36,6 +39,13 @@
   max-width: 100%;
 }
 
+.kb-content p {
+  @media only screen and (min-width: $desktop) {
+    width: 80%;
+    margin: 1.25em auto;
+  }
+}
+
 .kb-content strong {
   color: #000;
 }
@@ -47,6 +57,12 @@
   width: 70%;
 }
 
+.kb-description {
+  @media only screen and (min-width: $desktop) {
+    width: 100%;
+  }
+}
+
 .kb-excerpt {
   color: #FFF;
   font-size: 1.25em;
@@ -54,10 +70,20 @@
   margin: 0 auto 1.5em;
   text-align: center;
   width: 80%;
+  @media only screen and (min-width: $desktop) {
+    font-size: 1.5em;
+    margin-bottom: 3em;
+    width: 70%;
+  }
 }
 
 .kb-hero--content-wrap {
   width: 100%;
+  @media only screen and (min-width: $desktop) {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+  }
 }
 
 .kb-hero-dark-wrapper {
@@ -66,11 +92,23 @@
   width: 100%;
   height: 100%;
   z-index: 9;
+  @media only screen and (min-width: $desktop) {
+    background-size: cover;
+    display: block;
+    left: 0;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    z-index: 2;
+  }
 }
 
 .kb-hero--sections-link {
   margin: 1em auto;
   text-align: center;
+  @media only screen and (min-width: $desktop) {
+    font-size: 0.75em;
+  }
 }
 
 .kb-hero--sections-link a {
@@ -78,12 +116,18 @@
 }
 
 .kb-hero-title {
-  text-align: center;
+  color: #FFF;
   font-size: 2.5em;
   font-weight: bold;
-  width: 90%;
   margin: 1.5em auto;
-  color: #FFF;
+  text-align: center;
+  width: 90%;
+  @media only screen and (min-width: $desktop) {
+    font-size: 60px;
+    margin: 0 auto;
+    padding-bottom: 1em;
+    width: 70%;
+  }
 }
 
 .kb-hero-wrapper {
@@ -92,10 +136,26 @@
   overflow: hidden;
   width: 100%;
   z-index: 2;
+  @media only screen and (min-width: $desktop) {
+    background-size: cover;
+    height: calc(100% - 62px);
+    left: 0;
+    top: 0;
+  }
+}
+
+.kb-items {
+  list-style: none;
+  text-align: center;
 }
 
 .kb-items > li {
   margin: 0.5em auto;
+  @media only screen and (min-width: $desktop) {
+    color: #313131;
+    margin: 0;
+    padding: 0.5em 0;
+  }
 }
 
 .kb-paragraph {
@@ -107,72 +167,15 @@
   margin-bottom: 0.5em;
   margin-top: 0.5em;
   text-align: center;
+  @media only screen and (min-width: $desktop) {
+    margin-top: 0;
+  }
 }
 
 .kb-wrapper {
   margin: 1em auto;
   width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  .kb-content {
-    font-size: 1.4em;
-  }
-
-  .kb-content p {
-    width: 80%;
-    margin: 1.25em auto;
-  }
-
-  .kb-excerpt {
-    font-size: 1.5em;
-    margin-bottom: 3em;
-    width: 70%;
-  }
-
-  .kb-hero--content-wrap {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-  }
-
-  .kb-hero-dark-wrapper {
-    background-size: cover;
-    display: block;
-    height: 100%;
-    left: 0;
-    overflow: hidden;
-    position: relative;
-    top: 0;
-    width: 100%;
-    z-index: 2;
-  }
-
-  .kb-hero--sections-link {
-    font-size: 0.75em;
-    margin: 1em auto;
-  }
-
-  .kb-hero-title {
-    font-size: 60px;
-    font-weight: bold;
-    margin: 0 auto;
-    padding-bottom: 1em;
-    width: 70%;
-  }
-
-  .kb-hero-wrapper {
-    background-size: cover;
-    height: calc(100% - 62px);
-    left: 0;
-    top: 0;
-  }
-
-  .kb-title {
-    margin-top: 0;
-  }
-
-  .kb-wrapper {
+  @media only screen and (min-width: $desktop) {
     width: 80%;
   }
 }

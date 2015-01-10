@@ -10,6 +10,11 @@ a > .active-category {
   border: 1px solid $medium-grey;
   border-radius: 3px;
   margin: 1em auto;
+  @media only screen and (min-width: $desktop) {
+    display: inline-block;
+    margin: 0 0 0 4%;
+    width: 25%;
+  }
 }
 
 .category-wrap {
@@ -29,40 +34,34 @@ a > .active-category {
   border-radius: 3px;
   margin: 2px auto;
   padding: 0.5em;
+  &:hover {
+    background-color: $green-cta;
+    cursor: pointer;
+  }
 }
 
-.category-wrap a:active {
-  background-color: rgb(115, 170, 190);
-  color: $white;
-  cursor: pointer;
-}
+.category-wrap a {
+  &:active {
+    background-color: rgb(115, 170, 190);
+    color: $white;
+    cursor: pointer;
+  }
 
-.category-wrap li:hover {
-  background-color: $green-cta;
-  cursor: pointer;
-}
-
-.category-wrap a:hover {
-  color: $white;
-  text-decoration: none;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
 }
 
 .desktop-categories {
   display: none;
-}
-
-@media only screen and (min-width: 768px) {
-  .categories {
-    display: inline-block;
-    margin: 0 0 0 4%;
-    width: 25%;
-  }
-
-  .desktop-categories {
+  @media only screen and (min-width: $desktop) {
     display: inline;
   }
+}
 
-  .mobile-categories {
+.mobile-categories {
+  @media only screen and (min-width: $desktop) {
     display: none;
   }
 }
