@@ -4,3 +4,18 @@
   display: block;
   position: relative;
 }
+
+.discussion-paragraph a {
+  word-wrap: break-word;
+}
+
+.discussion-response-wrapper {
+  border-radius: 2px;
+  background-color: $lighter-grey;
+  margin: 2em auto;
+  width: 90%;
+
+  @media only screen and (min-width: $desktop) {
+    width: 80%;
+  }
+}
