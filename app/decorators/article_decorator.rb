@@ -12,6 +12,11 @@ class ArticleDecorator < Draper::Decorator
     end
   end
 
+  def markdown_body
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    markdown.render(body).html_safe
+  end
+
   def article_title
     h.content_tag :div, class: 'kb-hero-title' do
       article.title
