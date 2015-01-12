@@ -22,9 +22,11 @@ class UpdatingProfile < Capybara::Rails::TestCase
     visit profile_path
     fill_in 'Username', with: 'Newbobby'
     fill_in 'Email address', with: 'newbobby@gmail.com'
+    fill_in 'Bio', with: 'something interesting'
     click_button 'update profile'
     assert_content page, 'Your profile was updated'
     assert_equal User.last.username, 'Newbobby'
     assert_equal User.last.email, 'newbobby@gmail.com'
+    assert_equal User.last.bio, 'something interesting'
   end
 end

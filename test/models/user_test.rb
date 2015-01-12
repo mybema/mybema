@@ -21,6 +21,7 @@
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
 #  avatar                 :string(255)
+#  bio                    :text
 #
 
 require 'test_helper'

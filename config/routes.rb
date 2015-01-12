@@ -15,8 +15,10 @@ Mybema::Application.routes.draw do
   resources :sections
 
   get 'discussions/:slug' => 'discussions#show'
-  get 'profile' => 'users#profile'
+  get 'profile' => 'users#edit_profile'
   patch 'profile/update' => 'users#update_profile', as: :user
+
+  get 'users/:username' => 'users#profile', as: :user_profile
 
   #Search
   get 'search' => 'search#results', as: :search

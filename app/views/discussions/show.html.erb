@@ -21,7 +21,7 @@
         <% if @discussion.admin_id? %>
           <span class='admin-post'><%= @discussion.username %></span> posted
         <% else %>
-          <%= @discussion.username %> posted
+          <%= link_to @discussion.username, user_profile_path(@discussion.username) %> posted
         <% end %>
 
         <span momentTime='<%= l(@discussion.created_at, format: :moment) %>'>
@@ -56,7 +56,7 @@
             <% if comment.admin_id? %>
               <span class='admin-post'><%= comment.username %></span> posted
             <% else %>
-              <%= comment.username %> posted
+              <%= link_to comment.username, user_profile_path(comment.username) %> posted
             <% end %>
 
             <span momentTime='<%= l(comment.created_at, format: :moment) %>'>

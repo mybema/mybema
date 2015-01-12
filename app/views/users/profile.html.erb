@@ -1,44 +1,29 @@
 <section class='community-content'>
-  <header class='discussion-form--header'>
-    Edit your profile
-  </header>
+  <div class='profile-container'>
+    <%= image_tag(@user.avatar_url, class: 'profile-avatar', alt: @user.username) %>
 
-  <div class='discussion-form--container'>
-    <%= form_for @current_user do |f| %>
-      <div class='discussion-form'>
-        <% if @current_user.errors.any? %>
-          <% @current_user.errors.full_messages.each do |message| %>
-            <span class='single-error'>
-              <%= message %>
-            </span>
-          <% end %>
-        <% end %>
+    <div class='profile-username'>
+      <%= @user.username %>
+    </div>
 
-        <div class='discussion-form--title'>
-          <%= f.label :username, 'Username', class: 'discussion-form--label' %>
-          <%= f.text_field :username, class: 'discussion-form--input' %>
-        </div>
-
-        <div class='discussion-form--body'>
-          <%= f.label :email, 'Email address', class: 'discussion-form--label' %>
-          <%= f.email_field :email, class: 'discussion-form--input' %>
-        </div>
-
-        <div class='discussion-form--label'>
-          Avatar
-          <br />
-          <%= image_tag @current_user.avatar_url, class: 'user-avatar', alt: 'avatar' %>
-        </div>
-
-
-        Change your avatar: <%= f.file_field :avatar, class: 'borderless' %>
-
-      </div>
-
-      <footer class='discussion-form--footer'>
-        <%= link_to 'Cancel', root_path, class: 'discussion-form--cancel' %>
-        <%= f.submit "update profile", class: "greenbutton" %>
-      </footer>
-    <% end %>
+    <div class='profile-bio'>
+      <%= @user.bio %>
+    </div>
   </div>
 </section>
+
+<% if @user_discussions.any? %>
+  <section class='community-content'>
+    <div class='profile-discussions-header'>
+      <h2>
+        Discussions started
+      </h2>
+    </div>
+
+    <% @user_discussions.each do |discussion| %>
+      <div class='profile-content-container'>
+        <%= link_to discussion.title, discussion_path(discussion.slug) %> in <%= link_to discussion.discussion_category.name, discussions_path(category: discussion.discussion_category.slug) %>
+      </div>
+    <% end %>
+  </section>
+<% end %>
