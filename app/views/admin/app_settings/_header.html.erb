@@ -9,19 +9,21 @@
 <%= form_for @app do |f| %>
   <div class='admin-image-upload-container'>
     <div class='discussion-form--body'>
-      <%= f.label :nav_bg_color, 'Header background color' %>
       <%= f.text_field :nav_bg_color, class: 'discussion-form--short-input' %>
+      <%= f.label :nav_bg_color, 'Header background color' %>
     </div>
 
     <div class='discussion-form--body'>
-      <%= f.label :nav_link_color, 'Header link color' %>
       <%= f.text_field :nav_link_color, class: 'discussion-form--short-input' %>
+      <%= f.label :nav_link_color, 'Header link color' %>
     </div>
 
     <div class='discussion-form--body'>
-      <%= f.label :nav_link_hover_color, 'Header link hover color' %>
       <%= f.text_field :nav_link_hover_color, class: 'discussion-form--short-input' %>
+      <%= f.label :nav_link_hover_color, 'Header link hover color' %>
     </div>
+
+    <br />
 
     <div class='admin-image-upload-wrapper'>
       <div class='discussion-form--label'>
@@ -40,26 +42,32 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    // set fields to be the currently saved values
-    $("#app_settings_nav_bg_color").val('<%= @app.nav_bg_color %>');
-    $("#app_settings_nav_link_color").val('<%= @app.nav_link_color %>');
-    $("#app_settings_nav_link_hover_color").val('<%= @app.nav_link_hover_color %>');
-
-    // update values in actual elements as user types them in
-    $("#app_settings_nav_bg_color").keyup(function() {
-      $('nav').css('background-color', $('#app_settings_nav_bg_color').val());
+    $("#app_settings_nav_bg_color").spectrum({
+      preferredFormat: "hex",
+      color: '<%= @app.nav_bg_color %>',
+      move: function(color) {
+        $('nav, .nav--li, .logo-wrapper').css('background-color', color);
+      }
     });
 
-    $("#app_settings_nav_link_color").keyup(function() {
-      $('.nav--list li').css('color', $('#app_settings_nav_link_color').val());
+    $("#app_settings_nav_link_color").spectrum({
+      preferredFormat: "hex",
+      color: '<%= @app.nav_link_color %>',
+      move: function(color) {
+        $('.nav--list li').css('color', color);
+      }
     });
 
-    $("#app_settings_nav_link_hover_color").keyup(function() {
-      $(".nav--li, .logo-wrapper").hover(function() {
-        $(this).css('background-color', $('#app_settings_nav_link_hover_color').val());
-      }, function() {
-        $(this).css("background-color", $('#app_settings_nav_bg_color').val());
-      });
+    $("#app_settings_nav_link_hover_color").spectrum({
+      preferredFormat: "hex",
+      color: '<%= @app.nav_link_hover_color %>',
+      move: function(color) {
+        $(".nav--li, .logo-wrapper").hover(function() {
+          $(this).css('background-color', color);
+        }, function() {
+          $(this).css("background-color", $('nav').val());
+        });
+      }
     });
   });
 </script>

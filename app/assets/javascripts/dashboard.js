@@ -3,6 +3,7 @@
 //= require moment.min.js
 //= require moment_implementation.js
 //= require handlebars.min.js
+//= require spectrum.js
 //= require typeahead_bloodhound.min.js
 //= require typeahead_implementation.js
 //= require_self
