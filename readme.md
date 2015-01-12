@@ -77,6 +77,8 @@ Contributing
 ============
 Contributions are welcome. Please add unit tests as well as feature tests with your changes and squash your commits before submitting pull requests. Bugs should be reported via the issue tracker.
 
+You should also take a look at the [feature roadmap](https://trello.com/b/YSPdYLoP/mybema-roadmap).
+
 License
 =======
 Please see [LICENSE.txt](https://github.com/mybema/mybema/blob/master/LICENSE.txt) for licensing details.
