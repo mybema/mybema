@@ -23,6 +23,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal [discussion], assigns(:user_discussions)
   end
 
+  test "GET profile assigns the user's comments" do
+    comment = create(:discussion_comment, user: @user)
+    get :profile, username: 'joel'
+    assert_equal [comment], assigns(:user_responses)
+  end
+
   test "GET profile redirects if a user is not found" do
     get :profile, username: 'joelly'
     assert_redirected_to root_path

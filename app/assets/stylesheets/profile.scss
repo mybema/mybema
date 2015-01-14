@@ -13,6 +13,17 @@
   text-align: justify;
 }
 
+.profile-comment,
+.profile-content-container {
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+.profile-comment-link {
+  font-size: 0.75em;
+  margin-bottom: 0.5em;
+}
+
 .profile-container,
 .profile-content-container {
   border: 2px solid $light-grey;

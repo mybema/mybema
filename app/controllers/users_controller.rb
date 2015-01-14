@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def profile
     if @user = User.where(username: params[:username]).first
       @user_discussions = @user.discussions.with_includes
+      @user_responses = @user.discussion_comments.with_includes
     else
       flash[:alert] = 'User not found'
       redirect_to root_path

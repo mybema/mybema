@@ -27,3 +27,25 @@
     <% end %>
   </section>
 <% end %>
+
+<% if @user_responses.any? %>
+  <section class='community-content'>
+    <div class='profile-discussions-header'>
+      <h2>
+        Responses posted
+      </h2>
+    </div>
+
+    <% @user_responses.each do |response| %>
+      <div class='profile-content-container'>
+        <div class='profile-comment-link'>
+          Posted in <%= link_to response.discussion.title, discussion_path(response.discussion.slug) %>
+        </div>
+
+        <div class='profile-comment'>
+          <%= response.body %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+<% end %>
