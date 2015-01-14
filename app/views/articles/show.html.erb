@@ -2,15 +2,17 @@
 
 <%= @article.article_hero_section %>
 
-<div class='kb-wrapper'>
-  <h1 class='kb-title'>
-    <%= @article.displayable_title %>
-  </h1>
+<div class='kb-page-wrapper'>
+  <div class='kb-wrapper'>
+    <h1 class='kb-title'>
+      <%= @article.displayable_title %>
+    </h1>
 
-  <div class='kb-content'>
-    <%= auto_link simple_format @article.markdown_body, class: 'kb-paragraph' %>
-  </div>
-</end>
+    <div class='kb-content'>
+      <%= auto_link simple_format @article.markdown_body, class: 'kb-paragraph' %>
+    </div>
+  </end>
+</div>
 
 <script type="text/javascript">
   if ("<%= @article.hero_image %>".length > 0) {

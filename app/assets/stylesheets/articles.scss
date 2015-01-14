@@ -158,11 +158,17 @@
   }
 }
 
+.kb-page-wrapper {
+  background-color: $white;
+  margin-top: 0;
+}
+
 .kb-paragraph {
   margin: 1em 0;
 }
 
 .kb-title {
+  color: $natural-black;
   font-size: 2.5em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
@@ -173,7 +179,9 @@
 }
 
 .kb-wrapper {
-  margin: 1em auto;
+  margin: 0 auto;
+  padding-bottom: 0.1em;
+  padding-top: 1em;
   width: 100%;
   @media only screen and (min-width: $desktop) {
     width: 80%;

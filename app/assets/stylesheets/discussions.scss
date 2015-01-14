@@ -1,5 +1,15 @@
 .all-discussions-header {
-  font-size: 1.5em;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  font-size: 1.2em;
+  margin-bottom: 0.35em;
+  padding-bottom: 0.75em;
+  padding-top: 0.75em;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    font-size: 1.5em;
+  }
 }
 
 .discussion-paragraph {
@@ -15,7 +25,7 @@
 
 .discussion-response-wrapper {
   border-radius: 2px;
-  background-color: $lighter-grey;
+  background-color: $light-grey;
   margin: 2em auto;
   width: 90%;
 

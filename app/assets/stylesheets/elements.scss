@@ -4,6 +4,7 @@
 }
 
 .article-wrapper {
+  background-color: $white;
   display: inline-block;
   vertical-align: top;
   width: 100%;
@@ -19,19 +20,13 @@
 .breadcrumb-wrapper {
   background-color: $medium-grey;
   border: 1px solid $medium-grey;
-  border-radius: 5px 5px 0 0;
+  border-radius: 4px 4px 0 0;
   color: $white;
   padding: 1em;
 }
 
 .breadcrumb-wrapper a {
   color: $white;
-}
-
-.btm-space {
-  @media only screen and (min-width: $desktop) {
-    margin-bottom: 1em;
-  }
 }
 
 .comment-count {
@@ -101,7 +96,7 @@
 .discussion-form {
   padding: 1em 0.5em 0;
   @media only screen and (min-width: $desktop) {
-    padding: 2em 2em 0;
+    padding: 0.75em 2em 0;
   }
 }
 
@@ -213,6 +208,20 @@
   font-size: 1.5em;
 }
 
+.discussion-index-header {
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  font-size: 1.2em;
+  margin-bottom: 0.35em;
+  padding-bottom: 0.75em;
+  padding-top: 0.75em;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    font-size: 1.5em;
+  }
+}
+
 .emoji-img {
   vertical-align: top;
 }
@@ -250,6 +259,7 @@
   @media only screen and (min-width: $desktop) {
     display: table-cell;
     max-width: inherit;
+    padding: 0.5em 0;
   }
 }
 
@@ -350,12 +360,15 @@
 }
 
 .single-community-item {
-  border-bottom: 1px solid $lighter-grey;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
   color: $medium-grey;
   display: block;
+  margin-bottom: 0.25em;
+  padding: 0 1em;
   width: 100%;
   @media only screen and (min-width: $desktop) {
-    margin-bottom: 0.75em;
     min-height: 80px;
   }
 }
@@ -370,14 +383,23 @@
 }
 
 .single-discussion {
-  background-color: #EEE;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  margin: 1em auto;
+  width: 96%;
+  @media only screen and (min-width: $desktop) {
+    margin: 1em auto;
+    width: 80%;
+  }
 }
 
 .single-discussion--reply {
-  background-color: #EEE;
-  border-radius: 2px;
-  margin: 2em auto;
-  width: 90%;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  margin: 1em auto;
+  width: 96%;
   @media only screen and (min-width: $desktop) {
     width: 80%;
   }
@@ -412,10 +434,10 @@
 }
 
 .view-all-link {
-  margin: 2em auto;
-  padding-bottom: 2em;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  margin: 1em auto;
+  padding: 1em;
   text-align: center;
-  @media only screen and (min-width: $desktop) {
-    padding: 0;
-  }
 }
