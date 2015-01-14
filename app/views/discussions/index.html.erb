@@ -9,35 +9,7 @@
     </h1>
 
     <% @discussions.each do |discussion| %>
-      <article class='single-community-item'>
-        <div class='post-description'>
-          <h2><%= link_to discussion.title, discussion_path(discussion.slug) %></h2>
-
-          <ul class='post-items'>
-            <li class='post-item'>
-              By <% if discussion.admin_id? %>
-                <span class='admin-post'><%= discussion.username %></span>
-              <% else %>
-                <%= user_link discussion %>
-              <% end %>
-            </li>
-            <li class='post-item' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
-              <%= discussion.created_at.to_date %>
-            </li>
-            <li class='post-item--last'>
-              <%= link_to discussion.discussion_category.name,
-                  discussions_path(category: discussion.discussion_category.slug) %>
-            </li>
-          </ul>
-        </div>
-
-        <div class='comment-count'>
-          <%= discussion.discussion_comments_count %>
-          <span class='replies'>
-            <%= "response".pluralize(discussion.discussion_comments_count) %>
-          </span>
-        </div>
-      </article>
+      <%= render partial: 'shared/single_community_item.html.erb', locals: { discussion: discussion } %>
     <% end %>
   </div>
 
