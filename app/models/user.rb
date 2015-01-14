@@ -27,9 +27,11 @@
 require 'file_size_validator'
 
 class User < ActiveRecord::Base
+  include UserDetails
   mount_uploader :avatar, UserAvatarUploader
   validates :avatar, file_size: { maximum: 1.megabytes.to_i }
   validates :username, :email, presence: true, uniqueness: true
+  validate :check_parameterization_of_username, on: :create
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussions, dependent: :nullify
@@ -69,5 +71,16 @@ class User < ActiveRecord::Base
 
   def comment_count
     discussion_comments.size
+  end
+
+  private
+
+  def check_parameterization_of_username
+    pending_username = username.titleize.downcase
+    query = User.arel_table
+
+    if User.where(username: username.parameterize).any? || User.where(query[:username].matches(pending_username)).any?
+      errors.add(:username, 'has already been taken')
+    end
   end
 end

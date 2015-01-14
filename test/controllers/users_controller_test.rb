@@ -50,7 +50,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
-  test "PATCH update_profile redirects to the root path successfully when signed in" do
+  test "PATCH update_profile redirects to the profile path successfully when signed in" do
     sign_in(:user, @user)
     patch :update_profile, user: { email: 'fake@email.com' }
     assert_redirected_to profile_path

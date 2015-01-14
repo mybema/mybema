@@ -31,6 +31,18 @@ class UserTest < ActiveSupport::TestCase
     User.new.invalid?(:username).must_equal true
   end
 
+  test "prevents user from creating a parameterized variant of an existing username" do
+    create(:user, username: 'Unique Name')
+    User.new(username: 'unique-name').invalid?(:username).must_equal true
+    User.new(username: 'Unique-name').invalid?(:username).must_equal true
+  end
+
+  test "prevents user from creating a case-variant version of an existing username" do
+    create(:user, username: 'uniquename')
+    User.new(username: 'Uniquename').invalid?(:username).must_equal true
+    User.new(username: 'UNIQUENAME').invalid?(:username).must_equal true
+  end
+
   test "username name must be unique" do
     create(:user, username: 'uniquename')
     User.new(username: 'uniquename').invalid?(:username).must_equal true

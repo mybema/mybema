@@ -30,7 +30,10 @@ class UsersController < ApplicationController
   end
 
   def check_for_user
-    unless @user = User.where(username: params[:username]).first
+    username = params[:username].titleize.downcase
+    query = User.arel_table
+
+    unless @user = User.where(query[:username].matches(username)).first
       flash[:alert] = 'User not found'
       redirect_to root_path
     end

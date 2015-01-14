@@ -23,6 +23,30 @@ class RegisteringTest < Capybara::Rails::TestCase
     refute_content page, 'Log in'
   end
 
+  test 'user cannot sign up with parameterized version of an existing username' do
+    create(:user, username: 'John Doe')
+    visit root_path
+    click_link 'Join the community'
+    fill_in 'Email', with: 'bob@gmail.com'
+    fill_in 'Username', with: 'john-doe'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_button 'Sign up'
+    refute_content page, 'Welcome! You have signed up successfully'
+  end
+
+  test 'user cannot sign up with humanized version of an existing parameterized username' do
+    create(:user, username: 'john-doe')
+    visit root_path
+    click_link 'Join the community'
+    fill_in 'Email', with: 'bob@gmail.com'
+    fill_in 'Username', with: 'John Doe'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_button 'Sign up'
+    refute_content page, 'Welcome! You have signed up successfully'
+  end
+
   test 'discussion created when guest is transfered to new account' do
     create(:discussion_category, name: 'Cool category')
     visit root_path
