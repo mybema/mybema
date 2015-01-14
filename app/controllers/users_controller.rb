@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
   before_action :disallow_guest_users, except: :profile
+  before_action :check_for_user, only: :profile
+  before_action :redirect_from_guest_profile, only: :profile
 
   def edit_profile
   end
 
   def profile
-    if @user = User.where(username: params[:username]).first
-      @user_discussions = @user.discussions.with_includes
-      @user_responses = @user.discussion_comments.with_includes
-    else
-      flash[:alert] = 'User not found'
-      redirect_to root_path
-    end
+    @user_discussions = @user.discussions.with_includes
+    @user_responses = @user.discussion_comments.with_includes
   end
 
   def update_profile
@@ -30,6 +27,17 @@ class UsersController < ApplicationController
       flash[:alert] = 'You have to be signed in to do that.'
       redirect_to root_path
     end
+  end
+
+  def check_for_user
+    unless @user = User.where(username: params[:username]).first
+      flash[:alert] = 'User not found'
+      redirect_to root_path
+    end
+  end
+
+  def redirect_from_guest_profile
+    return redirect_to root_path if @user.guest?
   end
 
   def user_params

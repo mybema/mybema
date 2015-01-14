@@ -34,6 +34,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
+  test "GET profile redirects to root if the user is the guest user" do
+    get :profile, username: 'Guest'
+    assert_redirected_to root_path
+  end
+
   test "GET edit_profile responds successfully when signed in" do
     sign_in(:user, @user)
     get :edit_profile
