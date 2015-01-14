@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'Your profile was updated'
       redirect_to profile_path
     else
-      render action: "profile"
+      render action: "edit_profile"
     end
   end
 
