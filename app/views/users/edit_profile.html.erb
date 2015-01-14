@@ -1,6 +1,12 @@
 <section class='community-content'>
   <header class='discussion-form--header'>
     Edit your profile
+
+    <%= link_to user_profile_path(@current_user.parameterized_username) do %>
+      <span class='view-profile-wrapper'>
+        View your profile
+      </span>
+    <% end %>
   </header>
 
   <div class='discussion-form--container'>

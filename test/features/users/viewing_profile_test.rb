@@ -15,6 +15,18 @@ class ViewingProfileTest < Capybara::Rails::TestCase
     assert_content page, 'My discussion appears'
   end
 
+  test 'user can view their profile from their profile editing page' do
+    create(:user, email: 'jane@gmail.com', password: 'password', username: 'Jane Fonda')
+    visit root_path
+    click_link 'Log in'
+    fill_in 'Email', with: 'jane@gmail.com'
+    fill_in 'Password', with: 'password'
+    click_button 'Sign in'
+    visit profile_path
+    click_link 'View your profile'
+    assert_content page, 'Jane Fonda'
+  end
+
   test 'can view the responses from a user on their profile' do
     create(:discussion_comment, user: @jude, body: 'My comment appears')
     visit user_profile_path('Jude')

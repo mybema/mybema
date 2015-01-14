@@ -46,3 +46,23 @@
   font-size: 1.5em;
   vertical-align: middle;
 }
+
+.view-profile-wrapper {
+  background-color: $blue-cta;
+  border-radius: 3px;
+  color: $white;
+  float: right;
+  font-size: 0.5em;
+  line-height: 0.5em;
+  margin-right: 3em;
+  padding: 1em;
+  &:hover {
+    background-color: $blue-cta-hover;
+    text-decoration: none;
+  }
+  @media only screen and (max-width: $mobile) {
+    font-size: 0.4em;
+    line-height: 1.5em;
+    padding: 0.5em;
+  }
+}
