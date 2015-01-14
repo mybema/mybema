@@ -14,7 +14,7 @@
               By <% if discussion.admin_id? %>
                 <span class='admin-post'><%= discussion.username %></span>
               <% else %>
-                <%= link_to discussion.username, user_profile_path(discussion.username) %>
+                <%= user_link discussion %>
               <% end %>
             </li>
             <li class='post-item' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>

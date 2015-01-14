@@ -31,4 +31,9 @@ module ApplicationHelper
   def show_community_join_button?
     !current_admin && current_user.guest?
   end
+
+  def user_link content
+    return content.username if content.username == 'Guest'
+    link_to content.username, user_profile_path(content.username)
+  end
 end

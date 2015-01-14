@@ -66,4 +66,21 @@ class ApplicationHelperTest < ActionView::TestCase
     sarah_discussion = create(:discussion, guest_id: 'non-existent', user: @sarah)
     editable_discussion?(sarah_discussion).must_equal false
   end
+
+  test 'user_link' do
+    guest = create(:user, username: 'Guest')
+    non_guest = create(:user, username: 'Harry')
+
+    discussion = create(:discussion, user: guest)
+    user_link(discussion).must_equal 'Guest'
+
+    discussion = create(:discussion, user: non_guest)
+    user_link(discussion).must_equal "<a href=\"/users/Harry\">Harry</a>"
+
+    comment = create(:discussion_comment, user: guest)
+    user_link(comment).must_equal 'Guest'
+
+    comment = create(:discussion_comment, user: non_guest)
+    user_link(comment).must_equal "<a href=\"/users/Harry\">Harry</a>"
+  end
 end
