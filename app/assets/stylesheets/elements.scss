@@ -29,19 +29,6 @@
   color: $white;
 }
 
-.comment-count {
-  color: $medium-grey;
-  font-weight: bold;
-  margin-bottom: 1em;
-  text-align: center;
-  @media only screen and (min-width: $desktop) {
-    display: table-cell;
-    font-size: 1.5em;
-    min-width: 86px;
-    vertical-align: middle;
-  }
-}
-
 .comment-form--container {
   border: 2px solid $light-grey;
   display: block;
@@ -253,28 +240,17 @@
   }
 }
 
-.post-description {
-  padding: 1em 0;
-  width: 100%;
-  @media only screen and (min-width: $desktop) {
-    display: table-cell;
-    max-width: inherit;
-    padding: 0.5em 0;
-  }
-}
-
-.post-description h2 {
-  font-size: 1em;
-  padding: 0.5em 0;
-  text-align: center;
-  @media only screen and (min-width: $desktop) {
-    text-align: left;
-  }
-}
-
 .post-item {
   &:after {
     content: '|';
+  }
+}
+
+a .post-item--last {
+  color: $blue-cta;
+  padding: 0.25em 0;
+  &:hover {
+    font-weight: bold;
   }
 }
 
@@ -285,12 +261,6 @@
   &:after {
     padding: 5px;
   }
-}
-
-.post-items {
-  list-style: none outside none;
-  margin: 0;
-  padding: 0;
 }
 
 .replies {
@@ -365,12 +335,17 @@
   border-radius: 4px;
   color: $medium-grey;
   display: block;
-  margin-bottom: 0.25em;
-  padding: 0 1em;
+  display: flex;
+  margin-bottom: 0.5em;
+  padding-left: 10px;
   width: 100%;
   @media only screen and (min-width: $desktop) {
     min-height: 80px;
   }
+}
+
+.single-community-item--avatar {
+  flex: 1;
 }
 
 .single-community-item--borderless {
@@ -379,6 +354,53 @@
     border-radius: 5px;
     min-height: 80px;
     width: 100%;
+  }
+}
+
+.single-community-item--comment-count {
+  border-radius: 4px;
+  color: #565656;
+  font-weight: bold;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    border-radius: 0 3px 3px 0;
+    font-size: 1.5em;
+    min-width: 86px;
+    min-height: 100%;
+    align-items: center;
+    flex: 1;
+    vertical-align: middle;
+  }
+}
+
+.single-community-item--comment-wrapper {
+  height: 100%;
+  padding-top: 25%;
+  vertical-align: middle;
+}
+
+.single-community-item--lens {
+  padding: 10px 0;
+  width: 100%;
+  @media only screen and (min-width: $desktop) {
+    flex: 18;
+    margin-top: 10px;
+    max-width: inherit;
+    padding: 0;
+    width: auto;
+  }
+}
+
+.single-community-item--lens h2 {
+  font-size: 1.1em;
+  line-height: 1.2em;
+  padding: 0.1em 0 0.5em;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    text-align: left;
+  }
+  a {
+    color: #565656;
   }
 }
 
@@ -419,6 +441,16 @@
   font-weight: 400;
   margin-bottom: 1em;
   padding: 0.5em;
+}
+
+.listed-user-avatar {
+  display: inline-block;
+  height: calc(3em + 20px);
+  margin-right: 1em;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  vertical-align: top;
+  width: 3em;
 }
 
 .user-avatar {

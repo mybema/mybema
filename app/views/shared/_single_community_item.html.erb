@@ -1,32 +1,38 @@
 <article class='single-community-item'>
-  <%= image_tag(discussion.user_avatar(*avatar_opts), class: 'user-avatar', alt: 'avatar') %>
-  <div class='post-description'>
+  <div class='single-community-item--avatar'>
+    <%= image_tag(discussion.user_avatar(*avatar_opts), class: 'listed-user-avatar', alt: 'avatar') %>
+  </div>
+
+  <div class='single-community-item--lens'>
+    <li class='post-item'>
+      <% if discussion.admin_id? %>
+        <span class='admin-post'><%= discussion.username %></span>
+      <% else %>
+        <%= user_link discussion %>
+      <% end %>
+    </li>
+
+    <li class='post-item' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
+      <%= discussion.updated_at.to_date %>
+    </li>
+
+    <%= link_to discussions_path(category: discussion.discussion_category.slug) do %>
+      <li class='post-item--last'>
+        <%= discussion.discussion_category.name %>
+      </li>
+    <% end %>
+
     <h2>
       <%= link_to discussion.title, discussion_path(discussion.slug) %>
     </h2>
-
-    <ul class='post-items'>
-      <li class='post-item'>
-        By <% if discussion.admin_id? %>
-          <span class='admin-post'><%= discussion.username %></span>
-        <% else %>
-          <%= user_link discussion %>
-        <% end %>
-      </li>
-      <li class='post-item' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
-        <%= discussion.updated_at.to_date %>
-      </li>
-      <li class='post-item--last'>
-        <%= link_to discussion.discussion_category.name,
-            discussions_path(category: discussion.discussion_category.slug) %>
-      </li>
-    </ul>
   </div>
 
-  <div class='comment-count'>
-    <%= discussion.discussion_comments_count %>
-    <span class='replies'>
-      <%= "response".pluralize(discussion.discussion_comments_count) %>
-    </span>
+  <div class='single-community-item--comment-count'>
+    <div class='single-community-item--comment-wrapper'>
+      <%= discussion.discussion_comments_count %>
+      <span class='replies'>
+        <%= "response".pluralize(discussion.discussion_comments_count) %>
+      </span>
+    </div>
   </div>
 </article>
