@@ -3,6 +3,6 @@ class EmailSendingWorker
 
   def perform resource_id
     user = User.find resource_id
-    MybemaDeviseMailer.send_welcome(user).deliver
+    MybemaDeviseMailer.send_welcome(user).deliver_now
   end
 end
