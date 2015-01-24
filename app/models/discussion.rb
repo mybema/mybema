@@ -5,10 +5,10 @@
 #  id                        :integer          not null, primary key
 #  body                      :text
 #  title                     :string(255)
-#  hidden                    :boolean          default(FALSE)
+#  hidden                    :boolean          default("false")
 #  discussion_category_id    :integer
 #  user_id                   :integer
-#  discussion_comments_count :integer          default(0)
+#  discussion_comments_count :integer          default("0")
 #  created_at                :datetime
 #  updated_at                :datetime
 #  guest_id                  :string(255)

@@ -4,7 +4,7 @@
 #
 #  id            :integer          not null, primary key
 #  body          :text
-#  hidden        :boolean          default(FALSE)
+#  hidden        :boolean          default("false")
 #  discussion_id :integer
 #  user_id       :integer
 #  created_at    :datetime

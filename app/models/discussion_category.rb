@@ -6,7 +6,7 @@
 #  name              :string(255)
 #  slug              :string(255)
 #  description       :text
-#  discussions_count :integer          default(0)
+#  discussions_count :integer          default("0")
 #  created_at        :datetime
 #  updated_at        :datetime
 #
