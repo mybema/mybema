@@ -1,5 +1,6 @@
 class DiscussionsController < ApplicationController
   before_action :fetch_categories, only: [:show, :index, :edit, :new]
+  before_action :redirect_non_contributors, only: :create
   include EmojiHelper
 
   def index
@@ -32,10 +33,6 @@ class DiscussionsController < ApplicationController
 
   def create
     @discussion = Discussion.new discussion_params
-
-    unless @current_user.can_contribute? || current_admin
-      return redirect_to new_user_registration_path
-    end
 
     if @discussion.save
       create_identicon('Discussion', @discussion.id)
@@ -86,6 +83,12 @@ class DiscussionsController < ApplicationController
   end
 
   private
+
+  def redirect_non_contributors
+    unless @current_user.can_contribute? || current_admin
+      return redirect_to new_user_registration_path
+    end
+  end
 
   def fetch_categories
     @categories = DiscussionCategory.all
