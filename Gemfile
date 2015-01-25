@@ -24,7 +24,6 @@ gem 'redcarpet'
 gem 'sass-rails'
 gem 'sidekiq'
 gem 'sinatra'
-gem 'slim'
 gem 'uglifier'
 
 group :assets do
