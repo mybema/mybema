@@ -28,6 +28,7 @@ class Discussion < ActiveRecord::Base
   belongs_to :user
   belongs_to :admin
   has_many :discussion_comments, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
 
   require_human_on :create, if: :user_is_guest
 

@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   has_many :discussions, dependent: :nullify
   has_many :discussion_comments, dependent: :nullify
+  has_many :subscriptions, dependent: :destroy
 
   def avatar_url the_guid=nil
     the_guid ||= self.guid

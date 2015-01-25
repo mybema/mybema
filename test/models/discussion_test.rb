@@ -41,6 +41,11 @@ class DiscussionTest < ActiveSupport::TestCase
     build(:discussion, user_id: nil, admin_id: 3, title: 'this too is unique').invalid?(:discussion).must_equal true
   end
 
+  test "can have many subscriptions" do
+    discussion = Discussion.new
+    discussion.must_respond_to :subscriptions
+  end
+
   test "updates the discussion comments counter cache with comment creation" do
     discussion = create(:discussion)
     assert_equal 0, discussion.reload.discussion_comments_count

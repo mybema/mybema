@@ -31,6 +31,11 @@ class UserTest < ActiveSupport::TestCase
     User.new.invalid?(:username).must_equal true
   end
 
+  test "can have many subscriptions" do
+    user = User.new
+    user.must_respond_to :subscriptions
+  end
+
   test "prevents user from creating a parameterized variant of an existing username" do
     create(:user, username: 'Unique Name')
     User.new(username: 'unique-name').invalid?(:username).must_equal true
