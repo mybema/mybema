@@ -29,6 +29,11 @@ Mybema::Application.routes.draw do
     get 'prefetch/discussions' => 'search#typeahead_discussion_prefetch'
   end
 
+  # subscriptions
+
+  post 'discussions/:slug/subscribe' => 'subscriptions#subscribe', as: :subscribe
+  post 'discussions/:slug/unsubscribe' => 'subscriptions#unsubscribe', as: :unsubscribe
+
   # Admin section
   get 'admin' => 'admin/overview#index'
   get 'admin/users' => 'admin/users#index'
