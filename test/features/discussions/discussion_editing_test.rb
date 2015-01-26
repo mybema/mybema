@@ -3,6 +3,7 @@ require 'test_helper'
 class DiscussionEditing < Capybara::Rails::TestCase
   def setup
     create(:app_settings)
+    create(:admin)
     @guest = create(:user, username: 'Guest')
   end
 

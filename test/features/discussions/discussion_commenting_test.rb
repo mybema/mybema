@@ -5,6 +5,7 @@ class DiscussionCommenting < Capybara::Rails::TestCase
     @guest = create(:user, username: 'Guest')
     @category = create(:discussion_category, name: 'Cool category')
     create(:app_settings)
+    create(:admin)
   end
 
   test 'user can view and add comments to a discussion' do

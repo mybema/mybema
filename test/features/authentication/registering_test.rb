@@ -6,6 +6,7 @@ Sidekiq::Testing.inline!
 class RegisteringTest < Capybara::Rails::TestCase
   def setup
     create(:app_settings)
+    create(:admin)
     @guest = create(:user, username: 'Guest')
   end
 

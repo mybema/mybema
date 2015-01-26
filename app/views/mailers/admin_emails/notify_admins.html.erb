@@ -1,0 +1,9 @@
+Hi
+
+<%= @user.username %> has responded to the discussion called <strong><%= @discussion.title %></strong>.
+
+The response is:
+
+<%= @comment.body %>
+
+Respond to it <%= link_to 'via the discussion page', discussion_url(@discussion.slug) %>.

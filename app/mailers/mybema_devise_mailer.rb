@@ -11,6 +11,43 @@ class MybemaDeviseMailer < Devise::Mailer
     devise_mail(record, :confirmation_instructions, opts)
   end
 
+  def notify_admins(comment, user)
+    @comment     = comment
+    @discussion  = comment.discussion
+    @user        = user
+    admin_emails = Admin.pluck(:email)
+
+    mail(to: admin_emails,
+         from: AppSettings.first.mailer_sender,
+         template_path: "mailers/admin_emails",
+         subject: "#{user.username} responded to #{@discussion.title}",
+         delivery_method_options: app_smtp_settings)
+  end
+
+  def notify_admins_of_new_discussion(discussion, user)
+    @discussion  = discussion
+    @user        = user
+    admin_emails = Admin.pluck(:email)
+
+    mail(to: admin_emails,
+         from: AppSettings.first.mailer_sender,
+         template_path: "mailers/admin_emails",
+         subject: "#{user.username} started a new discussion: #{@discussion.title}",
+         delivery_method_options: app_smtp_settings)
+  end
+
+  def notify_subscribers(discussion, subscribers)
+    subscriber_emails = User.where(id: subscribers).map(&:email)
+    @app_settings     = AppSettings.first
+    @discussion       = discussion
+
+    mail(to: subscriber_emails,
+         from: @app_settings.mailer_sender,
+         template_path: "mailers/user_emails",
+         subject: "New response in #{@app_settings.community_title} community",
+         delivery_method_options: app_smtp_settings)
+  end
+
   def reset_password_instructions(record, token, opts={})
     set_email_opts(opts, token)
     devise_mail(record, :reset_password_instructions, opts)

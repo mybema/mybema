@@ -5,6 +5,7 @@ class DiscussionCreation < Capybara::Rails::TestCase
     create(:app_settings)
     create(:user, username: 'Guest')
     create(:discussion_category, name: 'Cool category')
+    create(:admin)
   end
 
   test 'user can create a discussion' do

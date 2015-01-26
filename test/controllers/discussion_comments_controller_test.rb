@@ -1,9 +1,13 @@
 require 'test_helper'
+require 'sidekiq/testing'
+
+Sidekiq::Testing.inline!
 
 class DiscussionCommentsControllerTest < ActionController::TestCase
   def setup
     create(:user, username: 'Guest')
     create(:app_settings)
+    create(:admin)
   end
 
   test "POST create will create a new comment as a guest if guest posting is enabled" do

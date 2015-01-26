@@ -1,0 +1,7 @@
+Hi
+
+<%= @user.username %> has started a new discussions called:
+
+<strong><%= @discussion.title %></strong>.
+
+Respond to it <%= link_to 'via the discussion page', discussion_url(@discussion.slug) %>.

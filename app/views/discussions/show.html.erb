@@ -1,7 +1,14 @@
 <% content_for(:title) { h(@discussion.title) } %>
 
 <div class='community-content'>
-  <%= link_to 'Back to discussions', discussions_path %>
+  <%= link_to discussions_path, class: 'glyphicon-link-wrapper' do %>
+    <div class='hero-cta'>
+      <span class="icon-arrow-left"></span>
+      <span class='text-for-glyphicon'>Back to discussions</span>
+    </div>
+  <% end %>
+
+  <%= subscription_button_for(@discussion, @current_user, @current_admin) %>
 </div>
 
 <article class='community-content single-discussion'>
@@ -84,6 +91,10 @@
                 class: 'discussion-form--label' %>
             <%= f.text_field :humanizer_answer, class: 'discussion-form--input' %>
             <%= f.hidden_field :humanizer_question_id %>
+
+            <%= label_tag :guest_email, "Add your email address if you'd like to subscribe to this conversation",
+              class: 'discussion-form--label' %>
+            <%= text_field_tag :guest_email, '', class: 'discussion-form--input' %>
           <% end %>
 
           <%= f.hidden_field :discussion_id, value: @discussion.id %>

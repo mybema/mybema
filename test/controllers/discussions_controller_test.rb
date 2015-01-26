@@ -4,6 +4,7 @@ class DiscussionsControllerTest < ActionController::TestCase
   def setup
     @guest = create(:user, username: 'Guest')
     create(:app_settings)
+    create(:admin)
   end
 
   test "GET index responds successfully" do
