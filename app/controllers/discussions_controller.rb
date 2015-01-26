@@ -35,6 +35,8 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.new discussion_params
 
     if @discussion.save
+      handle_discussion_subscription
+      send_email_notifications
       create_identicon('Discussion', @discussion.id)
       flash[:notice] = 'Your discussion has been added'
       redirect_to discussion_path(@discussion.slug)
@@ -88,6 +90,17 @@ class DiscussionsController < ApplicationController
     unless @current_user.can_contribute? || current_admin
       return redirect_to new_user_registration_path
     end
+  end
+
+  def handle_discussion_subscription
+    guest_email = params[:guest_email]
+    SubscriptionManagerService.new(@discussion, @current_user, guest_email).subscribe
+  end
+
+  def send_email_notifications
+    attributes = { discussion: @discussion, user: @current_user, admin: current_admin }
+    service = NotificationService.new(attributes)
+    service.notify_admins_of_new_discussion
   end
 
   def fetch_categories
