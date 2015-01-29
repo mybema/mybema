@@ -27,6 +27,24 @@
     </h2>
   </div>
 
+  <div class='single-community-item--mobile-name'>
+    <% if discussion.admin_id? %>
+      <span class='admin-post'><%= discussion.username %></span>
+    <% else %>
+      <%= user_link discussion %>
+    <% end %>
+  </div>
+
+  <div class='single-community-item--mobile-title'>
+    <h2>
+      <%= link_to discussion.title, discussion_path(discussion.slug) %>
+    </h2>
+  </div>
+
+  <div class='single-community-item--mobile-date' momentTime='<%= l(discussion.updated_at, format: :moment) %>'>
+    <%= discussion.updated_at.to_date %>
+  </div>
+
   <div class='single-community-item--comment-count'>
     <div class='single-community-item--comment-wrapper'>
       <%= discussion.discussion_comments_count %>

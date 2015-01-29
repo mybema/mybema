@@ -67,7 +67,11 @@
 }
 
 .discussion-body {
-  padding: 0 0 1.5em 0;
+  padding: 1.5em 0 0.5em;
+  display: block;
+  @media only screen and (min-width: $desktop) {
+    padding: 0 0 1.5em 0;
+  }
 }
 
 .discussion-content {
@@ -75,9 +79,31 @@
 }
 
 .discussion-details {
-  font-style: italic;
-  margin-right: 1em;
-  padding-bottom: 1em;
+  display: none;
+  @media only screen and (min-width: $desktop) {
+    display: block;
+    font-style: italic;
+    margin-right: 1em;
+    padding-bottom: 1em;
+  }
+}
+
+.discussion-details-mobile {
+  display: inline-block;
+  height: 4em;
+  line-height: 4em;
+  vertical-align: top;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.discussion-details-mobile-date {
+  color: $medium-grey;
+  font-size: 0.75em;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
 }
 
 .discussion-form {
@@ -201,11 +227,11 @@
   border-radius: 4px;
   font-size: 1.2em;
   margin-bottom: 0.35em;
-  padding-bottom: 0.75em;
-  padding-top: 0.75em;
+  padding: 0.75em 0.25em;
   text-align: center;
   @media only screen and (min-width: $desktop) {
     font-size: 1.5em;
+    padding: 0.75em 0;
   }
 }
 
@@ -233,9 +259,9 @@
 }
 
 .post-content {
-  display: inline-block;
   text-align: justify;
   @media only screen and (min-width: $desktop) {
+    display: inline-block;
     width: 80%;
   }
 }
@@ -264,8 +290,10 @@ a .post-item--last {
 }
 
 .replies {
-  display: block;
-  font-size: 0.5em;
+  @media only screen and (min-width: $desktop) {
+    display: block;
+    font-size: 0.5em;
+  }
 }
 
 .search-result {
@@ -335,17 +363,22 @@ a .post-item--last {
   border-radius: 4px;
   color: $medium-grey;
   display: block;
-  display: flex;
   margin-bottom: 0.5em;
   padding-left: 10px;
   width: 100%;
   @media only screen and (min-width: $desktop) {
+    display: flex;
     min-height: 80px;
   }
 }
 
 .single-community-item--avatar {
-  flex: 1;
+  display: inline-block;
+  vertical-align: top;
+  @media only screen and (min-width: $desktop) {
+    flex: 1;
+    min-width: calc(3em + 20px);
+  }
 }
 
 .single-community-item--borderless {
@@ -374,20 +407,53 @@ a .post-item--last {
 }
 
 .single-community-item--comment-wrapper {
-  height: 100%;
-  padding-top: 25%;
+  padding-bottom: 0.75em;
+  padding-top: 0.75em;
   vertical-align: middle;
+  @media only screen and (min-width: $desktop) {
+    height: 100%;
+    padding-bottom: 0;
+    padding-top: 25%;
+  }
 }
 
 .single-community-item--lens {
-  padding: 10px 0;
-  width: 100%;
+  display: none;
   @media only screen and (min-width: $desktop) {
+    display: block;
     flex: 18;
+    // -webkit-flex: 19;
     margin-top: 10px;
     max-width: inherit;
     padding: 0;
     width: auto;
+  }
+}
+
+.single-community-item--mobile-date {
+  font-size: 0.75em;
+  color: $medium-grey;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.single-community-item--mobile-name {
+  display: inline-block;
+  line-height: 3em;
+  padding-left: 10px;
+  padding-top: 10px;
+  vertical-align: top;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.single-community-item--mobile-title {
+  font-size: 1.15em;
+  margin: 0.5em auto;
+  @media only screen and (min-width: $desktop) {
+    display: none;
   }
 }
 
@@ -445,12 +511,15 @@ a .post-item--last {
 
 .listed-user-avatar {
   display: inline-block;
-  height: calc(3em + 20px);
-  margin-right: 1em;
-  padding-bottom: 10px;
+  height: calc(3em + 10px);
   padding-top: 10px;
   vertical-align: top;
   width: 3em;
+  @media only screen and (min-width: $desktop) {
+    height: calc(3em + 20px);
+    margin-right: 1em;
+    padding-bottom: 10px;
+  }
 }
 
 .user-avatar {
