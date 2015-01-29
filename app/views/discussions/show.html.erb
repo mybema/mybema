@@ -11,13 +11,21 @@
   <%= subscription_button_for(@discussion, @current_user, @current_admin) %>
 </div>
 
-<article class='community-content single-discussion'>
+<article class='single-discussion'>
   <div class='breadcrumb-wrapper'>
     <%= @discussion.title %>
   </div>
 
   <div class='discussion-content'>
     <%= image_tag(@discussion.user_avatar(*avatar_opts), class: 'user-avatar', alt: 'avatar') %>
+
+    <div class='discussion-details-mobile'>
+      <% if @discussion.admin_id? %>
+        <span class='admin-post'><%= @discussion.username %></span>
+      <% else %>
+        <%= user_link @discussion %>
+      <% end %>
+    </div>
 
     <div class='post-content'>
       <div class='discussion-body'>
@@ -31,6 +39,12 @@
           <%= user_link @discussion %> posted
         <% end %>
 
+        <span momentTime='<%= l(@discussion.created_at, format: :moment) %>'>
+          on <%= @discussion.created_at.to_date %>
+        </span>
+      </div>
+
+      <div class='discussion-details-mobile-date'>
         <span momentTime='<%= l(@discussion.created_at, format: :moment) %>'>
           on <%= @discussion.created_at.to_date %>
         </span>
@@ -54,6 +68,15 @@
         <% end %>
       <% else %>
         <%= image_tag(comment.user_avatar(*avatar_opts), class: 'user-avatar', alt: 'avatar') %>
+
+        <div class='discussion-details-mobile'>
+          <% if comment.admin_id? %>
+            <span class='admin-post'><%= comment.username %></span>
+          <% else %>
+            <%= user_link comment %>
+          <% end %>
+        </div>
+
         <div class='post-content'>
           <div class='discussion-body'>
             <%= auto_link simple_format emojify(comment.body), class: 'discussion-paragraph' %>
@@ -66,6 +89,12 @@
               <%= user_link comment %> posted
             <% end %>
 
+            <span momentTime='<%= l(comment.created_at, format: :moment) %>'>
+              on <%= comment.created_at.to_date %>
+            </span>
+          </div>
+
+          <div class='discussion-details-mobile-date'>
             <span momentTime='<%= l(comment.created_at, format: :moment) %>'>
               on <%= comment.created_at.to_date %>
             </span>

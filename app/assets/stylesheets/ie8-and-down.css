@@ -1,4 +1,43 @@
 /* Fix search bar height */
 .home-search--input {
-  font-size: 33px;
+  height: 40px;
+}
+
+.single-community-item {
+  display: block;
+}
+
+.single-community-item--avatar,
+.single-community-item--lens {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.single-community-item--lens {
+  display: none;
+}
+
+.single-community-item--lens h2 {
+  text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-section {
+    display: inline-block;
+    width: 24%;
+    margin: 0;
+  }
+
+  .single-community-item--comment-count {
+    height: 80px;
+    float: right;
+    padding: 1em;
+    max-width: 80px;
+  }
+
+  .single-community-item--lens {
+    display: inline-block;
+    max-width: 60%;
+    max-width: calc(100% - 160px);
+  }
 }

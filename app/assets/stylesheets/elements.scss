@@ -4,6 +4,7 @@
 }
 
 .article-wrapper {
+  background-color: $white;
   display: inline-block;
   vertical-align: top;
   width: 100%;
@@ -19,32 +20,13 @@
 .breadcrumb-wrapper {
   background-color: $medium-grey;
   border: 1px solid $medium-grey;
-  border-radius: 5px 5px 0 0;
+  border-radius: 4px 4px 0 0;
   color: $white;
   padding: 1em;
 }
 
 .breadcrumb-wrapper a {
   color: $white;
-}
-
-.btm-space {
-  @media only screen and (min-width: $desktop) {
-    margin-bottom: 1em;
-  }
-}
-
-.comment-count {
-  color: $medium-grey;
-  font-weight: bold;
-  margin-bottom: 1em;
-  text-align: center;
-  @media only screen and (min-width: $desktop) {
-    display: table-cell;
-    font-size: 1.5em;
-    min-width: 86px;
-    vertical-align: middle;
-  }
 }
 
 .comment-form--container {
@@ -85,7 +67,11 @@
 }
 
 .discussion-body {
-  padding: 0 0 1.5em 0;
+  padding: 1.5em 0 0.5em;
+  display: block;
+  @media only screen and (min-width: $desktop) {
+    padding: 0 0 1.5em 0;
+  }
 }
 
 .discussion-content {
@@ -93,15 +79,37 @@
 }
 
 .discussion-details {
-  font-style: italic;
-  margin-right: 1em;
-  padding-bottom: 1em;
+  display: none;
+  @media only screen and (min-width: $desktop) {
+    display: block;
+    font-style: italic;
+    margin-right: 1em;
+    padding-bottom: 1em;
+  }
+}
+
+.discussion-details-mobile {
+  display: inline-block;
+  height: 4em;
+  line-height: 4em;
+  vertical-align: top;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.discussion-details-mobile-date {
+  color: $medium-grey;
+  font-size: 0.75em;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
 }
 
 .discussion-form {
   padding: 1em 0.5em 0;
   @media only screen and (min-width: $desktop) {
-    padding: 2em 2em 0;
+    padding: 0.75em 2em 0;
   }
 }
 
@@ -213,6 +221,20 @@
   font-size: 1.5em;
 }
 
+.discussion-index-header {
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  font-size: 1.2em;
+  margin-bottom: 0.35em;
+  padding: 0.75em 0.25em;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    font-size: 1.5em;
+    padding: 0.75em 0;
+  }
+}
+
 .emoji-img {
   vertical-align: top;
 }
@@ -236,35 +258,38 @@
   text-align: center;
 }
 
-.post-content {
+.listed-user-avatar {
   display: inline-block;
+  height: calc(3em + 10px);
+  padding-top: 10px;
+  vertical-align: top;
+  width: 3em;
+  @media only screen and (min-width: $desktop) {
+    height: calc(3em + 20px);
+    margin-right: 1em;
+    padding-bottom: 10px;
+  }
+}
+
+.post-content {
   text-align: justify;
   @media only screen and (min-width: $desktop) {
+    display: inline-block;
     width: 80%;
-  }
-}
-
-.post-description {
-  padding: 1em 0;
-  width: 100%;
-  @media only screen and (min-width: $desktop) {
-    display: table-cell;
-    max-width: inherit;
-  }
-}
-
-.post-description h2 {
-  font-size: 1em;
-  padding: 0.5em 0;
-  text-align: center;
-  @media only screen and (min-width: $desktop) {
-    text-align: left;
   }
 }
 
 .post-item {
   &:after {
     content: '|';
+  }
+}
+
+a .post-item--last {
+  color: $blue-cta;
+  padding: 0.25em 0;
+  &:hover {
+    font-weight: bold;
   }
 }
 
@@ -277,15 +302,11 @@
   }
 }
 
-.post-items {
-  list-style: none outside none;
-  margin: 0;
-  padding: 0;
-}
-
 .replies {
-  display: block;
-  font-size: 0.5em;
+  @media only screen and (min-width: $desktop) {
+    display: block;
+    font-size: 0.5em;
+  }
 }
 
 .search-result {
@@ -350,13 +371,26 @@
 }
 
 .single-community-item {
-  border-bottom: 1px solid $lighter-grey;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
   color: $medium-grey;
   display: block;
+  margin-bottom: 0.5em;
+  padding-left: 10px;
   width: 100%;
   @media only screen and (min-width: $desktop) {
-    margin-bottom: 0.75em;
+    display: flex;
     min-height: 80px;
+  }
+}
+
+.single-community-item--avatar {
+  display: inline-block;
+  vertical-align: top;
+  @media only screen and (min-width: $desktop) {
+    flex: 1;
+    min-width: calc(3em + 20px);
   }
 }
 
@@ -369,15 +403,104 @@
   }
 }
 
+.single-community-item--comment-count {
+  border-radius: 4px;
+  color: #565656;
+  font-weight: bold;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    border-radius: 0 3px 3px 0;
+    font-size: 1.5em;
+    min-width: 86px;
+    min-height: 100%;
+    align-items: center;
+    flex: 1;
+    vertical-align: middle;
+  }
+}
+
+.single-community-item--comment-wrapper {
+  padding-bottom: 0.75em;
+  padding-top: 0.75em;
+  vertical-align: middle;
+  @media only screen and (min-width: $desktop) {
+    height: 100%;
+    padding-bottom: 0;
+    padding-top: 25%;
+  }
+}
+
+.single-community-item--lens {
+  display: none;
+  @media only screen and (min-width: $desktop) {
+    display: block;
+    flex: 18;
+    // -webkit-flex: 19;
+    margin-top: 10px;
+    max-width: inherit;
+    padding: 0;
+    width: auto;
+  }
+}
+
+.single-community-item--mobile-date {
+  font-size: 0.75em;
+  color: $medium-grey;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.single-community-item--mobile-name {
+  display: inline-block;
+  line-height: 3em;
+  padding-left: 10px;
+  padding-top: 10px;
+  vertical-align: top;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.single-community-item--mobile-title {
+  font-size: 1.15em;
+  margin: 0.5em auto;
+  @media only screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.single-community-item--lens h2 {
+  font-size: 1.1em;
+  line-height: 1.2em;
+  padding: 0.1em 0 0.5em;
+  text-align: center;
+  @media only screen and (min-width: $desktop) {
+    text-align: left;
+  }
+  a {
+    color: #565656;
+  }
+}
+
 .single-discussion {
-  background-color: #EEE;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  margin: 1em auto;
+  width: 96%;
+  @media only screen and (min-width: $desktop) {
+    margin: 1em auto;
+    width: 80%;
+  }
 }
 
 .single-discussion--reply {
-  background-color: #EEE;
-  border-radius: 2px;
-  margin: 2em auto;
-  width: 90%;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  margin: 1em auto;
+  width: 96%;
   @media only screen and (min-width: $desktop) {
     width: 80%;
   }
@@ -418,10 +541,10 @@
 }
 
 .view-all-link {
-  margin: 2em auto;
-  padding-bottom: 2em;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  border-radius: 4px;
+  margin: 1em auto;
+  padding: 1em;
   text-align: center;
-  @media only screen and (min-width: $desktop) {
-    padding: 0;
-  }
 }
