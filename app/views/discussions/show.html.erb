@@ -32,7 +32,7 @@
         <%= auto_link simple_format emojify(@discussion.body), class: 'discussion-paragraph' %>
       </div>
 
-      <div class='discussion-details'>
+      <div class='discussion-details' id="<%= dom_id(@discussion) %>">
         <% if @discussion.admin_id? %>
           <span class='admin-post'><%= @discussion.username %></span> posted
         <% else %>
@@ -82,7 +82,7 @@
             <%= auto_link simple_format emojify(comment.body), class: 'discussion-paragraph' %>
           </div>
 
-          <div class='discussion-details'>
+          <div class='discussion-details' id="<%= dom_id(comment) %>">
             <% if comment.admin_id? %>
               <span class='admin-post'><%= comment.username %></span> posted
             <% else %>

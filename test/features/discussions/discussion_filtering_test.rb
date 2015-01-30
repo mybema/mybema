@@ -10,14 +10,18 @@ class DiscussionFiltering < Capybara::Rails::TestCase
 
   test 'user can find and view existing discussion from the homepage' do
     visit root_path
-    click_link @discussion.title
+    within('.single-community-item--lens') do
+      click_link @discussion.title
+    end
     assert_content page, @discussion.body
   end
 
   test 'user can find and view existing discussion from the community page' do
     visit root_path
     click_link 'Discussions'
-    click_link @discussion.title
+    within('.single-community-item--lens') do
+      click_link @discussion.title
+    end
     assert_content page, @discussion.body
   end
 end

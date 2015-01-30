@@ -24,7 +24,9 @@ class ViewingProfileTest < Capybara::Rails::TestCase
     click_button 'Sign in'
     visit profile_path
     click_link 'View your profile'
-    assert_content page, 'Jane Fonda'
+    within('.profile-username') do
+      page.must_have_content 'Jane Fonda'
+    end
   end
 
   test 'can view the responses from a user on their profile' do
@@ -43,30 +45,36 @@ class ViewingProfileTest < Capybara::Rails::TestCase
   test 'can navigate to user profile from the discussion on a discussion page' do
     discussion = create(:discussion, user: @jude)
     visit discussion_path(discussion.slug)
-    click_link 'Jude'
+    within('.post-content') do
+      click_link 'Jude'
+    end
     assert_content page, 'I am not a bot'
   end
 
   test 'can navigate to user profile from a comment on a discussion page' do
     discussion = create(:discussion, user: @jude)
     another_user = create(:user, username: 'Jack', bio: 'I am cool')
-    comment = create(:discussion_comment, discussion: discussion, user: another_user)
+    comment = create(:discussion_comment, id: 101, discussion: discussion, user: another_user)
     visit discussion_path(discussion.slug)
-    click_link 'Jack'
+    page.first('div#discussion_comment_101').find('a').click
     assert_content page, 'I am cool'
   end
 
   test 'can navigate to user profile from the homepage' do
     discussion = create(:discussion, user: @jude)
     visit root_path
-    click_link 'Jude'
+    within('.single-community-item--lens') do
+      click_link 'Jude'
+    end
     assert_content page, 'I am not a bot'
   end
 
   test 'can navigate to user profile from the discussions index page' do
     discussion = create(:discussion, user: @jude)
     visit discussions_path
-    click_link 'Jude'
+    within('.single-community-item--lens') do
+      click_link 'Jude'
+    end
     assert_content page, 'I am not a bot'
   end
 end
