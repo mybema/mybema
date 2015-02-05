@@ -1,3 +1,18 @@
+0.4.0
+-----
+
+- New design for the discussions listing pages
+- fix admins responding when guest posting is disabled
+- Start embracing the full power of SASS
+- Decorate articles
+- Add spectrum.js colorpicker to admin section
+- Users can now add bios to their profiles
+- Add case-insensitive username validation
+- Update to Rails 4.2
+- Add subscription model and add email notifications
+- Fix hero cookie permanence
+- Fix IE and flexbox layout issues
+
 0.3.5
 -----
 
