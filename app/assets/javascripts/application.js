@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   dismissBtn.click(function() {
     heroMsg.hide();
-    document.cookie = 'dismissed_hero=true; path=/';
+    document.cookie = 'dismissed_hero=true; path=/; expires=2147483647';
   });
 
   // dismiss flash messages
